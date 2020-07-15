@@ -30,6 +30,8 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		//for test purpose only:
 		ejbOptions();
 		controllerOptions();
+		serviceOptions();
+		serviceImplOptions();
 	}
 	
 	private void ejbOptions() {
@@ -41,6 +43,18 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 	private void controllerOptions() {
 		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "controllerclass", "templates", "{0}Controller.java", true, "controller"); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ControllerGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	private void serviceOptions() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "serviceclass", "templates", "{0}Service.java", true, "service"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ServiceGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	private void serviceImplOptions() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "serviceimplclass", "templates", "{0}ServiceImpl.java", true, "serviceimpl"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ServiceImplGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 

@@ -77,4 +77,5 @@ ${class.visibility} class ${class.name}Controller {
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
+	
 }

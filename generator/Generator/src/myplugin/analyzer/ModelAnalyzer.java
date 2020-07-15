@@ -143,9 +143,21 @@ public class ModelAnalyzer {
 		int lower = p.getLower();
 		int upper = p.getUpper();
 		
-		FMProperty prop = new FMProperty(attName, typeName, p.getVisibility().toString(), 
-				lower, upper);
-		return prop;		
+		boolean association = false;
+		String aggregationKind = "none";
+
+		if(p.getAssociation() != null) {
+			association = true;
+			aggregationKind = p.getAggregation().toString().toLowerCase();
+		}
+		
+		FMProperty fmProperty = new FMProperty(attName, typeName, p.getVisibility().toString(), 
+				lower, upper, association, aggregationKind);
+		System.out.println("EEEEEEEEEEEEEE");
+		System.out.println(fmProperty);
+		System.out.println("EEEEEEEEEEEEEE");
+		
+		return fmProperty;
 	}	
 	
 	private FMEnumeration getEnumerationData(Enumeration enumeration, String packageName) throws AnalyzeException {

@@ -18,6 +18,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import myplugin.analyzer.AnalyzeException;
 import myplugin.analyzer.ModelAnalyzer;
+import myplugin.generator.ControllerGenerator;
 import myplugin.generator.EJBGenerator;
 import myplugin.generator.fmmodel.FMModel;
 import myplugin.generator.options.GeneratorOptions;
@@ -26,7 +27,6 @@ import myplugin.generator.options.ProjectOptions;
 /** Action that activate code generation */
 @SuppressWarnings("serial")
 class GenerateAction extends MDAction{
-	
 	
 	public GenerateAction(String name) {			
 		super("", name, null, null);		
@@ -38,22 +38,38 @@ class GenerateAction extends MDAction{
 		Package root = Application.getInstance().getProject().getModel();
 		JOptionPane.showMessageDialog(null, "Root element je " + root.getName());
 		if (root == null) return;
-	
-		ModelAnalyzer analyzer = new ModelAnalyzer(root, "ejb");	
 		
+		ModelAnalyzer analyzer = null;
+		GeneratorOptions generatorOptions = null;
 		
 		try {
-			analyzer.prepareModel();	
-			GeneratorOptions go = ProjectOptions.getProjectOptions().getGeneratorOptions().get("EJBGenerator");			
-			EJBGenerator generator = new EJBGenerator(go);
-			generator.generate();
-			/**  @ToDo: Also call other generators */ 
-			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + go.getOutputPath() +
-					                         ", package: " + go.getFilePackage());
-			exportToXml();
+			generateEjb(analyzer, root, generatorOptions);
+			generateController(analyzer, root, generatorOptions);
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
-		} 			
+		}
+	}
+	
+	private void generateEjb(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "ejb");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("EJBGenerator");						
+		EJBGenerator ejbGenerator = new EJBGenerator(generatorOptions);
+		ejbGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
+                ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateController(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "controller");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ControllerGenerator");
+		ControllerGenerator controllerGenerator = new ControllerGenerator(generatorOptions);
+		controllerGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
+                ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
 	}
 	
 	private void exportToXml() {

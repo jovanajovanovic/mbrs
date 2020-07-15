@@ -74,10 +74,4 @@ public class FMProperty extends FMElement  {
 		this.aggregationKind = aggregationKind;
 	}
 
-	@Override
-	public String toString() {
-		return "FMProperty [type=" + type + ", visibility=" + visibility + ", lower=" + lower + ", upper=" + upper
-				+ ", association=" + association + ", aggregationKind=" + aggregationKind + "]";
-	}
-	
 }

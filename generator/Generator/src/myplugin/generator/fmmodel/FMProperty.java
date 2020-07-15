@@ -14,7 +14,6 @@ public class FMProperty extends FMElement  {
 	/** @ToDo: Add length, precision, unique... whatever is needed for ejb class generation
 	 * Also, provide these meta-attributes or tags in the modeling languange metaclass or 
 	 * stereotype */
-
 	
 	public FMProperty(String name, String type, String visibility, int lower, int upper) {
 		super(name);
@@ -53,4 +52,5 @@ public class FMProperty extends FMElement  {
 	public void setUpper(Integer upper) {
 		this.upper = upper;
 	}
+	
 }

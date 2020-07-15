@@ -153,9 +153,6 @@ public class ModelAnalyzer {
 		
 		FMProperty fmProperty = new FMProperty(attName, typeName, p.getVisibility().toString(), 
 				lower, upper, association, aggregationKind);
-		System.out.println("EEEEEEEEEEEEEE");
-		System.out.println(fmProperty);
-		System.out.println("EEEEEEEEEEEEEE");
 		
 		return fmProperty;
 	}	

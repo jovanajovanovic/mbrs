@@ -11,17 +11,22 @@ public class FMProperty extends FMElement  {
 	//Multiplicity (upper value) 
 	private Integer upper;
 	
+	private Boolean association;
+	private String aggregationKind;
+	
 	/** @ToDo: Add length, precision, unique... whatever is needed for ejb class generation
 	 * Also, provide these meta-attributes or tags in the modeling languange metaclass or 
 	 * stereotype */
 	
-	public FMProperty(String name, String type, String visibility, int lower, int upper) {
+	public FMProperty(String name, String type, String visibility, int lower, int upper, Boolean association,
+			String aggregationKind) {
 		super(name);
 		this.type = type;
 		this.visibility = visibility;
-		
 		this.lower = lower;
-		this.upper = upper;		
+		this.upper = upper;
+		this.association = association;
+		this.aggregationKind = aggregationKind;
 	}
 	
 	public String getType() {
@@ -52,5 +57,21 @@ public class FMProperty extends FMElement  {
 	public void setUpper(Integer upper) {
 		this.upper = upper;
 	}
-	
+
+	public Boolean getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(Boolean association) {
+		this.association = association;
+	}
+
+	public String getAggregationKind() {
+		return aggregationKind;
+	}
+
+	public void setAggregationKind(String aggregationKind) {
+		this.aggregationKind = aggregationKind;
+	}
+
 }

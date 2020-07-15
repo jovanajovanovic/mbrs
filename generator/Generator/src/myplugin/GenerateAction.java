@@ -20,6 +20,8 @@ import myplugin.analyzer.AnalyzeException;
 import myplugin.analyzer.ModelAnalyzer;
 import myplugin.generator.ControllerGenerator;
 import myplugin.generator.EJBGenerator;
+import myplugin.generator.ServiceGenerator;
+import myplugin.generator.ServiceImplGenerator;
 import myplugin.generator.fmmodel.FMModel;
 import myplugin.generator.options.GeneratorOptions;
 import myplugin.generator.options.ProjectOptions;
@@ -45,6 +47,8 @@ class GenerateAction extends MDAction{
 		try {
 			generateEjb(analyzer, root, generatorOptions);
 			generateController(analyzer, root, generatorOptions);
+			generateService(analyzer, root, generatorOptions);
+			generateServiceImpl(analyzer, root, generatorOptions);
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
@@ -67,6 +71,28 @@ class GenerateAction extends MDAction{
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ControllerGenerator");
 		ControllerGenerator controllerGenerator = new ControllerGenerator(generatorOptions);
 		controllerGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
+                ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateService(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "service");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ServiceGenerator");
+		ServiceGenerator serviceGenerator = new ServiceGenerator(generatorOptions);
+		serviceGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
+                ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateServiceImpl(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "serviceimpl");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ServiceImplGenerator");
+		ServiceImplGenerator serviceImplGenerator = new ServiceImplGenerator(generatorOptions);
+		serviceImplGenerator.generate();
 		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
                 ", package: " + generatorOptions.getFilePackage());
 		exportToXml();

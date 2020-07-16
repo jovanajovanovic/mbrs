@@ -20,6 +20,7 @@ import myplugin.analyzer.AnalyzeException;
 import myplugin.analyzer.ModelAnalyzer;
 import myplugin.generator.ControllerGenerator;
 import myplugin.generator.EJBGenerator;
+import myplugin.generator.RepositoryGenerator;
 import myplugin.generator.ServiceGenerator;
 import myplugin.generator.ServiceImplGenerator;
 import myplugin.generator.fmmodel.FMModel;
@@ -49,6 +50,7 @@ class GenerateAction extends MDAction{
 			generateController(analyzer, root, generatorOptions);
 			generateService(analyzer, root, generatorOptions);
 			generateServiceImpl(analyzer, root, generatorOptions);
+			generateRepository(analyzer, root, generatorOptions);
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
@@ -93,6 +95,17 @@ class GenerateAction extends MDAction{
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ServiceImplGenerator");
 		ServiceImplGenerator serviceImplGenerator = new ServiceImplGenerator(generatorOptions);
 		serviceImplGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
+                ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateRepository(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "repository");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("RepositoryGenerator");
+		RepositoryGenerator repositoryGenerator = new RepositoryGenerator(generatorOptions);
+		repositoryGenerator.generate();
 		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
                 ", package: " + generatorOptions.getFilePackage());
 		exportToXml();

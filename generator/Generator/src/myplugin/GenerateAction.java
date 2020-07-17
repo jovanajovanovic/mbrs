@@ -18,6 +18,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import myplugin.analyzer.AnalyzeException;
 import myplugin.analyzer.ModelAnalyzer;
+import myplugin.generator.AngularAddEditEntityGenerator;
 import myplugin.generator.ControllerGenerator;
 import myplugin.generator.EJBGenerator;
 import myplugin.generator.RepositoryGenerator;
@@ -51,6 +52,7 @@ class GenerateAction extends MDAction{
 			generateService(analyzer, root, generatorOptions);
 			generateServiceImpl(analyzer, root, generatorOptions);
 			generateRepository(analyzer, root, generatorOptions);
+			generateAddEdit(analyzer, root, generatorOptions);
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
@@ -106,6 +108,19 @@ class GenerateAction extends MDAction{
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("RepositoryGenerator");
 		RepositoryGenerator repositoryGenerator = new RepositoryGenerator(generatorOptions);
 		repositoryGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
+                ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	//************************ ANGULAR GENERATOR **************************
+	
+	private void generateAddEdit(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "src/app");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("AngularAddEditEntityGenerator");
+		AngularAddEditEntityGenerator angularAddEditEntityGenerator = new AngularAddEditEntityGenerator(generatorOptions);
+		angularAddEditEntityGenerator.generate();
 		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + generatorOptions.getOutputPath() +
                 ", package: " + generatorOptions.getFilePackage());
 		exportToXml();

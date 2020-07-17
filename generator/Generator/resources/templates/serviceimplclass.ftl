@@ -42,4 +42,18 @@ public class ${class.name}ServiceImpl implements ${class.name}Service {
 		return ${class.name?uncap_first};
 	}
 	
+	<#list properties as property>
+		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false>
+	public List<${class.name}> findBy${property.name?cap_first}(${property.type} ${property.name}) {
+		return ${class.name?uncap_first}Repository.findBy${property.name?cap_first}(${property.name});
+	}
+	
+		</#if>
+		<#if property.association == true && property.upper == 1>
+	public List<${class.name}> findBy${property.type}Id(Long id) {
+		return ${class.name?uncap_first}Repository.findBy${property.type}Id(id);
+	}
+	
+		</#if>
+ 	</#list>
 }

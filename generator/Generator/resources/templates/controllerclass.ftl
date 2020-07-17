@@ -59,8 +59,7 @@ ${class.visibility} class ${class.name}Controller {
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
-	public ResponseEntity<${class.name}DTO> edit(@RequestBody @Valid ${class.name}DTO ${class.name?uncap_first},
-			@PathVariable Long id) {
+	public ResponseEntity<${class.name}DTO> edit(@RequestBody @Valid ${class.name}DTO ${class.name?uncap_first}, @PathVariable Long id) {
 
 		if (id != ${class.name?uncap_first}.getId()) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -77,5 +76,27 @@ ${class.visibility} class ${class.name}Controller {
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-	
+
+	<#list properties as property>
+		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false>
+	@RequestMapping(value = "/filterBy${property.name?cap_first}/{value}", method = RequestMethod.GET)
+	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.name?cap_first}(@PathVariable ${property.type} value) {
+
+		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy${property.name?cap_first}(value);
+			
+		return new ResponseEntity<>(toDTO.convert(${class.name?uncap_first}List), HttpStatus.OK);
+	}
+
+		</#if>
+		<#if property.association == true && property.upper == 1>
+	@RequestMapping(value = "/filterBy${property.type}Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.type}Id(@PathVariable Long id) {
+
+		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy${property.type}Id(id);
+			
+		return new ResponseEntity<>(toDTO.convert(${class.name?uncap_first}List), HttpStatus.OK);
+	}
+
+		</#if>
+ 	</#list>
 }

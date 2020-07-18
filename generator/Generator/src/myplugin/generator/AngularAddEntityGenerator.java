@@ -13,9 +13,9 @@ import myplugin.generator.fmmodel.FMClass;
 import myplugin.generator.fmmodel.FMModel;
 import myplugin.generator.options.GeneratorOptions;
 
-public class AngularAddEditEntityGenerator extends BasicGenerator {
+public class AngularAddEntityGenerator extends BasicGenerator {
 
-	public AngularAddEditEntityGenerator(GeneratorOptions generatorOptions) {
+	public AngularAddEntityGenerator(GeneratorOptions generatorOptions) {
 		super(generatorOptions);
 	}
 	

@@ -33,6 +33,7 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		serviceOptions();
 		serviceImplOptions();
 		repositoryOptions();
+		angularAddOptions();
 	}
 	
 	private void ejbOptions() {
@@ -62,6 +63,14 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 	private void repositoryOptions() {
 		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "repositoryclass", "templates", "{0}Repository.java", true, "repository"); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("RepositoryGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	//********* ANGULAR **************
+	
+	private void angularAddOptions() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "addEntity", "templates", "{0}Add.html", true, "add"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularAddEntityGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 

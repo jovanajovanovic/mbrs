@@ -28,11 +28,17 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		/** @Todo: load project options (@see myplugin.generator.options.ProjectOptions) from 
 		 * ProjectOptions.xml and take ejb generator options */
 		
-		//for test purpose only:
-		GeneratorOptions ejbOptions = new GeneratorOptions("c:/temp", "ejbclass", "templates", "{0}.java", true, "ejb"); 				
-		ProjectOptions.getProjectOptions().getGeneratorOptions().put("EJBGenerator", ejbOptions);
-				
-		ejbOptions.setTemplateDir(pluginDir + File.separator + ejbOptions.getTemplateDir()); //apsolutna putanja
+		GeneratorOptions modelOptions = new GeneratorOptions("../../../../mbrs", "class", "templates", "{0}.java", true, "src//main//java//uns//ftn//mbrs//model");
+		modelOptions.setTemplateDir(pluginDir + File.separator + modelOptions.getTemplateDir()); //apsolutna putanja
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModelLayerGenerator", modelOptions);
+		
+		
+		
+//		//for test purpose only:
+//		GeneratorOptions ejbOptions = new GeneratorOptions("c:/temp", "ejbclass", "templates", "{0}.java", true, "ejb"); 				
+//		ProjectOptions.getProjectOptions().getGeneratorOptions().put("EJBGenerator", ejbOptions);
+//				
+//		ejbOptions.setTemplateDir(pluginDir + File.separator + ejbOptions.getTemplateDir()); //apsolutna putanja
 	}
 
 	private NMAction[] getSubmenuActions()

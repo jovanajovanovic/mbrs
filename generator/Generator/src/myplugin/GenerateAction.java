@@ -19,6 +19,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import myplugin.analyzer.AnalyzeException;
 import myplugin.analyzer.ModelAnalyzer;
 import myplugin.generator.EJBGenerator;
+import myplugin.generator.ModelLayerGenerator;
 import myplugin.generator.fmmodel.FMModel;
 import myplugin.generator.options.GeneratorOptions;
 import myplugin.generator.options.ProjectOptions;
@@ -33,23 +34,31 @@ class GenerateAction extends MDAction{
 	}
 
 	public void actionPerformed(ActionEvent evt) {
-		JOptionPane.showMessageDialog(null, "Kliknuli ste na dugme generation");
 		if (Application.getInstance().getProject() == null) return;
 		Package root = Application.getInstance().getProject().getModel();
-		JOptionPane.showMessageDialog(null, "Root element je " + root.getName());
 		if (root == null) return;
 	
-		ModelAnalyzer analyzer = new ModelAnalyzer(root, "ejb");	
+		//paket aplikacije koju generisemo 
+		String rootDirectory = "ftn.uns.mbrs";
+		ModelAnalyzer analyzer = new ModelAnalyzer(root, rootDirectory);	
 		
 		
 		try {
 			analyzer.prepareModel();	
-			GeneratorOptions go = ProjectOptions.getProjectOptions().getGeneratorOptions().get("EJBGenerator");			
-			EJBGenerator generator = new EJBGenerator(go);
-			generator.generate();
+			
+			
+			//definisemo generator za model sloj 			
+			GeneratorOptions model_layer_op = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ModelLayerGenerator");
+			ModelLayerGenerator model_layer_gen = new ModelLayerGenerator(model_layer_op);
+			model_layer_gen.generate();
+			
+//			
+//			GeneratorOptions go = ProjectOptions.getProjectOptions().getGeneratorOptions().get("EJBGenerator");			
+//			EJBGenerator generator = new EJBGenerator(go);
+//			generator.generate();
 			/**  @ToDo: Also call other generators */ 
-			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + go.getOutputPath() +
-					                         ", package: " + go.getFilePackage());
+			JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: " + model_layer_op.getOutputPath() +
+					                         ", package: " + model_layer_op.getFilePackage());
 			exportToXml();
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());

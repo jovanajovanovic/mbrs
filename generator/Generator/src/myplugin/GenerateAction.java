@@ -21,6 +21,7 @@ import myplugin.analyzer.ModelAnalyzer;
 import myplugin.generator.AngularAddEntityGenerator;
 import myplugin.generator.ControllerGenerator;
 import myplugin.generator.EJBGenerator;
+import myplugin.generator.EnumGenerator;
 import myplugin.generator.ModelLayerGenerator;
 import myplugin.generator.RepositoryGenerator;
 import myplugin.generator.ServiceGenerator;
@@ -53,27 +54,9 @@ class GenerateAction extends MDAction {
 		GeneratorOptions generatorOptions = null;
 
 		try {
-			// analyzer.prepareModel();
-
-			// //definisemo generator za model sloj
-			// GeneratorOptions model_layer_op =
-			// ProjectOptions.getProjectOptions().getGeneratorOptions().get("ModelLayerGenerator");
-			// ModelLayerGenerator model_layer_gen = new
-			// ModelLayerGenerator(model_layer_op);
-			// model_layer_gen.generate();
-			//
-			////
-			//// GeneratorOptions go =
-			// ProjectOptions.getProjectOptions().getGeneratorOptions().get("EJBGenerator");
-			//// EJBGenerator generator = new EJBGenerator(go);
-			//// generator.generate();
-			// /** @ToDo: Also call other generators */
-			// JOptionPane.showMessageDialog(null, "Code is successfully
-			// generated! Generated code is in folder: " +
-			// model_layer_op.getOutputPath() +
-			// ", package: " + model_layer_op.getFilePackage());
-			// exportToXml();
-			generateEjb(analyzer, root, generatorOptions);
+			
+			generateModel(analyzer, root, generatorOptions);
+			generateEnumeration(analyzer, root, generatorOptions);
 			generateController(analyzer, root, generatorOptions);
 			generateService(analyzer, root, generatorOptions);
 			generateServiceImpl(analyzer, root, generatorOptions);
@@ -85,7 +68,20 @@ class GenerateAction extends MDAction {
 		}
 	}
 
-	private void generateEjb(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
+	private void generateEnumeration(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		// TODO Auto-generated method stub
+		analyzer = new ModelAnalyzer(root, "model");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("EnumerationGenerator");
+		EnumGenerator enumGenerator = new EnumGenerator(generatorOptions);
+		enumGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+		
+	}
+
+	private void generateModel(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
 			throws AnalyzeException {
 		analyzer = new ModelAnalyzer(root, "model");
 		analyzer.prepareModel();

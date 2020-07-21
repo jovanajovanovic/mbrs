@@ -17,6 +17,7 @@ public class FMClass extends FMType {
 	
 	/** @ToDo: add list of methods */
 	private String label;
+
 	
 	public FMClass(String name, String classPackage, String visibility) {
 		super(name, classPackage);		
@@ -70,5 +71,13 @@ public class FMClass extends FMType {
 	public void setLabel(String label) {
 		this.label = label;
 	}
+
+	@Override
+	public String toString() {
+		return "FMClass [visibility=" + visibility + ", FMProperties=" + FMProperties + ", importedPackages="
+				+ importedPackages + ", label=" + label + ", toString()=" + super.toString() + "]";
+	}
+	
+
 	
 }

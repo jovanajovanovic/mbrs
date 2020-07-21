@@ -3,7 +3,7 @@ package myplugin.generator.fmmodel;
 
 public class FMProperty extends FMElement  {
 	//Property type
-	private String type;
+	private FMType type;
 	// Property visibility (public, private, protected, package)
 	private String visibility;
 	//Multiplicity (lower value)
@@ -13,13 +13,15 @@ public class FMProperty extends FMElement  {
 	
 	private Boolean association;
 	private String aggregationKind;
+	private String associationend;
 	
-	/** @ToDo: Add length, precision, unique... whatever is needed for ejb class generation
+	/** @param associtaionend 
+	 * @ToDo: Add length, precision, unique... whatever is needed for ejb class generation
 	 * Also, provide these meta-attributes or tags in the modeling languange metaclass or 
 	 * stereotype */
 	
-	public FMProperty(String name, String type, String visibility, int lower, int upper, Boolean association,
-			String aggregationKind) {
+	public FMProperty(String name, FMType type, String visibility, int lower, int upper, Boolean association,
+			String aggregationKind, String associtaionend) {
 		super(name);
 		this.type = type;
 		this.visibility = visibility;
@@ -27,12 +29,13 @@ public class FMProperty extends FMElement  {
 		this.upper = upper;
 		this.association = association;
 		this.aggregationKind = aggregationKind;
+		this.associationend = associtaionend;
 	}
 	
-	public String getType() {
+	public FMType getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(FMType type) {
 		this.type = type;
 	}
 	public String getVisibility() {
@@ -73,5 +76,18 @@ public class FMProperty extends FMElement  {
 	public void setAggregationKind(String aggregationKind) {
 		this.aggregationKind = aggregationKind;
 	}
+
+	public String getAssociationend() {
+		return associationend;
+	}
+
+	public void setAssociationend(String associationend) {
+		this.associationend = associationend;
+	}
+	
+	
+
+	
+	
 
 }

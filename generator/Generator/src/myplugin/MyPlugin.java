@@ -27,8 +27,18 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		
 		/** @Todo: load project options (@see myplugin.generator.options.ProjectOptions) from 
 		 * ProjectOptions.xml and take ejb generator options */
+		
+//	
+		
+		
+//		//for test purpose only:
+//		GeneratorOptions ejbOptions = new GeneratorOptions("c:/temp", "ejbclass", "templates", "{0}.java", true, "ejb"); 				
+//		ProjectOptions.getProjectOptions().getGeneratorOptions().put("EJBGenerator", ejbOptions);
+//				
+//		ejbOptions.setTemplateDir(pluginDir + File.separator + ejbOptions.getTemplateDir()); //apsolutna putanja
 		//for test purpose only:
-		ejbOptions();
+		modelOptions();
+		enumerationOptions();
 		controllerOptions();
 		serviceOptions();
 		serviceImplOptions();
@@ -36,9 +46,17 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		angularAddOptions();
 	}
 	
-	private void ejbOptions() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "ejbclass", "templates", "{0}.java", true, "ejb"); 				
-		ProjectOptions.getProjectOptions().getGeneratorOptions().put("EJBGenerator", generatorOptions);
+	private void enumerationOptions() {
+		// TODO Auto-generated method stub
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "enum", "templates", "{0}.java", true, "model"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("EnumerationGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+		
+	}
+
+	private void modelOptions() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "modelclass", "templates", "{0}.java", true, "model"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModelGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	

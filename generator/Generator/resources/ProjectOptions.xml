@@ -1,8 +1,1 @@
-<generatorOptions>
-	<outputPath></outputPath> 
-	<templateName>"class"</templateName>
-	<templateDir>"templates\\spring"</templateDir>
-	<outputFileName>"{0}.java</outputFileName>
-	<overwrite>true</overwrite>
-	<filePackage>"src//main//java//com//"</filePackage>
-</generatorOptions>
+OUTPUT_PATH=C:/temp

@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ProbaComponent } from './proba/proba.component';
 import { Routes, RouterModule } from '@angular/router';
 
+import { Add${class.name}Component } from './{class.name}/Add${class.name}.component';
+import { Edit${class.name}Component } from './{class.name}/Edit${class.name}.component';
+import { Show${class.name}Component } from './{class.name}/Show${class.name}.component';
+
 const routes: Routes = [
   {
     path: '${class.name}/add',

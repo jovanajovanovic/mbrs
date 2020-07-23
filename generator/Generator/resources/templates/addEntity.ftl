@@ -12,7 +12,7 @@
      	<h1 style="margin-bottom: 30px">${class.name}</h1> 
     </div> 
     
-	<div class="container"> 
+	<div class="container">
 	    <form action="">
 	      <#list properties as property>
 	      	 <#if property.type == "String" >  

@@ -22,7 +22,7 @@
 	
 	<target name="compile">
 		<mkdir dir="bin"/>
-		<javac debug="yes" destdir="bin" srcdir="src" classpathref="all-libs"/>
+		<javac debug="yes" includeantruntime="false" destdir="bin" srcdir="src" classpathref="all-libs"/>
 	</target>
 	
 	<target name="build" depends="compile">

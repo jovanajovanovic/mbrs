@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import model.${class.name};
-import repository.${class.name}Repository;
-import service.${class.name}Service;
+import uns.ftn.mbrs.model.${class.name};
+import uns.ftn.mbrs.repository.${class.name}Repository;
+import uns.ftn.mbrs.service.${class.name}Service;
 
 
 @Service

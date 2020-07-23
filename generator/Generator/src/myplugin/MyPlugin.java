@@ -44,6 +44,8 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		serviceImplOptions();
 		repositoryOptions();
 		angularAddOptions();
+		angularModule();
+		angularRoute();
 	}
 	
 	private void enumerationOptions() {
@@ -91,6 +93,19 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularAddEntityGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
+	
+	private void angularModule() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "module", "templates", "app.module.ts", true, ""); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModuleGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	private void angularRoute() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "routing", "routing", "app-routing.module.ts", true, ""); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModuleGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+
 
 	private NMAction[] getSubmenuActions()
 	{

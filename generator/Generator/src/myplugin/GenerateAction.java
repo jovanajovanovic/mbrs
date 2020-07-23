@@ -23,6 +23,7 @@ import myplugin.generator.ControllerGenerator;
 import myplugin.generator.EJBGenerator;
 import myplugin.generator.EnumGenerator;
 import myplugin.generator.ModelLayerGenerator;
+import myplugin.generator.ModuleGenerator;
 import myplugin.generator.RepositoryGenerator;
 import myplugin.generator.ServiceGenerator;
 import myplugin.generator.ServiceImplGenerator;
@@ -62,6 +63,8 @@ class GenerateAction extends MDAction {
 			generateServiceImpl(analyzer, root, generatorOptions);
 			generateRepository(analyzer, root, generatorOptions);
 			generateAdd(analyzer, root, generatorOptions);
+			generateModule(analyzer, root, generatorOptions);
+			generateRouting(analyzer, root, generatorOptions);
 
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
@@ -150,6 +153,30 @@ class GenerateAction extends MDAction {
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("AngularAddEntityGenerator");
 		AngularAddEntityGenerator angularAddEditEntityGenerator = new AngularAddEntityGenerator(generatorOptions);
 		angularAddEditEntityGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateModule(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
+			throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ModuleGenerator");
+		ModuleGenerator moduleGenerator = new ModuleGenerator(generatorOptions);
+		moduleGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateRouting(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
+			throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("RoutingGenerator");
+		ModuleGenerator moduleGenerator = new ModuleGenerator(generatorOptions);
+		moduleGenerator.generate();
 		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
 				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
 		exportToXml();

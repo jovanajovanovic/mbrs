@@ -6,12 +6,12 @@ import javax.persistence.*;
 
 <#list imports as import>
 <#if import.typePackage != "" && import.typePackage=="Data">
-import ${class.typePackage}.${import.name}
+import ${class.typePackage}.${import.name};
 </#if>
 </#list>
 
 
-@Table(name="${class.name?lower_case}")
+
 @Entity
 ${class.visibility} class ${class.name} {  
 
@@ -30,7 +30,7 @@ ${class.visibility} class ${class.name} {
 		 @JoinColumn(name="${property.type.name?uncap_first}_id", referencedColumnName="id")
 	  	</#if>
 	  	<#else>
-	     @Column(name=<#if property.name != "" >"${property.name?lower_case}"<#else>"${property.type.name?uncap_first}"</#if>)
+	     @Column
 	    </#if>
 	     ${property.visibility} ${property.type.name} <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>;
 	 <#elseif property.upper == -1  > 
@@ -76,6 +76,13 @@ ${class.visibility} class ${class.name} {
 		</#list>
 		}
 		
+		public Long getId(){
+		return id;
+	}
+	
+	public setId(Long id){
+		this.id = id;
+	}
 	
 	<#list properties as property>
 		<#if property.upper == 1 >   
@@ -88,11 +95,11 @@ ${class.visibility} class ${class.name} {
 	    }
 	      
 	    <#elseif property.upper == -1 >
-	    public Set<${property.type.name}> get<#if property.name != "" > ${property.name?cap_first} <#else> ${property.type.name}</#if>(){
+	    public Set<${property.type.name}> get<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if>(){
 	           return <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>;
 	    }
 	      
-	    public void set${property.name?cap_first}( Set<<#if property.name != "" > ${property.name?cap_first} <#else> ${property.type.name}</#if>> <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>){
+	    public void set<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if>( Set<${property.type.name}> <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>){
 	           this.<#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if> = <#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if>;
 	    }
 	      

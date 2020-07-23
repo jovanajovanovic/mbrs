@@ -2,11 +2,11 @@ package ${class.typePackage};
 
 import java.util.List;
 
-import model.${class.name};
-import service.${class.name}Service;
-import support.${class.name}DTOTo${class.name};
-import support.${class.name}To${class.name}DTO;
-import dto.${class.name}DTO;
+import uns.ftn.mbrs.model.${class.name};
+import uns.ftn.mbrs.service.${class.name}Service;
+import uns.ftn.mbrs.support.${class.name}DTOTo${class.name};
+import uns.ftn.mbrs.support.${class.name}To${class.name}DTO;
+import uns.ftn.mbrs.dto.${class.name}DTO;
 
 import javax.validation.Valid;
 

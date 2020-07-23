@@ -1,6 +1,6 @@
 package ${class.typePackage};
 
-import model.${class.name};
+import uns.ftn.mbrs.model.${class.name};
 
 public interface ${class.name}Service extends CrudService<${class.name}> {
 

@@ -19,32 +19,28 @@ public class ModuleGenerator extends BasicGenerator {
 		super(generatorOptions);
 	}
 	
-	public void generate() {
+	public void generate() throws IOException {
 
 		try {
 			super.generate();
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
-
+		Writer out = getWriter("app.module", "");
 		List<FMClass> classes = FMModel.getInstance().getClasses();
-		for (int i = 0; i < classes.size(); i++) {
-			FMClass cl = classes.get(i);
-			Writer out;
-			Map<String, Object> context = new HashMap<String, Object>();
-			try {
-				out = getWriter(cl.getName(), cl.getTypePackage());
-				if (out != null) {
-					context.clear();
-					context.put("class", cl);
-					getTemplate().process(context, out);
-					out.flush();
-				}
-			} catch (TemplateException e) {
-				JOptionPane.showMessageDialog(null, e.getMessage());
-			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, e.getMessage());
+		Map<String, Object> context = new HashMap<String, Object>();
+		try {
+			
+			if (out != null) {
+				context.clear();
+				context.put("classes", classes);
+				getTemplate().process(context, out);
+				out.flush();
 			}
+		} catch (TemplateException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 	}
 

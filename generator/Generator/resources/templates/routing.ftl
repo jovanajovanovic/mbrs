@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ProbaComponent } from './proba/proba.component';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Add${class.name}Component } from './{class.name}/Add${class.name}.component';
-import { Edit${class.name}Component } from './{class.name}/Edit${class.name}.component';
-import { Show${class.name}Component } from './{class.name}/Show${class.name}.component';
+<#list classes as class>
+	import { Add${class.name}Component } from './${class.name}/Add${class.name}.component';
+	import { Edit${class.name}Component } from './${class.name}/Edit${class.name}.component';
+	import { Show${class.name}Component } from './${class.name}/Show${class.name}.component';
+</#list>
 
 const routes: Routes = [
+<#list classes as class>
   {
     path: '${class.name}/add',
     component: Add${class.name}Component
@@ -20,6 +23,7 @@ const routes: Routes = [
     path: '${class.name}/show',
     component: Show${class.name}Component
   },
+</#list>
 ];
 
 

@@ -95,14 +95,14 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 	}
 	
 	private void angularModule() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "module", "templates", "app.module.ts", true, ""); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "module", "templates", "{0}.ts", true, ""); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModuleGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void angularRoute() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "routing", "routing", "app-routing.module.ts", true, ""); 				
-		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModuleGenerator", generatorOptions);
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "routing", "templates", "{0}.ts", true, ""); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("RoutingGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 

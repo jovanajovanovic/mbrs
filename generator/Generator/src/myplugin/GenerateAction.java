@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
@@ -25,6 +26,7 @@ import myplugin.generator.EnumGenerator;
 import myplugin.generator.ModelLayerGenerator;
 import myplugin.generator.ModuleGenerator;
 import myplugin.generator.RepositoryGenerator;
+import myplugin.generator.RoutingGenerator;
 import myplugin.generator.ServiceGenerator;
 import myplugin.generator.ServiceImplGenerator;
 import myplugin.generator.fmmodel.FMModel;
@@ -68,6 +70,9 @@ class GenerateAction extends MDAction {
 
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -159,7 +164,7 @@ class GenerateAction extends MDAction {
 	}
 	
 	private void generateModule(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
-			throws AnalyzeException {
+			throws AnalyzeException, IOException {
 		analyzer = new ModelAnalyzer(root, "");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ModuleGenerator");
@@ -171,12 +176,12 @@ class GenerateAction extends MDAction {
 	}
 	
 	private void generateRouting(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
-			throws AnalyzeException {
+			throws AnalyzeException, IOException {
 		analyzer = new ModelAnalyzer(root, "");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("RoutingGenerator");
-		ModuleGenerator moduleGenerator = new ModuleGenerator(generatorOptions);
-		moduleGenerator.generate();
+		RoutingGenerator routingGenerator = new RoutingGenerator(generatorOptions);
+		routingGenerator.generate();
 		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
 				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
 		exportToXml();

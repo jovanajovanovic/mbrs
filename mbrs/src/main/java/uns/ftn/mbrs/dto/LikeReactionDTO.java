@@ -12,13 +12,11 @@ public class LikeReactionDTO{
 	
 	
 	public LikeReactionDTO(){}
-	public LikeReactionDTO(Long id, 
-			this.id = id;
-	 	UserDTO  user ){
+	public LikeReactionDTO(Long id, UserDTO  user){
+		this.id = id;
 			this.user  = user ;
 		}
-	public LikeReactionDTO(
-	 	UserDTO  user ){
+	public LikeReactionDTO(UserDTO  user ){
 			this.user  = user ;
 		}
 	
@@ -27,7 +25,7 @@ public class LikeReactionDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	

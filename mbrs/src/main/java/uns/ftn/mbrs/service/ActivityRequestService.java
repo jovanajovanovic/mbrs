@@ -1,7 +1,6 @@
 package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.ActivityRequest;
-import uns.ftn.mbrs.model.ActivityRequestStatus;
 
 public interface ActivityRequestService extends CrudService<ActivityRequest> {
 

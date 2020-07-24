@@ -20,7 +20,7 @@ public class Goal {
 	     @Column
 	     private double  duration ;
 	     @Column
-	     private date  date ;
+	     private  Date  date ;
 	     @Column
 	     private double  distance ;
 	     @Column
@@ -29,7 +29,7 @@ public class Goal {
 		public Goal(){}
 		
 		public Goal(Long id, 
-		String  title ,double  duration ,date  date ,double  distance ,Boolean  achieved 
+		String   title ,double   duration , Date   date ,double   distance ,Boolean   achieved 
 		){
 			this.id = id; 
 			this.title  =  title ;
@@ -39,7 +39,7 @@ public class Goal {
 			this.achieved  =  achieved ;
 		}
 		
-		public Goal(String  title  ,double  duration  ,date  date  ,double  distance  ,Boolean  achieved  ){
+		public Goal(String   title  ,double   duration  , Date   date  ,double   distance  ,Boolean   achieved  ){
 			this.title   = title  ;
 			this.duration   = duration  ;
 			this.date   = date  ;
@@ -51,47 +51,47 @@ public class Goal {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public String getTitle  (){
+	    public String  getTitle  (){
 	           return title ;
 	    }
 	      
-	    public void setTitle (String  title ){
+	    public void setTitle (String   title ){
 	           this.title  = title ;
 	    }
 	      
-	    public double getDuration  (){
+	    public double  getDuration  (){
 	           return duration ;
 	    }
 	      
-	    public void setDuration (double  duration ){
+	    public void setDuration (double   duration ){
 	           this.duration  = duration ;
 	    }
 	      
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	      
-	    public double getDistance  (){
+	    public double  getDistance  (){
 	           return distance ;
 	    }
 	      
-	    public void setDistance (double  distance ){
+	    public void setDistance (double   distance ){
 	           this.distance  = distance ;
 	    }
 	      
-	    public Boolean getAchieved  (){
+	    public Boolean  getAchieved  (){
 	           return achieved ;
 	    }
 	      
-	    public void setAchieved (Boolean  achieved ){
+	    public void setAchieved (Boolean   achieved ){
 	           this.achieved  = achieved ;
 	    }
 	      

@@ -7,11 +7,11 @@ import uns.ftn.mbrs.dto.UserDTO;
 
 public class ActivityRequestDTO{
 	private Long id;
-	  	 private date date;
+	  	 private  Date  date;
 		
-	  	 private String location;
+	  	 private String  location;
 		
-	  	 private ActivityRequestStatus status;
+	  	 private ActivityRequestStatus  status;
 		
 	     private UserDTO  activityRequestor ;
 		
@@ -21,29 +21,15 @@ public class ActivityRequestDTO{
 	
 	
 	public ActivityRequestDTO(){}
-	public ActivityRequestDTO(Long id, 
-			this.id = id;
- date date   ,
-			this.id = id;
- String location   ,
-			this.id = id;
- ActivityRequestStatus status   ,
-			this.id = id;
-	 	UserDTO  activityRequestor  ,
-			this.id = id;
-	 	UserDTO  activityRequestee  ){
+	public ActivityRequestDTO(Long id,  Date date,String location,ActivityRequestStatus status,UserDTO  activityRequestor,UserDTO  activityRequestee){
+		this.id = id;
 			this.date   = date  ;
 			this.location   = location  ;
 			this.status   = status  ;
 			this.activityRequestor   = activityRequestor  ;
 			this.activityRequestee   = activityRequestee  ;
 		}
-	public ActivityRequestDTO(
- date date   ,
- String location   ,
- ActivityRequestStatus status   ,
-	 	UserDTO  activityRequestor  ,
-	 	UserDTO  activityRequestee  ){
+	public ActivityRequestDTO(  Date  date   , String  location   , ActivityRequestStatus  status   ,UserDTO  activityRequestor  ,UserDTO  activityRequestee  ){
 			this.date   = date  ;
 			this.location   = location  ;
 			this.status   = status  ;
@@ -56,35 +42,35 @@ public class ActivityRequestDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	    	
 	      
 	     
-	    public String getLocation  (){
+	    public String  getLocation  (){
 	           return location ;
 	    }
 	      
-	    public void setLocation (String  location ){
+	    public void setLocation (String   location ){
 	           this.location  = location ;
 	    }
 	    	
 	      
 	     
-	    public ActivityRequestStatus getStatus  (){
+	    public ActivityRequestStatus  getStatus  (){
 	           return status ;
 	    }
 	      
-	    public void setStatus (ActivityRequestStatus  status ){
+	    public void setStatus (ActivityRequestStatus   status ){
 	           this.status  = status ;
 	    }
 	    	

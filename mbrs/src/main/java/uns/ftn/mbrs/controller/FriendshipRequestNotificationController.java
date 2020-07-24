@@ -77,10 +77,10 @@ public class FriendshipRequestNotificationController {
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@10dab9dfId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<FriendshipRequestNotificationDTO>> getFriendshipRequestNotificationListBymyplugin.generator.fmmodel.FMType@10dab9dfId(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@14d9ef25Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<FriendshipRequestNotificationDTO>> getFriendshipRequestNotificationListBymyplugin.generator.fmmodel.FMType@14d9ef25Id(@PathVariable Long id) {
 
-		List<FriendshipRequestNotification> friendshipRequestNotificationList = friendshipRequestNotificationService.findBymyplugin.generator.fmmodel.FMType@10dab9dfId(id);
+		List<FriendshipRequestNotification> friendshipRequestNotificationList = friendshipRequestNotificationService.findBymyplugin.generator.fmmodel.FMType@14d9ef25Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(friendshipRequestNotificationList), HttpStatus.OK);
 	}

@@ -43,12 +43,22 @@ public class ModelLayerGenerator extends BasicGenerator{
 			
 			Map<String, Object> context = new HashMap<String, Object>();
 			context.clear();
-			ArrayList<FMType> imports = new ArrayList<>();
+			ArrayList<String> imports = new ArrayList<>();
 			//uzmem sve importe koji su vezani za atribute
 			//paket.naziv_klase
+			String import_str = "";
 			for(FMProperty p : cl.getProperties()){
-				if(!imports.contains(p.getType())){
-					imports.add(p.getType());
+				if(p.getType().getTypePackage().equals("Data")){
+					if(p.getAssociation()){
+						import_str = cl.getTypePackage() + "." + p.getType().getName();
+					}else {
+						import_str =  cl.getTypePackage() +"." + p.getType().getName();
+					}
+				}else if(p.getType().getTypePackage().equals("date")){
+					import_str = "java.util.Date";
+				}
+				if(!imports.contains(import_str) && import_str != ""){
+					imports.add(import_str);
 				}
 				context.put("imports", imports);
 			}
@@ -58,6 +68,7 @@ public class ModelLayerGenerator extends BasicGenerator{
 					context.put("class", cl);
 					context.put("properties", cl.getProperties());
 					context.put("importedPackages", cl.getImportedPackages());
+//					context.put("extendClass", cl.getBaseClassifier());
 					getTemplate().process(context, out);
 					out.flush();
 				}

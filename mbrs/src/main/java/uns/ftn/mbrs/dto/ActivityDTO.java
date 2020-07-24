@@ -5,37 +5,26 @@ import java.util.ArrayList;
 
 public class ActivityDTO{
 	private Long id;
-	  	 private double duration;
+	  	 private double  duration;
 		
-	  	 private double distance;
+	  	 private double  distance;
 		
-	  	 private date date;
+	  	 private  Date  date;
 		
-	  	 private Integer steps;
+	  	 private Integer  steps;
 		
 	
 	
 	
 	public ActivityDTO(){}
-	public ActivityDTO(Long id, 
-			this.id = id;
- double duration   ,
-			this.id = id;
- double distance   ,
-			this.id = id;
- date date   ,
-			this.id = id;
- Integer steps   ){
+	public ActivityDTO(Long id, double duration,double distance, Date date,Integer steps){
+		this.id = id;
 			this.duration   = duration  ;
 			this.distance   = distance  ;
 			this.date   = date  ;
 			this.steps   = steps  ;
 		}
-	public ActivityDTO(
- double duration   ,
- double distance   ,
- date date   ,
- Integer steps   ){
+	public ActivityDTO( double  duration   , double  distance   ,  Date  date   , Integer  steps   ){
 			this.duration   = duration  ;
 			this.distance   = distance  ;
 			this.date   = date  ;
@@ -47,45 +36,45 @@ public class ActivityDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	
-	    public double getDuration  (){
+	    public double  getDuration  (){
 	           return duration ;
 	    }
 	      
-	    public void setDuration (double  duration ){
+	    public void setDuration (double   duration ){
 	           this.duration  = duration ;
 	    }
 	    	
 	      
 	     
-	    public double getDistance  (){
+	    public double  getDistance  (){
 	           return distance ;
 	    }
 	      
-	    public void setDistance (double  distance ){
+	    public void setDistance (double   distance ){
 	           this.distance  = distance ;
 	    }
 	    	
 	      
 	     
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	    	
 	      
 	     
-	    public Integer getSteps  (){
+	    public Integer  getSteps  (){
 	           return steps ;
 	    }
 	      
-	    public void setSteps (Integer  steps ){
+	    public void setSteps (Integer   steps ){
 	           this.steps  = steps ;
 	    }
 	    	

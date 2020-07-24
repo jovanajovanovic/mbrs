@@ -7,7 +7,7 @@ import uns.ftn.mbrs.dto.UserDTO;
 
 public class FriendshipRequestDTO{
 	private Long id;
-	  	 private FriendshipRequestStatus status;
+	  	 private FriendshipRequestStatus  status;
 		
 	     private UserDTO  friendshipRequestor ;
 		
@@ -17,21 +17,13 @@ public class FriendshipRequestDTO{
 	
 	
 	public FriendshipRequestDTO(){}
-	public FriendshipRequestDTO(Long id, 
-			this.id = id;
- FriendshipRequestStatus status   ,
-			this.id = id;
-	 	UserDTO  friendshipRequestor  ,
-			this.id = id;
-	 	UserDTO  friendshipRequestee  ){
+	public FriendshipRequestDTO(Long id, FriendshipRequestStatus status,UserDTO  friendshipRequestor,UserDTO  friendshipRequestee){
+		this.id = id;
 			this.status   = status  ;
 			this.friendshipRequestor   = friendshipRequestor  ;
 			this.friendshipRequestee   = friendshipRequestee  ;
 		}
-	public FriendshipRequestDTO(
- FriendshipRequestStatus status   ,
-	 	UserDTO  friendshipRequestor  ,
-	 	UserDTO  friendshipRequestee  ){
+	public FriendshipRequestDTO( FriendshipRequestStatus  status   ,UserDTO  friendshipRequestor  ,UserDTO  friendshipRequestee  ){
 			this.status   = status  ;
 			this.friendshipRequestor   = friendshipRequestor  ;
 			this.friendshipRequestee   = friendshipRequestee  ;
@@ -42,15 +34,15 @@ public class FriendshipRequestDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	
-	    public FriendshipRequestStatus getStatus  (){
+	    public FriendshipRequestStatus  getStatus  (){
 	           return status ;
 	    }
 	      
-	    public void setStatus (FriendshipRequestStatus  status ){
+	    public void setStatus (FriendshipRequestStatus   status ){
 	           this.status  = status ;
 	    }
 	    	

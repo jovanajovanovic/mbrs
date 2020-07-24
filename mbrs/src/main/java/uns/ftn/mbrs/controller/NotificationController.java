@@ -78,7 +78,7 @@ public class NotificationController {
 	}
 
 	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByDescription(@PathVariable myplugin.generator.fmmodel.FMType@227ede32 value) {
+	ResponseEntity<List<NotificationDTO>> getNotificationListByDescription(@PathVariable myplugin.generator.fmmodel.FMType@3ffb924e value) {
 
 		List<Notification> notificationList = notificationService.findByDescription(value);
 			
@@ -86,7 +86,7 @@ public class NotificationController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByDate(@PathVariable myplugin.generator.fmmodel.FMType@2540a001 value) {
+	ResponseEntity<List<NotificationDTO>> getNotificationListByDate(@PathVariable myplugin.generator.fmmodel.FMType@67bbdf52 value) {
 
 		List<Notification> notificationList = notificationService.findByDate(value);
 			
@@ -94,17 +94,17 @@ public class NotificationController {
 	}
 
 	@RequestMapping(value = "/filterByType/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByType(@PathVariable myplugin.generator.fmmodel.FMType@591dffd5 value) {
+	ResponseEntity<List<NotificationDTO>> getNotificationListByType(@PathVariable myplugin.generator.fmmodel.FMType@2fedb0a3 value) {
 
 		List<Notification> notificationList = notificationService.findByType(value);
 			
 		return new ResponseEntity<>(toDTO.convert(notificationList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@1ccca168Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListBymyplugin.generator.fmmodel.FMType@1ccca168Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@7416c2bcId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<NotificationDTO>> getNotificationListBymyplugin.generator.fmmodel.FMType@7416c2bcId(@PathVariable Long id) {
 
-		List<Notification> notificationList = notificationService.findBymyplugin.generator.fmmodel.FMType@1ccca168Id(id);
+		List<Notification> notificationList = notificationService.findBymyplugin.generator.fmmodel.FMType@7416c2bcId(id);
 			
 		return new ResponseEntity<>(toDTO.convert(notificationList), HttpStatus.OK);
 	}

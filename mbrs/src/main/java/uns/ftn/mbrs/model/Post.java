@@ -25,9 +25,9 @@ public class Post {
 	     @Column
 	     private Visibility  visibility ;
 	     @OneToMany(mappedBy="post")
-	     private Set<LikeReaction>  likeReaction = new HashSet<LikeReaction>();
+	     private Set<LikeReaction >  likeReaction = new HashSet<LikeReaction>();
 	     @OneToMany(mappedBy="post")
-	     private Set<Comment>  comment = new HashSet<Comment>();
+	     private Set<Comment >  comment = new HashSet<Comment>();
 		 @ManyToOne(fetch=FetchType.LAZY)
 		 @JoinColumn(name="user_id", referencedColumnName="id")
 	     private User  user;
@@ -37,7 +37,7 @@ public class Post {
 		public Post(){}
 		
 		public Post(Long id, 
-		String  description ,Visibility  visibility ,Set<LikeReaction>  likeReaction,Set<Comment>  comment,User  user,Activity  activity
+		String   description ,Visibility   visibility ,Set<LikeReaction >  likeReaction,Set<Comment >  comment,User   user,Activity   activity
 		){
 			this.id = id; 
 			this.description  =  description ;
@@ -48,7 +48,7 @@ public class Post {
 			this.activity =  activity;
 		}
 		
-		public Post(String  description  ,Visibility  visibility  ,Set<LikeReaction>  likeReaction ,Set<Comment>  comment ,User  user ,Activity  activity ){
+		public Post(String   description  ,Visibility   visibility  ,Set<LikeReaction >  likeReaction ,Set<Comment >  comment ,User   user ,Activity   activity ){
 			this.description   = description  ;
 			this.visibility   = visibility  ;
 			this.likeReaction  =  likeReaction ;
@@ -61,55 +61,55 @@ public class Post {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public String getDescription  (){
+	    public String  getDescription  (){
 	           return description ;
 	    }
 	      
-	    public void setDescription (String  description ){
+	    public void setDescription (String   description ){
 	           this.description  = description ;
 	    }
 	      
-	    public Visibility getVisibility  (){
+	    public Visibility  getVisibility  (){
 	           return visibility ;
 	    }
 	      
-	    public void setVisibility (Visibility  visibility ){
+	    public void setVisibility (Visibility   visibility ){
 	           this.visibility  = visibility ;
 	    }
 	      
-	    public Set<LikeReaction> getLikeReaction(){
+	    public Set<LikeReaction > getLikeReaction(){
 	           return  likeReaction;
 	    }
 	      
-	    public void setLikeReaction( Set<LikeReaction>  likeReaction){
+	    public void setLikeReaction( Set<LikeReaction >  likeReaction){
 	           this.likeReaction = likeReaction;
 	    }
 	      
-	    public Set<Comment> getComment(){
+	    public Set<Comment > getComment(){
 	           return  comment;
 	    }
 	      
-	    public void setComment( Set<Comment>  comment){
+	    public void setComment( Set<Comment >  comment){
 	           this.comment = comment;
 	    }
 	      
-	    public User getUser (){
+	    public User  getUser (){
 	           return user;
 	    }
 	      
-	    public void setUser(User  User){
+	    public void setUser(User   User){
 	           this.user = user;
 	    }
 	      
-	    public Activity getActivity (){
+	    public Activity  getActivity (){
 	           return activity;
 	    }
 	      
-	    public void setActivity(Activity  Activity){
+	    public void setActivity(Activity   Activity){
 	           this.activity = activity;
 	    }
 	      

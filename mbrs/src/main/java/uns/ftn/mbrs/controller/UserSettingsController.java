@@ -78,7 +78,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByUserInfoPrivacy/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByUserInfoPrivacy(@PathVariable myplugin.generator.fmmodel.FMType@56dc0a value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByUserInfoPrivacy(@PathVariable myplugin.generator.fmmodel.FMType@57695f94 value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByUserInfoPrivacy(value);
 			
@@ -86,7 +86,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByPostPrivacy/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByPostPrivacy(@PathVariable myplugin.generator.fmmodel.FMType@4fe6c851 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByPostPrivacy(@PathVariable myplugin.generator.fmmodel.FMType@4fcab894 value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByPostPrivacy(value);
 			
@@ -94,7 +94,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByGoalPrivacy/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByGoalPrivacy(@PathVariable myplugin.generator.fmmodel.FMType@80ac4f4 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByGoalPrivacy(@PathVariable myplugin.generator.fmmodel.FMType@1c036993 value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByGoalPrivacy(value);
 			
@@ -102,7 +102,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByNewComments/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByNewComments(@PathVariable myplugin.generator.fmmodel.FMType@7c0eb775 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByNewComments(@PathVariable myplugin.generator.fmmodel.FMType@1551b1ab value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByNewComments(value);
 			
@@ -110,7 +110,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByNewLikes/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByNewLikes(@PathVariable myplugin.generator.fmmodel.FMType@4a0e8272 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByNewLikes(@PathVariable myplugin.generator.fmmodel.FMType@8d9d96a value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByNewLikes(value);
 			
@@ -118,7 +118,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByFriendshipRequest/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByFriendshipRequest(@PathVariable myplugin.generator.fmmodel.FMType@33d37f22 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByFriendshipRequest(@PathVariable myplugin.generator.fmmodel.FMType@12cdcefd value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByFriendshipRequest(value);
 			
@@ -126,7 +126,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByAcceptedFriendship/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByAcceptedFriendship(@PathVariable myplugin.generator.fmmodel.FMType@6da020c8 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByAcceptedFriendship(@PathVariable myplugin.generator.fmmodel.FMType@158572c6 value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByAcceptedFriendship(value);
 			
@@ -134,7 +134,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByActivityRequest/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByActivityRequest(@PathVariable myplugin.generator.fmmodel.FMType@641c9716 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByActivityRequest(@PathVariable myplugin.generator.fmmodel.FMType@dc14534 value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByActivityRequest(value);
 			
@@ -142,7 +142,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByAcceptedActivity/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByAcceptedActivity(@PathVariable myplugin.generator.fmmodel.FMType@5abf84f5 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByAcceptedActivity(@PathVariable myplugin.generator.fmmodel.FMType@4b15cf6f value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByAcceptedActivity(value);
 			
@@ -150,7 +150,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByCanceledActivity/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByCanceledActivity(@PathVariable myplugin.generator.fmmodel.FMType@72bdcaef value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByCanceledActivity(@PathVariable myplugin.generator.fmmodel.FMType@37d35ad6 value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByCanceledActivity(value);
 			
@@ -158,7 +158,7 @@ public class UserSettingsController {
 	}
 
 	@RequestMapping(value = "/filterByNightTheme/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByNightTheme(@PathVariable myplugin.generator.fmmodel.FMType@1ef70210 value) {
+	ResponseEntity<List<UserSettingsDTO>> getUserSettingsListByNightTheme(@PathVariable myplugin.generator.fmmodel.FMType@9fe0da8 value) {
 
 		List<UserSettings> userSettingsList = userSettingsService.findByNightTheme(value);
 			

@@ -78,7 +78,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByTitle/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByTitle(@PathVariable myplugin.generator.fmmodel.FMType@13fe8ad value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByTitle(@PathVariable myplugin.generator.fmmodel.FMType@4d37871b value) {
 
 		List<Goal> goalList = goalService.findByTitle(value);
 			
@@ -86,7 +86,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDuration/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@4a11923e value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@721db96b value) {
 
 		List<Goal> goalList = goalService.findByDuration(value);
 			
@@ -94,7 +94,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDate(@PathVariable myplugin.generator.fmmodel.FMType@3b7571d3 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDate(@PathVariable myplugin.generator.fmmodel.FMType@6ab325d4 value) {
 
 		List<Goal> goalList = goalService.findByDate(value);
 			
@@ -102,7 +102,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDistance/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@4e379c3d value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@6ce47da8 value) {
 
 		List<Goal> goalList = goalService.findByDistance(value);
 			
@@ -110,7 +110,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByAchieved/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByAchieved(@PathVariable myplugin.generator.fmmodel.FMType@30b37fd6 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByAchieved(@PathVariable myplugin.generator.fmmodel.FMType@1d9a2070 value) {
 
 		List<Goal> goalList = goalService.findByAchieved(value);
 			

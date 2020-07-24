@@ -78,7 +78,7 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListByDescription(@PathVariable myplugin.generator.fmmodel.FMType@1ca563 value) {
+	ResponseEntity<List<PostDTO>> getPostListByDescription(@PathVariable myplugin.generator.fmmodel.FMType@394540ac value) {
 
 		List<Post> postList = postService.findByDescription(value);
 			
@@ -86,25 +86,25 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/filterByVisibility/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListByVisibility(@PathVariable myplugin.generator.fmmodel.FMType@518f22d9 value) {
+	ResponseEntity<List<PostDTO>> getPostListByVisibility(@PathVariable myplugin.generator.fmmodel.FMType@4a8be61 value) {
 
 		List<Post> postList = postService.findByVisibility(value);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@2ebefcdeId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@2ebefcdeId(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@5315f754Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@5315f754Id(@PathVariable Long id) {
 
-		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@2ebefcdeId(id);
+		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@5315f754Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@7ceb9dd7Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@7ceb9dd7Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@2b5cb1fbId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@2b5cb1fbId(@PathVariable Long id) {
 
-		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@7ceb9dd7Id(id);
+		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@2b5cb1fbId(id);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}

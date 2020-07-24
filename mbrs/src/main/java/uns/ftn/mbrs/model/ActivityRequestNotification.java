@@ -22,13 +22,13 @@ public class ActivityRequestNotification {
 		public ActivityRequestNotification(){}
 		
 		public ActivityRequestNotification(Long id, 
-		ActivityRequest  activityRequest
+		ActivityRequest   activityRequest
 		){
 			this.id = id; 
 			this.activityRequest =  activityRequest;
 		}
 		
-		public ActivityRequestNotification(ActivityRequest  activityRequest ){
+		public ActivityRequestNotification(ActivityRequest   activityRequest ){
 			this.activityRequest  = activityRequest ;
 		}
 		
@@ -36,15 +36,15 @@ public class ActivityRequestNotification {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public ActivityRequest getActivityRequest (){
+	    public ActivityRequest  getActivityRequest (){
 	           return activityRequest;
 	    }
 	      
-	    public void setActivityRequest(ActivityRequest  ActivityRequest){
+	    public void setActivityRequest(ActivityRequest   ActivityRequest){
 	           this.activityRequest = activityRequest;
 	    }
 	      

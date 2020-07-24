@@ -22,13 +22,13 @@ public class FriendshipRequestNotification {
 		public FriendshipRequestNotification(){}
 		
 		public FriendshipRequestNotification(Long id, 
-		FriendshipRequest  friendshipRequest
+		FriendshipRequest   friendshipRequest
 		){
 			this.id = id; 
 			this.friendshipRequest =  friendshipRequest;
 		}
 		
-		public FriendshipRequestNotification(FriendshipRequest  friendshipRequest ){
+		public FriendshipRequestNotification(FriendshipRequest   friendshipRequest ){
 			this.friendshipRequest  = friendshipRequest ;
 		}
 		
@@ -36,15 +36,15 @@ public class FriendshipRequestNotification {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public FriendshipRequest getFriendshipRequest (){
+	    public FriendshipRequest  getFriendshipRequest (){
 	           return friendshipRequest;
 	    }
 	      
-	    public void setFriendshipRequest(FriendshipRequest  FriendshipRequest){
+	    public void setFriendshipRequest(FriendshipRequest   FriendshipRequest){
 	           this.friendshipRequest = friendshipRequest;
 	    }
 	      

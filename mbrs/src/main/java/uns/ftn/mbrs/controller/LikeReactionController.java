@@ -77,10 +77,10 @@ public class LikeReactionController {
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@3f5cb97cId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<LikeReactionDTO>> getLikeReactionListBymyplugin.generator.fmmodel.FMType@3f5cb97cId(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@722e18efId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<LikeReactionDTO>> getLikeReactionListBymyplugin.generator.fmmodel.FMType@722e18efId(@PathVariable Long id) {
 
-		List<LikeReaction> likeReactionList = likeReactionService.findBymyplugin.generator.fmmodel.FMType@3f5cb97cId(id);
+		List<LikeReaction> likeReactionList = likeReactionService.findBymyplugin.generator.fmmodel.FMType@722e18efId(id);
 			
 		return new ResponseEntity<>(toDTO.convert(likeReactionList), HttpStatus.OK);
 	}

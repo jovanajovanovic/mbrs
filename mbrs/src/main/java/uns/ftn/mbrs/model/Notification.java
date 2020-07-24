@@ -20,7 +20,7 @@ public class Notification {
 	     @Column
 	     private String  description ;
 	     @Column
-	     private date  date ;
+	     private  Date  date ;
 	     @Column
 	     private NotificationType  type ;
 		 @ManyToOne(fetch=FetchType.LAZY)
@@ -30,7 +30,7 @@ public class Notification {
 		public Notification(){}
 		
 		public Notification(Long id, 
-		String  description ,date  date ,NotificationType  type ,User  user
+		String   description , Date   date ,NotificationType   type ,User   user
 		){
 			this.id = id; 
 			this.description  =  description ;
@@ -39,7 +39,7 @@ public class Notification {
 			this.user =  user;
 		}
 		
-		public Notification(String  description  ,date  date  ,NotificationType  type  ,User  user ){
+		public Notification(String   description  , Date   date  ,NotificationType   type  ,User   user ){
 			this.description   = description  ;
 			this.date   = date  ;
 			this.type   = type  ;
@@ -50,39 +50,39 @@ public class Notification {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public String getDescription  (){
+	    public String  getDescription  (){
 	           return description ;
 	    }
 	      
-	    public void setDescription (String  description ){
+	    public void setDescription (String   description ){
 	           this.description  = description ;
 	    }
 	      
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	      
-	    public NotificationType getType  (){
+	    public NotificationType  getType  (){
 	           return type ;
 	    }
 	      
-	    public void setType (NotificationType  type ){
+	    public void setType (NotificationType   type ){
 	           this.type  = type ;
 	    }
 	      
-	    public User getUser (){
+	    public User  getUser (){
 	           return user;
 	    }
 	      
-	    public void setUser(User  User){
+	    public void setUser(User   User){
 	           this.user = user;
 	    }
 	      

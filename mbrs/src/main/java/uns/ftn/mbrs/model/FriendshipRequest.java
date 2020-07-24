@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 import uns.ftn.mbrs.model.FriendshipRequestStatus;
 import uns.ftn.mbrs.model.User;
-import uns.ftn.mbrs.model.User;
 
 
 
@@ -30,7 +29,7 @@ public class FriendshipRequest {
 		public FriendshipRequest(){}
 		
 		public FriendshipRequest(Long id, 
-		FriendshipRequestStatus  status ,User  friendshipRequestor ,User  friendshipRequestee 
+		FriendshipRequestStatus   status ,User   friendshipRequestor ,User   friendshipRequestee 
 		){
 			this.id = id; 
 			this.status  =  status ;
@@ -38,7 +37,7 @@ public class FriendshipRequest {
 			this.friendshipRequestee  =  friendshipRequestee ;
 		}
 		
-		public FriendshipRequest(FriendshipRequestStatus  status  ,User  friendshipRequestor  ,User  friendshipRequestee  ){
+		public FriendshipRequest(FriendshipRequestStatus   status  ,User   friendshipRequestor  ,User   friendshipRequestee  ){
 			this.status   = status  ;
 			this.friendshipRequestor   = friendshipRequestor  ;
 			this.friendshipRequestee   = friendshipRequestee  ;
@@ -48,31 +47,31 @@ public class FriendshipRequest {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public FriendshipRequestStatus getStatus  (){
+	    public FriendshipRequestStatus  getStatus  (){
 	           return status ;
 	    }
 	      
-	    public void setStatus (FriendshipRequestStatus  status ){
+	    public void setStatus (FriendshipRequestStatus   status ){
 	           this.status  = status ;
 	    }
 	      
-	    public User getFriendshipRequestor  (){
+	    public User  getFriendshipRequestor  (){
 	           return friendshipRequestor ;
 	    }
 	      
-	    public void setFriendshipRequestor (User  friendshipRequestor ){
+	    public void setFriendshipRequestor (User   friendshipRequestor ){
 	           this.friendshipRequestor  = friendshipRequestor ;
 	    }
 	      
-	    public User getFriendshipRequestee  (){
+	    public User  getFriendshipRequestee  (){
 	           return friendshipRequestee ;
 	    }
 	      
-	    public void setFriendshipRequestee (User  friendshipRequestee ){
+	    public void setFriendshipRequestee (User   friendshipRequestee ){
 	           this.friendshipRequestee  = friendshipRequestee ;
 	    }
 	      

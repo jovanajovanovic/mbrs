@@ -78,25 +78,25 @@ public class FriendshipRequestController {
 	}
 
 	@RequestMapping(value = "/filterByStatus/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListByStatus(@PathVariable myplugin.generator.fmmodel.FMType@5e223bba value) {
+	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListByStatus(@PathVariable myplugin.generator.fmmodel.FMType@6cce8ebb value) {
 
 		List<FriendshipRequest> friendshipRequestList = friendshipRequestService.findByStatus(value);
 			
 		return new ResponseEntity<>(toDTO.convert(friendshipRequestList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@271c16f7Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListBymyplugin.generator.fmmodel.FMType@271c16f7Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@2e8fa2bcId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListBymyplugin.generator.fmmodel.FMType@2e8fa2bcId(@PathVariable Long id) {
 
-		List<FriendshipRequest> friendshipRequestList = friendshipRequestService.findBymyplugin.generator.fmmodel.FMType@271c16f7Id(id);
+		List<FriendshipRequest> friendshipRequestList = friendshipRequestService.findBymyplugin.generator.fmmodel.FMType@2e8fa2bcId(id);
 			
 		return new ResponseEntity<>(toDTO.convert(friendshipRequestList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@54e41282Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListBymyplugin.generator.fmmodel.FMType@54e41282Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@5b5a4038Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListBymyplugin.generator.fmmodel.FMType@5b5a4038Id(@PathVariable Long id) {
 
-		List<FriendshipRequest> friendshipRequestList = friendshipRequestService.findBymyplugin.generator.fmmodel.FMType@54e41282Id(id);
+		List<FriendshipRequest> friendshipRequestList = friendshipRequestService.findBymyplugin.generator.fmmodel.FMType@5b5a4038Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(friendshipRequestList), HttpStatus.OK);
 	}

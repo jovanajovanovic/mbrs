@@ -23,13 +23,13 @@ public class LikeReaction {
 		public LikeReaction(){}
 		
 		public LikeReaction(Long id, 
-		User  user
+		User   user
 		){
 			this.id = id; 
 			this.user =  user;
 		}
 		
-		public LikeReaction(User  user ){
+		public LikeReaction(User   user ){
 			this.user  = user ;
 		}
 		
@@ -37,15 +37,15 @@ public class LikeReaction {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public User getUser (){
+	    public User  getUser (){
 	           return user;
 	    }
 	      
-	    public void setUser(User  User){
+	    public void setUser(User   User){
 	           this.user = user;
 	    }
 	      

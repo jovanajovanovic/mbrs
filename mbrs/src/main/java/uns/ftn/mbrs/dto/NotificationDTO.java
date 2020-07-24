@@ -7,11 +7,11 @@ import uns.ftn.mbrs.dto.UserDTO;
 
 public class NotificationDTO{
 	private Long id;
-	  	 private String description;
+	  	 private String  description;
 		
-	  	 private date date;
+	  	 private  Date  date;
 		
-	  	 private NotificationType type;
+	  	 private NotificationType  type;
 		
 	     private UserDTO  user;
 		
@@ -19,25 +19,14 @@ public class NotificationDTO{
 	
 	
 	public NotificationDTO(){}
-	public NotificationDTO(Long id, 
-			this.id = id;
- String description   ,
-			this.id = id;
- date date   ,
-			this.id = id;
- NotificationType type   ,
-			this.id = id;
-	 	UserDTO  user ){
+	public NotificationDTO(Long id, String description, Date date,NotificationType type,UserDTO  user){
+		this.id = id;
 			this.description   = description  ;
 			this.date   = date  ;
 			this.type   = type  ;
 			this.user  = user ;
 		}
-	public NotificationDTO(
- String description   ,
- date date   ,
- NotificationType type   ,
-	 	UserDTO  user ){
+	public NotificationDTO( String  description   ,  Date  date   , NotificationType  type   ,UserDTO  user ){
 			this.description   = description  ;
 			this.date   = date  ;
 			this.type   = type  ;
@@ -49,35 +38,35 @@ public class NotificationDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	
-	    public String getDescription  (){
+	    public String  getDescription  (){
 	           return description ;
 	    }
 	      
-	    public void setDescription (String  description ){
+	    public void setDescription (String   description ){
 	           this.description  = description ;
 	    }
 	    	
 	      
 	     
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	    	
 	      
 	     
-	    public NotificationType getType  (){
+	    public NotificationType  getType  (){
 	           return type ;
 	    }
 	      
-	    public void setType (NotificationType  type ){
+	    public void setType (NotificationType   type ){
 	           this.type  = type ;
 	    }
 	    	

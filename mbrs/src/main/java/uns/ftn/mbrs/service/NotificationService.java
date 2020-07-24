@@ -10,6 +10,4 @@ public interface NotificationService extends CrudService<Notification> {
 
 	List<Notification> findByType(NotificationType type);
 
-	List<Notification> findByUserId(Long id);
-
 }

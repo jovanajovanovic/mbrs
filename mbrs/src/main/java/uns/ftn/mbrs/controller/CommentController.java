@@ -4,8 +4,8 @@ import java.util.List;
 
 import uns.ftn.mbrs.model.Comment;
 import uns.ftn.mbrs.service.CommentService;
-import uns.ftn.mbrs.support.CommentDTOToComment;
-import uns.ftn.mbrs.support.CommentToCommentDTO;
+import uns.ftn.mbrs.converter.CommentDTOToComment;
+import uns.ftn.mbrs.converter.CommentToCommentDTO;
 import uns.ftn.mbrs.dto.CommentDTO;
 
 import javax.validation.Valid;
@@ -78,7 +78,7 @@ public class CommentController {
 	}
 
 	@RequestMapping(value = "/filterByText/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListByText(@PathVariable myplugin.generator.fmmodel.FMType@2d31449 value) {
+	ResponseEntity<List<CommentDTO>> getCommentListByText(@PathVariable myplugin.generator.fmmodel.FMType@7e809a5e value) {
 
 		List<Comment> commentList = commentService.findByText(value);
 			
@@ -86,17 +86,17 @@ public class CommentController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListByDate(@PathVariable myplugin.generator.fmmodel.FMType@713d1c42 value) {
+	ResponseEntity<List<CommentDTO>> getCommentListByDate(@PathVariable myplugin.generator.fmmodel.FMType@64a272a0 value) {
 
 		List<Comment> commentList = commentService.findByDate(value);
 			
 		return new ResponseEntity<>(toDTO.convert(commentList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@3e7b36f0Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListBymyplugin.generator.fmmodel.FMType@3e7b36f0Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@75e0e562Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<CommentDTO>> getCommentListBymyplugin.generator.fmmodel.FMType@75e0e562Id(@PathVariable Long id) {
 
-		List<Comment> commentList = commentService.findBymyplugin.generator.fmmodel.FMType@3e7b36f0Id(id);
+		List<Comment> commentList = commentService.findBymyplugin.generator.fmmodel.FMType@75e0e562Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(commentList), HttpStatus.OK);
 	}

@@ -1,5 +1,6 @@
 package uns.ftn.mbrs.dto;
 
+import java.util.Date;
 
 import java.util.ArrayList; 
 import uns.ftn.mbrs.model.ActivityRequestStatus;
@@ -80,7 +81,7 @@ public class ActivityRequestDTO{
 	           return activityRequestor ;
 	    }
 	      
-	    public void ArrayListActivityRequestor (UserDTO  activityRequestor ){
+	    public void setActivityRequestor (UserDTO  activityRequestor ){
 	           this.activityRequestor  = activityRequestor ;
 	    }
 	    
@@ -90,7 +91,7 @@ public class ActivityRequestDTO{
 	           return activityRequestee ;
 	    }
 	      
-	    public void ArrayListActivityRequestee (UserDTO  activityRequestee ){
+	    public void setActivityRequestee (UserDTO  activityRequestee ){
 	           this.activityRequestee  = activityRequestee ;
 	    }
 	    

@@ -4,8 +4,8 @@ import java.util.List;
 
 import uns.ftn.mbrs.model.${class.name};
 import uns.ftn.mbrs.service.${class.name}Service;
-import uns.ftn.mbrs.support.${class.name}DTOTo${class.name};
-import uns.ftn.mbrs.support.${class.name}To${class.name}DTO;
+import uns.ftn.mbrs.converter.${class.name}DTOTo${class.name};
+import uns.ftn.mbrs.converter.${class.name}To${class.name}DTO;
 import uns.ftn.mbrs.dto.${class.name}DTO;
 
 import javax.validation.Valid;
@@ -80,7 +80,7 @@ ${class.visibility} class ${class.name}Controller {
 	<#list properties as property>
 		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false>
 	@RequestMapping(value = "/filterBy${property.name?cap_first}/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.name?cap_first}(@PathVariable ${property.type} value) {
+	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.name?cap_first}(@PathVariable ${property.type.name} value) {
 
 		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy${property.name?cap_first}(value);
 			
@@ -89,10 +89,10 @@ ${class.visibility} class ${class.name}Controller {
 
 		</#if>
 		<#if property.association == true && property.upper == 1>
-	@RequestMapping(value = "/filterBy${property.type}Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.type}Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBy${property.type.name}Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.type.name}Id(@PathVariable Long id) {
 
-		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy${property.type}Id(id);
+		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy${property.type.name}Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(${class.name?uncap_first}List), HttpStatus.OK);
 	}

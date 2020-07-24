@@ -1,13 +1,15 @@
 package uns.ftn.mbrs.dto;
 
+import java.util.Date;
 
 import java.util.ArrayList; 
 import uns.ftn.mbrs.dto.GoalDTO;
 import uns.ftn.mbrs.dto.ActivityRequestDTO;
 import uns.ftn.mbrs.dto.PostDTO;
 import uns.ftn.mbrs.dto.FriendshipRequestDTO;
-import uns.ftn.mbrs.dto.NotificationDTO;
+import uns.ftn.mbrs.dto.ActivityRequestNotificationDTO;
 import uns.ftn.mbrs.dto.UserSettingsDTO;
+import uns.ftn.mbrs.dto.FriendshipRequestNotificationDTO;
 
 public class UserDTO{
 	private Long id;
@@ -41,15 +43,17 @@ public class UserDTO{
 		
 	     private ArrayList<FriendshipRequestDTO>  friendshipRequest = new ArrayList<FriendshipRequest>();
 		
-	     private ArrayList<NotificationDTO>  notification = new ArrayList<Notification>();
+	     private ArrayList<ActivityRequestNotificationDTO>  activityRequestNotification = new ArrayList<ActivityRequestNotification>();
 		
 	     private UserSettingsDTO  userSettings;
+		
+	     private ArrayList<FriendshipRequestNotificationDTO>  friendshipRequestNotification = new ArrayList<FriendshipRequestNotification>();
 		
 	
 	
 	
 	public UserDTO(){}
-	public UserDTO(Long id, String username,String password,String name,String surname, Date dateOfBirth,String location,String biography,double height,ArrayList<GoalDTO> goal ,ArrayList<ActivityRequestDTO> pendingActivities ,double weight,ArrayList<ActivityRequestDTO> activityRequest ,ArrayList<PostDTO> post ,ArrayList<FriendshipRequestDTO> pendingFriendships ,ArrayList<FriendshipRequestDTO> friendshipRequest ,ArrayList<NotificationDTO> notification ,UserSettingsDTO  userSettings){
+	public UserDTO(Long id, String username,String password,String name,String surname, Date dateOfBirth,String location,String biography,double height,ArrayList<GoalDTO> goal ,ArrayList<ActivityRequestDTO> pendingActivities ,double weight,ArrayList<ActivityRequestDTO> activityRequest ,ArrayList<PostDTO> post ,ArrayList<FriendshipRequestDTO> pendingFriendships ,ArrayList<FriendshipRequestDTO> friendshipRequest ,ArrayList<ActivityRequestNotificationDTO> activityRequestNotification ,UserSettingsDTO  userSettings,ArrayList<FriendshipRequestNotificationDTO> friendshipRequestNotification ){
 		this.id = id;
 			this.username   = username  ;
 			this.password   = password  ;
@@ -66,10 +70,11 @@ public class UserDTO{
 			this.post  =  post ;
 			this.pendingFriendships   =  pendingFriendships  ;
 			this.friendshipRequest  =  friendshipRequest ;
-			this.notification  =  notification ;
+			this.activityRequestNotification  =  activityRequestNotification ;
 			this.userSettings  = userSettings ;
+			this.friendshipRequestNotification  =  friendshipRequestNotification ;
 		}
-	public UserDTO( String  username   , String  password   , String  name   , String  surname   ,  Date  dateOfBirth   , String  location   , String  biography   , double  height   , ArrayList<GoalDTO>  goal , ArrayList<ActivityRequestDTO>  pendingActivities  , double  weight   , ArrayList<ActivityRequestDTO>  activityRequest , ArrayList<PostDTO>  post , ArrayList<FriendshipRequestDTO>  pendingFriendships  , ArrayList<FriendshipRequestDTO>  friendshipRequest , ArrayList<NotificationDTO>  notification ,UserSettingsDTO  userSettings ){
+	public UserDTO( String  username   , String  password   , String  name   , String  surname   ,  Date  dateOfBirth   , String  location   , String  biography   , double  height   , ArrayList<GoalDTO>  goal , ArrayList<ActivityRequestDTO>  pendingActivities  , double  weight   , ArrayList<ActivityRequestDTO>  activityRequest , ArrayList<PostDTO>  post , ArrayList<FriendshipRequestDTO>  pendingFriendships  , ArrayList<FriendshipRequestDTO>  friendshipRequest , ArrayList<ActivityRequestNotificationDTO>  activityRequestNotification ,UserSettingsDTO  userSettings , ArrayList<FriendshipRequestNotificationDTO>  friendshipRequestNotification ){
 			this.username   = username  ;
 			this.password   = password  ;
 			this.name   = name  ;
@@ -85,8 +90,9 @@ public class UserDTO{
 			this.post  =  post ;
 			this.pendingFriendships   =  pendingFriendships  ;
 			this.friendshipRequest  =  friendshipRequest ;
-			this.notification  =  notification ;
+			this.activityRequestNotification  =  activityRequestNotification ;
 			this.userSettings  = userSettings ;
+			this.friendshipRequestNotification  =  friendshipRequestNotification ;
 		}
 	
 	
@@ -230,22 +236,29 @@ public class UserDTO{
 	    public void setFriendshipRequest( ArrayList<FriendshipRequestDTO>  friendshipRequest){
 	           this.friendshipRequest = friendshipRequest;
 	    }
-	     public ArrayList<NotificationDTO> get Notification(){
-	           return  notification;
+	     public ArrayList<ActivityRequestNotificationDTO> get ActivityRequestNotification(){
+	           return  activityRequestNotification;
 	    }
 	      
-	    public void setNotification( ArrayList<NotificationDTO>  notification){
-	           this.notification = notification;
+	    public void setActivityRequestNotification( ArrayList<ActivityRequestNotificationDTO>  activityRequestNotification){
+	           this.activityRequestNotification = activityRequestNotification;
 	    }
 	    public UserSettingsDTO getUserSettings (){
 	           return userSettings;
 	    }
 	      
-	    public void ArrayListUserSettings(UserSettingsDTO  UserSettings){
+	    public void setUserSettings(UserSettingsDTO  UserSettings){
 	           this.userSettings = userSettings;
 	    }
 	    
 	      
 	     
+	     public ArrayList<FriendshipRequestNotificationDTO> get FriendshipRequestNotification(){
+	           return  friendshipRequestNotification;
+	    }
+	      
+	    public void setFriendshipRequestNotification( ArrayList<FriendshipRequestNotificationDTO>  friendshipRequestNotification){
+	           this.friendshipRequestNotification = friendshipRequestNotification;
+	    }
 
 }

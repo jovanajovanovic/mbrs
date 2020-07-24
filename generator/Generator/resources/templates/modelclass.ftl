@@ -1,7 +1,7 @@
 package ${class.typePackage};
 import java.util.Set;
 import java.util.HashSet;
-
+import java.util.Date;
 import javax.persistence.*;
 
 <#list imports as import>

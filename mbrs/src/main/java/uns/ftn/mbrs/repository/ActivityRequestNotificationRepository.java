@@ -11,4 +11,12 @@ public interface ActivityRequestNotificationRepository extends JpaRepository<Act
 
 	List<ActivityRequestNotification> findByActivityRequestId(Long id);
 
+	List<ActivityRequestNotification> findByUserId(Long id);
+
+	List<ActivityRequestNotification> findByDescription(String description);
+	
+	List<ActivityRequestNotification> findByDate(date date);
+	
+	List<ActivityRequestNotification> findByType(NotificationType type);
+	
 }

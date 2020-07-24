@@ -46,4 +46,20 @@ public class FriendshipRequestNotificationServiceImpl implements FriendshipReque
 		return friendshipRequestNotificationRepository.findByFriendshipRequestId(id);
 	}
 	
+	public List<FriendshipRequestNotification> findByUserId(Long id) {
+		return friendshipRequestNotificationRepository.findByUserId(id);
+	}
+	
+	public List<FriendshipRequestNotification> findByDescription(String description) {
+		return friendshipRequestNotificationRepository.findByDescription(description);
+	}
+	
+	public List<FriendshipRequestNotification> findByDate(date date) {
+		return friendshipRequestNotificationRepository.findByDate(date);
+	}
+	
+	public List<FriendshipRequestNotification> findByType(NotificationType type) {
+		return friendshipRequestNotificationRepository.findByType(type);
+	}
+	
 }

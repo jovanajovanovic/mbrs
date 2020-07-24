@@ -1,15 +1,16 @@
 package uns.ftn.mbrs.model;
 import java.util.Set;
 import java.util.HashSet;
-
+import java.util.Date;
 import javax.persistence.*;
 
 import uns.ftn.mbrs.model.Goal;
 import uns.ftn.mbrs.model.ActivityRequest;
 import uns.ftn.mbrs.model.Post;
 import uns.ftn.mbrs.model.FriendshipRequest;
-import uns.ftn.mbrs.model.Notification;
+import uns.ftn.mbrs.model.ActivityRequestNotification;
 import uns.ftn.mbrs.model.UserSettings;
+import uns.ftn.mbrs.model.FriendshipRequestNotification;
 
 
 
@@ -52,14 +53,16 @@ public class User {
 	     @OneToMany(mappedBy="user")
 	     private Set<FriendshipRequest >  friendshipRequest = new HashSet<FriendshipRequest>();
 	     @OneToMany(mappedBy="user")
-	     private Set<Notification >  notification = new HashSet<Notification>();
+	     private Set<ActivityRequestNotification >  activityRequestNotification = new HashSet<ActivityRequestNotification>();
 	  	 @OneToOne
 	     private UserSettings  userSettings;
+	     @OneToMany(mappedBy="user")
+	     private Set<FriendshipRequestNotification >  friendshipRequestNotification = new HashSet<FriendshipRequestNotification>();
 	
 		public User(){}
 		
 		public User(Long id, 
-		String   username ,String   password ,String   name ,String   surname , Date   dateOfBirth ,String   location ,String   biography ,double   height ,Set<Goal >  goal,Set<ActivityRequest >  pendingActivities ,double   weight ,Set<ActivityRequest >  activityRequest,Set<Post >  post,Set<FriendshipRequest >  pendingFriendships ,Set<FriendshipRequest >  friendshipRequest,Set<Notification >  notification,UserSettings   userSettings
+		String   username ,String   password ,String   name ,String   surname , Date   dateOfBirth ,String   location ,String   biography ,double   height ,Set<Goal >  goal,Set<ActivityRequest >  pendingActivities ,double   weight ,Set<ActivityRequest >  activityRequest,Set<Post >  post,Set<FriendshipRequest >  pendingFriendships ,Set<FriendshipRequest >  friendshipRequest,Set<ActivityRequestNotification >  activityRequestNotification,UserSettings   userSettings,Set<FriendshipRequestNotification >  friendshipRequestNotification
 		){
 			this.id = id; 
 			this.username  =  username ;
@@ -77,11 +80,12 @@ public class User {
 			this.post  =  post ;
 			this.pendingFriendships   =  pendingFriendships  ;
 			this.friendshipRequest  =  friendshipRequest ;
-			this.notification  =  notification ;
+			this.activityRequestNotification  =  activityRequestNotification ;
 			this.userSettings =  userSettings;
+			this.friendshipRequestNotification  =  friendshipRequestNotification ;
 		}
 		
-		public User(String   username  ,String   password  ,String   name  ,String   surname  , Date   dateOfBirth  ,String   location  ,String   biography  ,double   height  ,Set<Goal >  goal ,Set<ActivityRequest >  pendingActivities  ,double   weight  ,Set<ActivityRequest >  activityRequest ,Set<Post >  post ,Set<FriendshipRequest >  pendingFriendships  ,Set<FriendshipRequest >  friendshipRequest ,Set<Notification >  notification ,UserSettings   userSettings ){
+		public User(String   username  ,String   password  ,String   name  ,String   surname  , Date   dateOfBirth  ,String   location  ,String   biography  ,double   height  ,Set<Goal >  goal ,Set<ActivityRequest >  pendingActivities  ,double   weight  ,Set<ActivityRequest >  activityRequest ,Set<Post >  post ,Set<FriendshipRequest >  pendingFriendships  ,Set<FriendshipRequest >  friendshipRequest ,Set<ActivityRequestNotification >  activityRequestNotification ,UserSettings   userSettings ,Set<FriendshipRequestNotification >  friendshipRequestNotification ){
 			this.username   = username  ;
 			this.password   = password  ;
 			this.name   = name  ;
@@ -97,8 +101,9 @@ public class User {
 			this.post  =  post ;
 			this.pendingFriendships   =  pendingFriendships  ;
 			this.friendshipRequest  =  friendshipRequest ;
-			this.notification  =  notification ;
+			this.activityRequestNotification  =  activityRequestNotification ;
 			this.userSettings  = userSettings ;
+			this.friendshipRequestNotification  =  friendshipRequestNotification ;
 		}
 		
 		public Long getId(){
@@ -229,12 +234,12 @@ public class User {
 	           this.friendshipRequest = friendshipRequest;
 	    }
 	      
-	    public Set<Notification > getNotification(){
-	           return  notification;
+	    public Set<ActivityRequestNotification > getActivityRequestNotification(){
+	           return  activityRequestNotification;
 	    }
 	      
-	    public void setNotification( Set<Notification >  notification){
-	           this.notification = notification;
+	    public void setActivityRequestNotification( Set<ActivityRequestNotification >  activityRequestNotification){
+	           this.activityRequestNotification = activityRequestNotification;
 	    }
 	      
 	    public UserSettings  getUserSettings (){
@@ -243,6 +248,14 @@ public class User {
 	      
 	    public void setUserSettings(UserSettings   UserSettings){
 	           this.userSettings = userSettings;
+	    }
+	      
+	    public Set<FriendshipRequestNotification > getFriendshipRequestNotification(){
+	           return  friendshipRequestNotification;
+	    }
+	      
+	    public void setFriendshipRequestNotification( Set<FriendshipRequestNotification >  friendshipRequestNotification){
+	           this.friendshipRequestNotification = friendshipRequestNotification;
 	    }
 	      
 	

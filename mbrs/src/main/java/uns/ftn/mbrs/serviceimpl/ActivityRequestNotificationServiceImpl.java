@@ -46,4 +46,20 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 		return activityRequestNotificationRepository.findByActivityRequestId(id);
 	}
 	
+	public List<ActivityRequestNotification> findByUserId(Long id) {
+		return activityRequestNotificationRepository.findByUserId(id);
+	}
+	
+	public List<ActivityRequestNotification> findByDescription(String description) {
+		return activityRequestNotificationRepository.findByDescription(description);
+	}
+	
+	public List<ActivityRequestNotification> findByDate(date date) {
+		return activityRequestNotificationRepository.findByDate(date);
+	}
+	
+	public List<ActivityRequestNotification> findByType(NotificationType type) {
+		return activityRequestNotificationRepository.findByType(type);
+	}
+	
 }

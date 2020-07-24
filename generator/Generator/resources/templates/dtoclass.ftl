@@ -1,5 +1,6 @@
 package ${class.typePackage};
 
+import java.util.Date;
 
 import java.util.ArrayList; 
 <#list imports as i>
@@ -76,7 +77,7 @@ public class ${class.name}DTO{
 	           return <#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if>;
 	    }
 	      
-	    public void ArrayList<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if>(${property.type.name}DTO <#if property.name != "" > ${property.name} <#else> ${property.type.name}</#if>){
+	    public void set<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if>(${property.type.name}DTO <#if property.name != "" > ${property.name} <#else> ${property.type.name}</#if>){
 	           this.<#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if> = <#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if>;
 	    }
 	    

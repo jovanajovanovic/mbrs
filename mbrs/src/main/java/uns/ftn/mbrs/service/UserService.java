@@ -2,6 +2,9 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.User;
 
+import java.util.Date;
+import java.util.List;
+
 public interface UserService extends CrudService<User> {
 
 	List<User> findByUsername(String username);
@@ -10,7 +13,7 @@ public interface UserService extends CrudService<User> {
 
 	List<User> findBySurname(String surname);
 
-	List<User> findByDateOfBirth(date dateOfBirth);
+	List<User> findByDateOfBirth(Date dateOfBirth);
 
 	List<User> findByLocation(String location);
 

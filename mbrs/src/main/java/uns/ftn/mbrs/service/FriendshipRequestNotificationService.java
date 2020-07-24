@@ -6,4 +6,12 @@ public interface FriendshipRequestNotificationService extends CrudService<Friend
 
 	List<FriendshipRequestNotification> findByFriendshipRequestId(Long id);
 
+	List<FriendshipRequestNotification> findByUserId(Long id);
+
+	List<FriendshipRequestNotification> findByDescription(String description);
+
+	List<FriendshipRequestNotification> findByDate(date date);
+
+	List<FriendshipRequestNotification> findByType(NotificationType type);
+
 }

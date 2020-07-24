@@ -1,7 +1,7 @@
 package uns.ftn.mbrs.model;
 import java.util.Set;
 import java.util.HashSet;
-
+import java.util.Date;
 import javax.persistence.*;
 
 import uns.ftn.mbrs.model.Visibility;

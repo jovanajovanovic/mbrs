@@ -19,7 +19,7 @@ public class Comment {
 	     @Column
 	     private String  text ;
 	     @Column
-	     private date  date ;
+	     private  Date  date ;
 		 @ManyToOne(fetch=FetchType.LAZY)
 		 @JoinColumn(name="user_id", referencedColumnName="id")
 	     private User  user;
@@ -27,7 +27,7 @@ public class Comment {
 		public Comment(){}
 		
 		public Comment(Long id, 
-		String  text ,date  date ,User  user
+		String   text , Date   date ,User   user
 		){
 			this.id = id; 
 			this.text  =  text ;
@@ -35,7 +35,7 @@ public class Comment {
 			this.user =  user;
 		}
 		
-		public Comment(String  text  ,date  date  ,User  user ){
+		public Comment(String   text  , Date   date  ,User   user ){
 			this.text   = text  ;
 			this.date   = date  ;
 			this.user  = user ;
@@ -45,31 +45,31 @@ public class Comment {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public String getText  (){
+	    public String  getText  (){
 	           return text ;
 	    }
 	      
-	    public void setText (String  text ){
+	    public void setText (String   text ){
 	           this.text  = text ;
 	    }
 	      
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	      
-	    public User getUser (){
+	    public User  getUser (){
 	           return user;
 	    }
 	      
-	    public void setUser(User  User){
+	    public void setUser(User   User){
 	           this.user = user;
 	    }
 	      

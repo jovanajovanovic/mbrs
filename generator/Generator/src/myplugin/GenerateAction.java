@@ -133,7 +133,7 @@ class GenerateAction extends MDAction {
 
 	private void generateServiceImpl(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
 			throws AnalyzeException {
-		analyzer = new ModelAnalyzer(root,"uns.ftn.mbrs.service");
+		analyzer = new ModelAnalyzer(root,"uns.ftn.mbrs.serviceimpl");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ServiceImplGenerator");
 		ServiceImplGenerator serviceImplGenerator = new ServiceImplGenerator(generatorOptions);

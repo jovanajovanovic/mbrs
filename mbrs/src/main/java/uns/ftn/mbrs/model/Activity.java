@@ -20,14 +20,14 @@ public class Activity {
 	     @Column
 	     private double  distance ;
 	     @Column
-	     private date  date ;
+	     private  Date  date ;
 	     @Column
 	     private Integer  steps ;
 	
 		public Activity(){}
 		
 		public Activity(Long id, 
-		double  duration ,double  distance ,date  date ,Integer  steps 
+		double   duration ,double   distance , Date   date ,Integer   steps 
 		){
 			this.id = id; 
 			this.duration  =  duration ;
@@ -36,7 +36,7 @@ public class Activity {
 			this.steps  =  steps ;
 		}
 		
-		public Activity(double  duration  ,double  distance  ,date  date  ,Integer  steps  ){
+		public Activity(double   duration  ,double   distance  , Date   date  ,Integer   steps  ){
 			this.duration   = duration  ;
 			this.distance   = distance  ;
 			this.date   = date  ;
@@ -47,39 +47,39 @@ public class Activity {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public double getDuration  (){
+	    public double  getDuration  (){
 	           return duration ;
 	    }
 	      
-	    public void setDuration (double  duration ){
+	    public void setDuration (double   duration ){
 	           this.duration  = duration ;
 	    }
 	      
-	    public double getDistance  (){
+	    public double  getDistance  (){
 	           return distance ;
 	    }
 	      
-	    public void setDistance (double  distance ){
+	    public void setDistance (double   distance ){
 	           this.distance  = distance ;
 	    }
 	      
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	      
-	    public Integer getSteps  (){
+	    public Integer  getSteps  (){
 	           return steps ;
 	    }
 	      
-	    public void setSteps (Integer  steps ){
+	    public void setSteps (Integer   steps ){
 	           this.steps  = steps ;
 	    }
 	      

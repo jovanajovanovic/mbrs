@@ -78,7 +78,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDuration/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@1e5392ff value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@e910146 value) {
 
 		List<Activity> activityList = activityService.findByDuration(value);
 			
@@ -86,7 +86,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDistance/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@386d35ec value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@6b1ac94c value) {
 
 		List<Activity> activityList = activityService.findByDistance(value);
 			
@@ -94,7 +94,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDate(@PathVariable myplugin.generator.fmmodel.FMType@241b6abc value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDate(@PathVariable myplugin.generator.fmmodel.FMType@46b22b13 value) {
 
 		List<Activity> activityList = activityService.findByDate(value);
 			
@@ -102,7 +102,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterBySteps/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListBySteps(@PathVariable myplugin.generator.fmmodel.FMType@2da1bad value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListBySteps(@PathVariable myplugin.generator.fmmodel.FMType@3fd8ed20 value) {
 
 		List<Activity> activityList = activityService.findBySteps(value);
 			

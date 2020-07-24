@@ -5,8 +5,6 @@ import java.util.HashSet;
 import javax.persistence.*;
 
 import uns.ftn.mbrs.model.Visibility;
-import uns.ftn.mbrs.model.Visibility;
-import uns.ftn.mbrs.model.Visibility;
 
 
 
@@ -44,7 +42,7 @@ public class UserSettings {
 		public UserSettings(){}
 		
 		public UserSettings(Long id, 
-		Visibility  userInfoPrivacy ,Visibility  postPrivacy ,Visibility  goalPrivacy ,Boolean  newComments ,Boolean  newLikes ,Boolean  friendshipRequest ,Boolean  acceptedFriendship ,Boolean  activityRequest ,Boolean  acceptedActivity ,Boolean  canceledActivity ,Boolean  nightTheme 
+		Visibility   userInfoPrivacy ,Visibility   postPrivacy ,Visibility   goalPrivacy ,Boolean   newComments ,Boolean   newLikes ,Boolean   friendshipRequest ,Boolean   acceptedFriendship ,Boolean   activityRequest ,Boolean   acceptedActivity ,Boolean   canceledActivity ,Boolean   nightTheme 
 		){
 			this.id = id; 
 			this.userInfoPrivacy  =  userInfoPrivacy ;
@@ -60,7 +58,7 @@ public class UserSettings {
 			this.nightTheme  =  nightTheme ;
 		}
 		
-		public UserSettings(Visibility  userInfoPrivacy  ,Visibility  postPrivacy  ,Visibility  goalPrivacy  ,Boolean  newComments  ,Boolean  newLikes  ,Boolean  friendshipRequest  ,Boolean  acceptedFriendship  ,Boolean  activityRequest  ,Boolean  acceptedActivity  ,Boolean  canceledActivity  ,Boolean  nightTheme  ){
+		public UserSettings(Visibility   userInfoPrivacy  ,Visibility   postPrivacy  ,Visibility   goalPrivacy  ,Boolean   newComments  ,Boolean   newLikes  ,Boolean   friendshipRequest  ,Boolean   acceptedFriendship  ,Boolean   activityRequest  ,Boolean   acceptedActivity  ,Boolean   canceledActivity  ,Boolean   nightTheme  ){
 			this.userInfoPrivacy   = userInfoPrivacy  ;
 			this.postPrivacy   = postPrivacy  ;
 			this.goalPrivacy   = goalPrivacy  ;
@@ -78,95 +76,95 @@ public class UserSettings {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public Visibility getUserInfoPrivacy  (){
+	    public Visibility  getUserInfoPrivacy  (){
 	           return userInfoPrivacy ;
 	    }
 	      
-	    public void setUserInfoPrivacy (Visibility  userInfoPrivacy ){
+	    public void setUserInfoPrivacy (Visibility   userInfoPrivacy ){
 	           this.userInfoPrivacy  = userInfoPrivacy ;
 	    }
 	      
-	    public Visibility getPostPrivacy  (){
+	    public Visibility  getPostPrivacy  (){
 	           return postPrivacy ;
 	    }
 	      
-	    public void setPostPrivacy (Visibility  postPrivacy ){
+	    public void setPostPrivacy (Visibility   postPrivacy ){
 	           this.postPrivacy  = postPrivacy ;
 	    }
 	      
-	    public Visibility getGoalPrivacy  (){
+	    public Visibility  getGoalPrivacy  (){
 	           return goalPrivacy ;
 	    }
 	      
-	    public void setGoalPrivacy (Visibility  goalPrivacy ){
+	    public void setGoalPrivacy (Visibility   goalPrivacy ){
 	           this.goalPrivacy  = goalPrivacy ;
 	    }
 	      
-	    public Boolean getNewComments  (){
+	    public Boolean  getNewComments  (){
 	           return newComments ;
 	    }
 	      
-	    public void setNewComments (Boolean  newComments ){
+	    public void setNewComments (Boolean   newComments ){
 	           this.newComments  = newComments ;
 	    }
 	      
-	    public Boolean getNewLikes  (){
+	    public Boolean  getNewLikes  (){
 	           return newLikes ;
 	    }
 	      
-	    public void setNewLikes (Boolean  newLikes ){
+	    public void setNewLikes (Boolean   newLikes ){
 	           this.newLikes  = newLikes ;
 	    }
 	      
-	    public Boolean getFriendshipRequest  (){
+	    public Boolean  getFriendshipRequest  (){
 	           return friendshipRequest ;
 	    }
 	      
-	    public void setFriendshipRequest (Boolean  friendshipRequest ){
+	    public void setFriendshipRequest (Boolean   friendshipRequest ){
 	           this.friendshipRequest  = friendshipRequest ;
 	    }
 	      
-	    public Boolean getAcceptedFriendship  (){
+	    public Boolean  getAcceptedFriendship  (){
 	           return acceptedFriendship ;
 	    }
 	      
-	    public void setAcceptedFriendship (Boolean  acceptedFriendship ){
+	    public void setAcceptedFriendship (Boolean   acceptedFriendship ){
 	           this.acceptedFriendship  = acceptedFriendship ;
 	    }
 	      
-	    public Boolean getActivityRequest  (){
+	    public Boolean  getActivityRequest  (){
 	           return activityRequest ;
 	    }
 	      
-	    public void setActivityRequest (Boolean  activityRequest ){
+	    public void setActivityRequest (Boolean   activityRequest ){
 	           this.activityRequest  = activityRequest ;
 	    }
 	      
-	    public Boolean getAcceptedActivity  (){
+	    public Boolean  getAcceptedActivity  (){
 	           return acceptedActivity ;
 	    }
 	      
-	    public void setAcceptedActivity (Boolean  acceptedActivity ){
+	    public void setAcceptedActivity (Boolean   acceptedActivity ){
 	           this.acceptedActivity  = acceptedActivity ;
 	    }
 	      
-	    public Boolean getCanceledActivity  (){
+	    public Boolean  getCanceledActivity  (){
 	           return canceledActivity ;
 	    }
 	      
-	    public void setCanceledActivity (Boolean  canceledActivity ){
+	    public void setCanceledActivity (Boolean   canceledActivity ){
 	           this.canceledActivity  = canceledActivity ;
 	    }
 	      
-	    public Boolean getNightTheme  (){
+	    public Boolean  getNightTheme  (){
 	           return nightTheme ;
 	    }
 	      
-	    public void setNightTheme (Boolean  nightTheme ){
+	    public void setNightTheme (Boolean   nightTheme ){
 	           this.nightTheme  = nightTheme ;
 	    }
 	      

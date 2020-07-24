@@ -77,10 +77,10 @@ public class ActivityRequestNotificationController {
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@4897738dId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestNotificationDTO>> getActivityRequestNotificationListBymyplugin.generator.fmmodel.FMType@4897738dId(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@179c5792Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<ActivityRequestNotificationDTO>> getActivityRequestNotificationListBymyplugin.generator.fmmodel.FMType@179c5792Id(@PathVariable Long id) {
 
-		List<ActivityRequestNotification> activityRequestNotificationList = activityRequestNotificationService.findBymyplugin.generator.fmmodel.FMType@4897738dId(id);
+		List<ActivityRequestNotification> activityRequestNotificationList = activityRequestNotificationService.findBymyplugin.generator.fmmodel.FMType@179c5792Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(activityRequestNotificationList), HttpStatus.OK);
 	}

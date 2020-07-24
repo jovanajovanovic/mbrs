@@ -12,13 +12,11 @@ public class FriendshipRequestNotificationDTO{
 	
 	
 	public FriendshipRequestNotificationDTO(){}
-	public FriendshipRequestNotificationDTO(Long id, 
-			this.id = id;
-	 	FriendshipRequestDTO  friendshipRequest ){
+	public FriendshipRequestNotificationDTO(Long id, FriendshipRequestDTO  friendshipRequest){
+		this.id = id;
 			this.friendshipRequest  = friendshipRequest ;
 		}
-	public FriendshipRequestNotificationDTO(
-	 	FriendshipRequestDTO  friendshipRequest ){
+	public FriendshipRequestNotificationDTO(FriendshipRequestDTO  friendshipRequest ){
 			this.friendshipRequest  = friendshipRequest ;
 		}
 	
@@ -27,7 +25,7 @@ public class FriendshipRequestNotificationDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	

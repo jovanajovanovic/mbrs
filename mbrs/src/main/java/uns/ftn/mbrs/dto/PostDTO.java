@@ -10,9 +10,9 @@ import uns.ftn.mbrs.dto.ActivityDTO;
 
 public class PostDTO{
 	private Long id;
-	  	 private String description;
+	  	 private String  description;
 		
-	  	 private Visibility visibility;
+	  	 private Visibility  visibility;
 		
 	     private ArrayList<LikeReactionDTO>  likeReaction = new ArrayList<LikeReaction>();
 		
@@ -26,15 +26,8 @@ public class PostDTO{
 	
 	
 	public PostDTO(){}
-	public PostDTO(Long id, 
-			this.id = id;
- String description   ,
-			this.id = id;
- Visibility visibility   , ArrayList<LikeReactionDTO>  likeReaction , ArrayList<CommentDTO>  comment ,
-			this.id = id;
-	 	UserDTO  user ,
-			this.id = id;
-	 	ActivityDTO  activity ){
+	public PostDTO(Long id, String description,Visibility visibility,ArrayList<LikeReactionDTO> likeReaction ,ArrayList<CommentDTO> comment ,UserDTO  user,ActivityDTO  activity){
+		this.id = id;
 			this.description   = description  ;
 			this.visibility   = visibility  ;
 			this.likeReaction  =  likeReaction ;
@@ -42,11 +35,7 @@ public class PostDTO{
 			this.user  = user ;
 			this.activity  = activity ;
 		}
-	public PostDTO(
- String description   ,
- Visibility visibility   , ArrayList<LikeReactionDTO>  likeReaction , ArrayList<CommentDTO>  comment ,
-	 	UserDTO  user ,
-	 	ActivityDTO  activity ){
+	public PostDTO( String  description   , Visibility  visibility   , ArrayList<LikeReactionDTO>  likeReaction , ArrayList<CommentDTO>  comment ,UserDTO  user ,ActivityDTO  activity ){
 			this.description   = description  ;
 			this.visibility   = visibility  ;
 			this.likeReaction  =  likeReaction ;
@@ -60,25 +49,25 @@ public class PostDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	
-	    public String getDescription  (){
+	    public String  getDescription  (){
 	           return description ;
 	    }
 	      
-	    public void setDescription (String  description ){
+	    public void setDescription (String   description ){
 	           this.description  = description ;
 	    }
 	    	
 	      
 	     
-	    public Visibility getVisibility  (){
+	    public Visibility  getVisibility  (){
 	           return visibility ;
 	    }
 	      
-	    public void setVisibility (Visibility  visibility ){
+	    public void setVisibility (Visibility   visibility ){
 	           this.visibility  = visibility ;
 	    }
 	    	

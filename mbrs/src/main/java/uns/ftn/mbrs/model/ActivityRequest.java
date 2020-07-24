@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 import uns.ftn.mbrs.model.ActivityRequestStatus;
 import uns.ftn.mbrs.model.User;
-import uns.ftn.mbrs.model.User;
 
 
 
@@ -19,7 +18,7 @@ public class ActivityRequest {
 		
 		
 	     @Column
-	     private date  date ;
+	     private  Date  date ;
 	     @Column
 	     private String  location ;
 	     @Column
@@ -34,7 +33,7 @@ public class ActivityRequest {
 		public ActivityRequest(){}
 		
 		public ActivityRequest(Long id, 
-		date  date ,String  location ,ActivityRequestStatus  status ,User  activityRequestor ,User  activityRequestee 
+		 Date   date ,String   location ,ActivityRequestStatus   status ,User   activityRequestor ,User   activityRequestee 
 		){
 			this.id = id; 
 			this.date  =  date ;
@@ -44,7 +43,7 @@ public class ActivityRequest {
 			this.activityRequestee  =  activityRequestee ;
 		}
 		
-		public ActivityRequest(date  date  ,String  location  ,ActivityRequestStatus  status  ,User  activityRequestor  ,User  activityRequestee  ){
+		public ActivityRequest( Date   date  ,String   location  ,ActivityRequestStatus   status  ,User   activityRequestor  ,User   activityRequestee  ){
 			this.date   = date  ;
 			this.location   = location  ;
 			this.status   = status  ;
@@ -56,47 +55,47 @@ public class ActivityRequest {
 		return id;
 	}
 	
-	public setId(Long id){
-		this.id = id;
-	}
+		public void setId(Long id){
+			this.id = id;
+		}
 	
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	      
-	    public String getLocation  (){
+	    public String  getLocation  (){
 	           return location ;
 	    }
 	      
-	    public void setLocation (String  location ){
+	    public void setLocation (String   location ){
 	           this.location  = location ;
 	    }
 	      
-	    public ActivityRequestStatus getStatus  (){
+	    public ActivityRequestStatus  getStatus  (){
 	           return status ;
 	    }
 	      
-	    public void setStatus (ActivityRequestStatus  status ){
+	    public void setStatus (ActivityRequestStatus   status ){
 	           this.status  = status ;
 	    }
 	      
-	    public User getActivityRequestor  (){
+	    public User  getActivityRequestor  (){
 	           return activityRequestor ;
 	    }
 	      
-	    public void setActivityRequestor (User  activityRequestor ){
+	    public void setActivityRequestor (User   activityRequestor ){
 	           this.activityRequestor  = activityRequestor ;
 	    }
 	      
-	    public User getActivityRequestee  (){
+	    public User  getActivityRequestee  (){
 	           return activityRequestee ;
 	    }
 	      
-	    public void setActivityRequestee (User  activityRequestee ){
+	    public void setActivityRequestee (User   activityRequestee ){
 	           this.activityRequestee  = activityRequestee ;
 	    }
 	      

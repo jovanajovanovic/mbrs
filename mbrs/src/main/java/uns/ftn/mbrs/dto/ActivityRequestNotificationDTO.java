@@ -12,13 +12,11 @@ public class ActivityRequestNotificationDTO{
 	
 	
 	public ActivityRequestNotificationDTO(){}
-	public ActivityRequestNotificationDTO(Long id, 
-			this.id = id;
-	 	ActivityRequestDTO  activityRequest ){
+	public ActivityRequestNotificationDTO(Long id, ActivityRequestDTO  activityRequest){
+		this.id = id;
 			this.activityRequest  = activityRequest ;
 		}
-	public ActivityRequestNotificationDTO(
-	 	ActivityRequestDTO  activityRequest ){
+	public ActivityRequestNotificationDTO(ActivityRequestDTO  activityRequest ){
 			this.activityRequest  = activityRequest ;
 		}
 	
@@ -27,7 +25,7 @@ public class ActivityRequestNotificationDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	

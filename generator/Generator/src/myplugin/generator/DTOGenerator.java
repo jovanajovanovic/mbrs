@@ -29,33 +29,30 @@ public class DTOGenerator extends BasicGenerator {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
-		
+
 		List<FMClass> classes = FMModel.getInstance().getClasses();
-		
-		
-		
-		
+
 		for (int i = 0; i < classes.size(); i++) {
 			FMClass cl = classes.get(i);
 			Writer out;
 
-			
-			
 			Map<String, Object> context = new HashMap<String, Object>();
 			context.clear();
 			ArrayList<String> imports = new ArrayList<>();
-			//uzmem sve importe koji su vezani za atribute
-			//paket.naziv_klase
+			// uzmem sve importe koji su vezani za atribute
+			// paket.naziv_klase
 			String import_str = "";
-			for(FMProperty p : cl.getProperties()){
-				if(p.getType().getTypePackage().equals("Data")){
-					if(p.getAssociation()){
-						import_str = cl.getTypePackage() + "." + p.getType().getName() + "DTO" ;
-					}else {
-						import_str =  "uns.ftn.mbrs.model." + p.getType().getName();
+			for (FMProperty p : cl.getProperties()) {
+				if (p.getType().getTypePackage().equals("Data")) {
+					if (p.getAssociation()) {
+						import_str = cl.getTypePackage() + "." + p.getType().getName() + "DTO";
+					} else {
+						import_str = "uns.ftn.mbrs.model." + p.getType().getName();
 					}
+				} else if (p.getType().getTypePackage().equals("date")) {
+					import_str = "java.util.Date";
 				}
-				if(!imports.contains(import_str) && import_str != ""){
+				if (!imports.contains(import_str) && import_str != "") {
 					imports.add(import_str);
 				}
 				context.put("imports", imports);
@@ -69,7 +66,7 @@ public class DTOGenerator extends BasicGenerator {
 					getTemplate().process(context, out);
 					out.flush();
 				}
-				
+
 			} catch (TemplateException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			} catch (IOException e) {

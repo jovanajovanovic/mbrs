@@ -6,9 +6,9 @@ import uns.ftn.mbrs.dto.UserDTO;
 
 public class CommentDTO{
 	private Long id;
-	  	 private String text;
+	  	 private String  text;
 		
-	  	 private date date;
+	  	 private  Date  date;
 		
 	     private UserDTO  user;
 		
@@ -16,21 +16,13 @@ public class CommentDTO{
 	
 	
 	public CommentDTO(){}
-	public CommentDTO(Long id, 
-			this.id = id;
- String text   ,
-			this.id = id;
- date date   ,
-			this.id = id;
-	 	UserDTO  user ){
+	public CommentDTO(Long id, String text, Date date,UserDTO  user){
+		this.id = id;
 			this.text   = text  ;
 			this.date   = date  ;
 			this.user  = user ;
 		}
-	public CommentDTO(
- String text   ,
- date date   ,
-	 	UserDTO  user ){
+	public CommentDTO( String  text   ,  Date  date   ,UserDTO  user ){
 			this.text   = text  ;
 			this.date   = date  ;
 			this.user  = user ;
@@ -41,25 +33,25 @@ public class CommentDTO{
 		return id;
 	}
 	
-	public setId(Long id){
+	public void setId(Long id){
 		this.id = id;
 	}
 	
-	    public String getText  (){
+	    public String  getText  (){
 	           return text ;
 	    }
 	      
-	    public void setText (String  text ){
+	    public void setText (String   text ){
 	           this.text  = text ;
 	    }
 	    	
 	      
 	     
-	    public date getDate  (){
+	    public  Date  getDate  (){
 	           return date ;
 	    }
 	      
-	    public void setDate (date  date ){
+	    public void setDate ( Date   date ){
 	           this.date  = date ;
 	    }
 	    	

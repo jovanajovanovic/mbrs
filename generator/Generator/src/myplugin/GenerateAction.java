@@ -27,8 +27,10 @@ import myplugin.generator.ModelLayerGenerator;
 import myplugin.generator.ModuleGenerator;
 import myplugin.generator.RepositoryGenerator;
 import myplugin.generator.RoutingGenerator;
+import myplugin.generator.ServiceFrontGenerator;
 import myplugin.generator.ServiceGenerator;
 import myplugin.generator.ServiceImplGenerator;
+import myplugin.generator.TypescriptGenerator;
 import myplugin.generator.fmmodel.FMModel;
 import myplugin.generator.options.GeneratorOptions;
 import myplugin.generator.options.ProjectOptions;
@@ -67,6 +69,8 @@ class GenerateAction extends MDAction {
 			generateAdd(analyzer, root, generatorOptions);
 			generateModule(analyzer, root, generatorOptions);
 			generateRouting(analyzer, root, generatorOptions);
+			generateServiceFront(analyzer, root, generatorOptions);
+			generateAddTs(analyzer, root, generatorOptions);
 
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
@@ -151,17 +155,7 @@ class GenerateAction extends MDAction {
 
 	// ************************ ANGULAR GENERATOR **************************
 
-	private void generateAdd(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
-			throws AnalyzeException {
-		analyzer = new ModelAnalyzer(root, "add");
-		analyzer.prepareModel();
-		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("AngularAddEntityGenerator");
-		AngularAddEntityGenerator angularAddEditEntityGenerator = new AngularAddEntityGenerator(generatorOptions);
-		angularAddEditEntityGenerator.generate();
-		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
-				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
-		exportToXml();
-	}
+
 	
 	private void generateModule(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
 			throws AnalyzeException, IOException {
@@ -182,6 +176,42 @@ class GenerateAction extends MDAction {
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("RoutingGenerator");
 		RoutingGenerator routingGenerator = new RoutingGenerator(generatorOptions);
 		routingGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateServiceFront(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
+			throws AnalyzeException, IOException {
+		analyzer = new ModelAnalyzer(root, "");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ServiceFrontGenerator");
+		ServiceFrontGenerator serviceFrontGenerator = new ServiceFrontGenerator(generatorOptions);
+		serviceFrontGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateAdd(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
+			throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("AngularAddEntityGenerator");
+		AngularAddEntityGenerator angularAddEditEntityGenerator = new AngularAddEntityGenerator(generatorOptions);
+		angularAddEditEntityGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateAddTs(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
+			throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("TypescriptGenerator");
+		TypescriptGenerator typescriptGenerator = new TypescriptGenerator(generatorOptions);
+		typescriptGenerator.generate();
 		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
 				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
 		exportToXml();

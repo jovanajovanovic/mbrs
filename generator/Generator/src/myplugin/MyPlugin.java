@@ -46,6 +46,8 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		angularAddOptions();
 		angularModule();
 		angularRoute();
+		angularService();
+		angularAddOptionsTs();
 	}
 	
 	private void enumerationOptions() {
@@ -88,21 +90,33 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 	
 	//********* ANGULAR **************
 	
-	private void angularAddOptions() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "addEntity", "templates", "{0}Add.html", true, "add"); 				
-		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularAddEntityGenerator", generatorOptions);
-		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
-	}
-	
 	private void angularModule() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "module", "templates", "{0}.ts", true, ""); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app", "module", "templates", "{0}.ts", true, ""); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModuleGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void angularRoute() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp/angular/src/app", "routing", "templates", "{0}.ts", true, ""); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app", "routing", "templates", "{0}.ts", true, ""); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("RoutingGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	private void angularService() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app\\service", "service", "templates", "{0}.ts", true, ""); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ServiceFrontGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	private void angularAddOptions() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app", "addEntity", "templates", "{0}.html", true, ""); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularAddEntityGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	private void angularAddOptionsTs() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app", "typescript", "templates", "{0}.ts", true, ""); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("TypescriptGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 

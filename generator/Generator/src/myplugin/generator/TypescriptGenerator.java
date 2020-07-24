@@ -13,9 +13,9 @@ import myplugin.generator.fmmodel.FMClass;
 import myplugin.generator.fmmodel.FMModel;
 import myplugin.generator.options.GeneratorOptions;
 
-public class AngularAddEntityGenerator extends BasicGenerator {
+public class TypescriptGenerator extends BasicGenerator {
 
-	public AngularAddEntityGenerator(GeneratorOptions generatorOptions) {
+	public TypescriptGenerator(GeneratorOptions generatorOptions) {
 		super(generatorOptions);
 	}
 	
@@ -33,7 +33,7 @@ public class AngularAddEntityGenerator extends BasicGenerator {
 			Writer out;
 			Map<String, Object> context = new HashMap<String, Object>();
 			try {
-				out = getWriter("Add" + cl.getName()+".component", cl.getName());
+				out = getWriter("Add"+cl.getName()+".component", cl.getName());
 				if (out != null) {
 					context.clear();
 					context.put("class", cl);
@@ -48,5 +48,5 @@ public class AngularAddEntityGenerator extends BasicGenerator {
 			}
 		}
 	}
-
+	
 }

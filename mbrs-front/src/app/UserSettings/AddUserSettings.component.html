@@ -1,0 +1,69 @@
+ 
+    <div class="container" style="color:green"> 
+     	<h1 style="margin-bottom: 30px">UserSettings</h1> 
+    </div> 
+    
+	<div class="container">
+	    <form action="" [formGroup]="UserSettings" (ngSubmit)="onSubmit($event)">
+		        <div class="form-group"> 
+		            <label for="userInfoPrivacy">userInfoPrivacy</label> 
+		            <select class="form-control" formControlName="userInfoPrivacy" id="userInfoPrivacy">
+					  <option value="1">PUBLIC</option>
+					  <option value="2">FRIENDS</option>
+					  <option value="3">PRIVATE</option>
+					</select>
+		        </div>
+		        <div class="form-group"> 
+		            <label for="postPrivacy">postPrivacy</label> 
+		            <select class="form-control" formControlName="postPrivacy" id="postPrivacy">
+					  <option value="1">PUBLIC</option>
+					  <option value="2">FRIENDS</option>
+					  <option value="3">PRIVATE</option>
+					</select>
+		        </div>
+		        <div class="form-group"> 
+		            <label for="goalPrivacy">goalPrivacy</label> 
+		            <select class="form-control" formControlName="goalPrivacy" id="goalPrivacy">
+					  <option value="1">PUBLIC</option>
+					  <option value="2">FRIENDS</option>
+					  <option value="3">PRIVATE</option>
+					</select>
+		        </div>
+		        <div class="form-group"> 
+		            <label for="newComments">newComments</label> 
+		            <input class="form-control" formControlName="newComments" type="checkbox" id="newComments"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="newLikes">newLikes</label> 
+		            <input class="form-control" formControlName="newLikes" type="checkbox" id="newLikes"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="friendshipRequest">friendshipRequest</label> 
+		            <input class="form-control" formControlName="friendshipRequest" type="checkbox" id="friendshipRequest"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="acceptedFriendship">acceptedFriendship</label> 
+		            <input class="form-control" formControlName="acceptedFriendship" type="checkbox" id="acceptedFriendship"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="activityRequest">activityRequest</label> 
+		            <input class="form-control" formControlName="activityRequest" type="checkbox" id="activityRequest"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="acceptedActivity">acceptedActivity</label> 
+		            <input class="form-control" formControlName="acceptedActivity" type="checkbox" id="acceptedActivity"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="canceledActivity">canceledActivity</label> 
+		            <input class="form-control" formControlName="canceledActivity" type="checkbox" id="canceledActivity"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="nightTheme">nightTheme</label> 
+		            <input class="form-control" formControlName="nightTheme" type="checkbox" id="nightTheme"> 
+		        </div>
+		          
+	        <div class="container"> 
+	            <button type="submit" class="btn btn-success" style="margin-left: -13px;margin-top: 20px">Add</button>  
+	        </div> 
+	    </form> 
+	</div> 

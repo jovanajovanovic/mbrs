@@ -1,0 +1,49 @@
+ 
+    <div class="container" style="color:green"> 
+     	<h1 style="margin-bottom: 30px">User</h1> 
+    </div> 
+    
+	<div class="container">
+	    <form action="" [formGroup]="User" (ngSubmit)="onSubmit($event)">
+		        <div class="form-group"> 
+		            <label for="username">username</label> 
+		            <input class="form-control" formControlName="username" type="text" id="username"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="password">password</label> 
+		            <input class="form-control" formControlName="password" type="text" id="password"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="name">name</label> 
+		            <input class="form-control" formControlName="name" type="text" id="name"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="surname">surname</label> 
+		            <input class="form-control" formControlName="surname" type="text" id="surname"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="dateOfBirth">dateOfBirth</label> 
+		            <input class="form-control" formControlName="dateOfBirth" type="date" id="dateOfBirth"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="location">location</label> 
+		            <input class="form-control" formControlName="location" type="text" id="location"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="biography">biography</label> 
+		            <input class="form-control" formControlName="biography" type="text" id="biography"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="height">height</label> 
+		            <input class="form-control" formControlName="height" type="number" id="height"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="weight">weight</label> 
+		            <input class="form-control" formControlName="weight" type="number" id="weight"> 
+		        </div>
+		          
+	        <div class="container"> 
+	            <button type="submit" class="btn btn-success" style="margin-left: -13px;margin-top: 20px">Add</button>  
+	        </div> 
+	    </form> 
+	</div> 

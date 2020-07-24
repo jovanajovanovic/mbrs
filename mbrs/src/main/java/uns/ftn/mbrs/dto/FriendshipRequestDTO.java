@@ -1,5 +1,6 @@
 package uns.ftn.mbrs.dto;
 
+import java.util.Date;
 
 import java.util.ArrayList; 
 import uns.ftn.mbrs.model.FriendshipRequestStatus;
@@ -52,7 +53,7 @@ public class FriendshipRequestDTO{
 	           return friendshipRequestor ;
 	    }
 	      
-	    public void ArrayListFriendshipRequestor (UserDTO  friendshipRequestor ){
+	    public void setFriendshipRequestor (UserDTO  friendshipRequestor ){
 	           this.friendshipRequestor  = friendshipRequestor ;
 	    }
 	    
@@ -62,7 +63,7 @@ public class FriendshipRequestDTO{
 	           return friendshipRequestee ;
 	    }
 	      
-	    public void ArrayListFriendshipRequestee (UserDTO  friendshipRequestee ){
+	    public void setFriendshipRequestee (UserDTO  friendshipRequestee ){
 	           this.friendshipRequestee  = friendshipRequestee ;
 	    }
 	    

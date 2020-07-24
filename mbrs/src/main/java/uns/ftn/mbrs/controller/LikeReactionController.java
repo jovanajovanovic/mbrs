@@ -4,8 +4,8 @@ import java.util.List;
 
 import uns.ftn.mbrs.model.LikeReaction;
 import uns.ftn.mbrs.service.LikeReactionService;
-import uns.ftn.mbrs.support.LikeReactionDTOToLikeReaction;
-import uns.ftn.mbrs.support.LikeReactionToLikeReactionDTO;
+import uns.ftn.mbrs.converter.LikeReactionDTOToLikeReaction;
+import uns.ftn.mbrs.converter.LikeReactionToLikeReactionDTO;
 import uns.ftn.mbrs.dto.LikeReactionDTO;
 
 import javax.validation.Valid;
@@ -77,10 +77,10 @@ public class LikeReactionController {
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@722e18efId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<LikeReactionDTO>> getLikeReactionListBymyplugin.generator.fmmodel.FMType@722e18efId(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@503bdfb2Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<LikeReactionDTO>> getLikeReactionListBymyplugin.generator.fmmodel.FMType@503bdfb2Id(@PathVariable Long id) {
 
-		List<LikeReaction> likeReactionList = likeReactionService.findBymyplugin.generator.fmmodel.FMType@722e18efId(id);
+		List<LikeReaction> likeReactionList = likeReactionService.findBymyplugin.generator.fmmodel.FMType@503bdfb2Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(likeReactionList), HttpStatus.OK);
 	}

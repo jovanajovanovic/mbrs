@@ -4,8 +4,8 @@ import java.util.List;
 
 import uns.ftn.mbrs.model.Post;
 import uns.ftn.mbrs.service.PostService;
-import uns.ftn.mbrs.support.PostDTOToPost;
-import uns.ftn.mbrs.support.PostToPostDTO;
+import uns.ftn.mbrs.converter.PostDTOToPost;
+import uns.ftn.mbrs.converter.PostToPostDTO;
 import uns.ftn.mbrs.dto.PostDTO;
 
 import javax.validation.Valid;
@@ -78,7 +78,7 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListByDescription(@PathVariable myplugin.generator.fmmodel.FMType@394540ac value) {
+	ResponseEntity<List<PostDTO>> getPostListByDescription(@PathVariable myplugin.generator.fmmodel.FMType@7eada228 value) {
 
 		List<Post> postList = postService.findByDescription(value);
 			
@@ -86,25 +86,25 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/filterByVisibility/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListByVisibility(@PathVariable myplugin.generator.fmmodel.FMType@4a8be61 value) {
+	ResponseEntity<List<PostDTO>> getPostListByVisibility(@PathVariable myplugin.generator.fmmodel.FMType@7ebdf158 value) {
 
 		List<Post> postList = postService.findByVisibility(value);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@5315f754Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@5315f754Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@50e75bbdId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@50e75bbdId(@PathVariable Long id) {
 
-		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@5315f754Id(id);
+		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@50e75bbdId(id);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@2b5cb1fbId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@2b5cb1fbId(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@7c066161Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@7c066161Id(@PathVariable Long id) {
 
-		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@2b5cb1fbId(id);
+		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@7c066161Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}

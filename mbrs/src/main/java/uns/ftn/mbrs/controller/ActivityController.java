@@ -4,8 +4,8 @@ import java.util.List;
 
 import uns.ftn.mbrs.model.Activity;
 import uns.ftn.mbrs.service.ActivityService;
-import uns.ftn.mbrs.support.ActivityDTOToActivity;
-import uns.ftn.mbrs.support.ActivityToActivityDTO;
+import uns.ftn.mbrs.converter.ActivityDTOToActivity;
+import uns.ftn.mbrs.converter.ActivityToActivityDTO;
 import uns.ftn.mbrs.dto.ActivityDTO;
 
 import javax.validation.Valid;
@@ -78,7 +78,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDuration/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@e910146 value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@46728da4 value) {
 
 		List<Activity> activityList = activityService.findByDuration(value);
 			
@@ -86,7 +86,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDistance/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@6b1ac94c value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@1cb38469 value) {
 
 		List<Activity> activityList = activityService.findByDistance(value);
 			
@@ -94,7 +94,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDate(@PathVariable myplugin.generator.fmmodel.FMType@46b22b13 value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDate(@PathVariable myplugin.generator.fmmodel.FMType@74bb59f3 value) {
 
 		List<Activity> activityList = activityService.findByDate(value);
 			
@@ -102,7 +102,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterBySteps/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListBySteps(@PathVariable myplugin.generator.fmmodel.FMType@3fd8ed20 value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListBySteps(@PathVariable myplugin.generator.fmmodel.FMType@2c6005ad value) {
 
 		List<Activity> activityList = activityService.findBySteps(value);
 			

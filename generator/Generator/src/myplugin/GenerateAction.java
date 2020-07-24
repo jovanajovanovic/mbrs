@@ -20,6 +20,8 @@ import myplugin.analyzer.AnalyzeException;
 import myplugin.analyzer.ModelAnalyzer;
 import myplugin.generator.AngularAddEntityGenerator;
 import myplugin.generator.ControllerGenerator;
+import myplugin.generator.ConverterToDtoGenerator;
+import myplugin.generator.ConvertertDtoToGenerator;
 import myplugin.generator.DTOGenerator;
 import myplugin.generator.EJBGenerator;
 import myplugin.generator.EnumGenerator;
@@ -63,11 +65,39 @@ class GenerateAction extends MDAction {
 			generateService(analyzer, root, generatorOptions);
 			generateServiceImpl(analyzer, root, generatorOptions);
 			generateRepository(analyzer, root, generatorOptions);
+			generateDtoToConverter(analyzer, root, generatorOptions);
+			generateToDtoConverter(analyzer, root, generatorOptions);
 			generateAdd(analyzer, root, generatorOptions);
+			
 
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
+	}
+
+	private void generateToDtoConverter(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		// TODO Auto-generated method stub
+		analyzer = new ModelAnalyzer(root, "uns.ftn.mbrs.converter");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ConverterToDtoGenerator");
+		ConverterToDtoGenerator converterGenerator = new ConverterToDtoGenerator(generatorOptions);
+		converterGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+
+	private void generateDtoToConverter(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		// TODO Auto-generated method stub
+		analyzer = new ModelAnalyzer(root, "uns.ftn.mbrs.converter");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ConverterDtoToGenerator");
+		ConvertertDtoToGenerator converterGenerator = new ConvertertDtoToGenerator(generatorOptions);
+		converterGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+
 	}
 
 	private void generateDtoModel(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {

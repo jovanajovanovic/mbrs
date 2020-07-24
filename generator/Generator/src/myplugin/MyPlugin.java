@@ -42,11 +42,27 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		dtoModelOptions();
 		controllerOptions();
 		serviceOptions();
+		converterToDtoOptions();
+		converterDtoToOptions();
 		serviceImplOptions();
 		repositoryOptions();
 		angularAddOptions();
 	}
 	
+	private void converterDtoToOptions() {
+		// TODO Auto-generated method stub
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/Users/DELL/Desktop/mbrs/mbrs/src/main/java", "converterDtoToclass", "templates", "{0}.java", true, "uns.ftn.mbrs.converter"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ConverterDtoToGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+
+	private void converterToDtoOptions() {
+		// TODO Auto-generated method stub
+		GeneratorOptions generatorOptions = new GeneratorOptions("c:/Users/DELL/Desktop/mbrs/mbrs/src/main/java", "converterclass", "templates", "{0}.java", true, "uns.ftn.mbrs.converter"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ConverterToDtoGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+
 	private void dtoModelOptions() {
 		// TODO Auto-generated method stub
 		GeneratorOptions generatorOptions = new GeneratorOptions("c:/Users/DELL/Desktop/mbrs/mbrs/src/main/java", "dtoclass", "templates", "{0}DTO.java", true, "uns.ftn.mbrs.dto"); 				

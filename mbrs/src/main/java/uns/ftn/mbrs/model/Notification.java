@@ -1,11 +1,10 @@
 package uns.ftn.mbrs.model;
 import java.util.Set;
 import java.util.HashSet;
-
+import java.util.Date;
 import javax.persistence.*;
 
 import uns.ftn.mbrs.model.NotificationType;
-import uns.ftn.mbrs.model.User;
 
 
 
@@ -23,27 +22,22 @@ public class Notification {
 	     private  Date  date ;
 	     @Column
 	     private NotificationType  type ;
-		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
-	     private User  user;
 	
 		public Notification(){}
 		
 		public Notification(Long id, 
-		String   description , Date   date ,NotificationType   type ,User   user
+		String   description , Date   date ,NotificationType   type 
 		){
 			this.id = id; 
 			this.description  =  description ;
 			this.date  =  date ;
 			this.type  =  type ;
-			this.user =  user;
 		}
 		
-		public Notification(String   description  , Date   date  ,NotificationType   type  ,User   user ){
+		public Notification(String   description  , Date   date  ,NotificationType   type  ){
 			this.description   = description  ;
 			this.date   = date  ;
 			this.type   = type  ;
-			this.user  = user ;
 		}
 		
 		public Long getId(){
@@ -76,14 +70,6 @@ public class Notification {
 	      
 	    public void setType (NotificationType   type ){
 	           this.type  = type ;
-	    }
-	      
-	    public User  getUser (){
-	           return user;
-	    }
-	      
-	    public void setUser(User   User){
-	           this.user = user;
 	    }
 	      
 	

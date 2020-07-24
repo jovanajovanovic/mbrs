@@ -1,5 +1,6 @@
 package uns.ftn.mbrs.dto;
 
+import java.util.Date;
 
 import java.util.ArrayList; 
 import uns.ftn.mbrs.dto.UserDTO;
@@ -61,7 +62,7 @@ public class CommentDTO{
 	           return user;
 	    }
 	      
-	    public void ArrayListUser(UserDTO  User){
+	    public void setUser(UserDTO  User){
 	           this.user = user;
 	    }
 	    

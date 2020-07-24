@@ -4,8 +4,8 @@ import java.util.List;
 
 import uns.ftn.mbrs.model.ActivityRequest;
 import uns.ftn.mbrs.service.ActivityRequestService;
-import uns.ftn.mbrs.support.ActivityRequestDTOToActivityRequest;
-import uns.ftn.mbrs.support.ActivityRequestToActivityRequestDTO;
+import uns.ftn.mbrs.converter.ActivityRequestDTOToActivityRequest;
+import uns.ftn.mbrs.converter.ActivityRequestToActivityRequestDTO;
 import uns.ftn.mbrs.dto.ActivityRequestDTO;
 
 import javax.validation.Valid;
@@ -78,7 +78,7 @@ public class ActivityRequestController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByDate(@PathVariable myplugin.generator.fmmodel.FMType@3675117d value) {
+	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByDate(@PathVariable myplugin.generator.fmmodel.FMType@f64985d value) {
 
 		List<ActivityRequest> activityRequestList = activityRequestService.findByDate(value);
 			
@@ -86,7 +86,7 @@ public class ActivityRequestController {
 	}
 
 	@RequestMapping(value = "/filterByLocation/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByLocation(@PathVariable myplugin.generator.fmmodel.FMType@38d74d7 value) {
+	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByLocation(@PathVariable myplugin.generator.fmmodel.FMType@44f04e39 value) {
 
 		List<ActivityRequest> activityRequestList = activityRequestService.findByLocation(value);
 			
@@ -94,25 +94,25 @@ public class ActivityRequestController {
 	}
 
 	@RequestMapping(value = "/filterByStatus/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByStatus(@PathVariable myplugin.generator.fmmodel.FMType@b069264 value) {
+	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByStatus(@PathVariable myplugin.generator.fmmodel.FMType@48065bf value) {
 
 		List<ActivityRequest> activityRequestList = activityRequestService.findByStatus(value);
 			
 		return new ResponseEntity<>(toDTO.convert(activityRequestList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@3b146458Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListBymyplugin.generator.fmmodel.FMType@3b146458Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@7895550Id/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListBymyplugin.generator.fmmodel.FMType@7895550Id(@PathVariable Long id) {
 
-		List<ActivityRequest> activityRequestList = activityRequestService.findBymyplugin.generator.fmmodel.FMType@3b146458Id(id);
+		List<ActivityRequest> activityRequestList = activityRequestService.findBymyplugin.generator.fmmodel.FMType@7895550Id(id);
 			
 		return new ResponseEntity<>(toDTO.convert(activityRequestList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@25f464beId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListBymyplugin.generator.fmmodel.FMType@25f464beId(@PathVariable Long id) {
+	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@2c04938cId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListBymyplugin.generator.fmmodel.FMType@2c04938cId(@PathVariable Long id) {
 
-		List<ActivityRequest> activityRequestList = activityRequestService.findBymyplugin.generator.fmmodel.FMType@25f464beId(id);
+		List<ActivityRequest> activityRequestList = activityRequestService.findBymyplugin.generator.fmmodel.FMType@2c04938cId(id);
 			
 		return new ResponseEntity<>(toDTO.convert(activityRequestList), HttpStatus.OK);
 	}

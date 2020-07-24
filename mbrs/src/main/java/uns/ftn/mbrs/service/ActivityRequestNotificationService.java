@@ -6,4 +6,12 @@ public interface ActivityRequestNotificationService extends CrudService<Activity
 
 	List<ActivityRequestNotification> findByActivityRequestId(Long id);
 
+	List<ActivityRequestNotification> findByUserId(Long id);
+
+	List<ActivityRequestNotification> findByDescription(String description);
+
+	List<ActivityRequestNotification> findByDate(date date);
+
+	List<ActivityRequestNotification> findByType(NotificationType type);
+
 }

@@ -1,5 +1,6 @@
 package uns.ftn.mbrs.dto;
 
+import java.util.Date;
 
 import java.util.ArrayList; 
 import uns.ftn.mbrs.model.Visibility;
@@ -91,7 +92,7 @@ public class PostDTO{
 	           return user;
 	    }
 	      
-	    public void ArrayListUser(UserDTO  User){
+	    public void setUser(UserDTO  User){
 	           this.user = user;
 	    }
 	    
@@ -101,7 +102,7 @@ public class PostDTO{
 	           return activity;
 	    }
 	      
-	    public void ArrayListActivity(ActivityDTO  Activity){
+	    public void setActivity(ActivityDTO  Activity){
 	           this.activity = activity;
 	    }
 	    

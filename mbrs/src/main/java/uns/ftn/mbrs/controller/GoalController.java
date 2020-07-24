@@ -4,8 +4,8 @@ import java.util.List;
 
 import uns.ftn.mbrs.model.Goal;
 import uns.ftn.mbrs.service.GoalService;
-import uns.ftn.mbrs.support.GoalDTOToGoal;
-import uns.ftn.mbrs.support.GoalToGoalDTO;
+import uns.ftn.mbrs.converter.GoalDTOToGoal;
+import uns.ftn.mbrs.converter.GoalToGoalDTO;
 import uns.ftn.mbrs.dto.GoalDTO;
 
 import javax.validation.Valid;
@@ -78,7 +78,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByTitle/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByTitle(@PathVariable myplugin.generator.fmmodel.FMType@4d37871b value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByTitle(@PathVariable myplugin.generator.fmmodel.FMType@6a4381b3 value) {
 
 		List<Goal> goalList = goalService.findByTitle(value);
 			
@@ -86,7 +86,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDuration/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@721db96b value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@6d69bcd9 value) {
 
 		List<Goal> goalList = goalService.findByDuration(value);
 			
@@ -94,7 +94,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDate(@PathVariable myplugin.generator.fmmodel.FMType@6ab325d4 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDate(@PathVariable myplugin.generator.fmmodel.FMType@208757f1 value) {
 
 		List<Goal> goalList = goalService.findByDate(value);
 			
@@ -102,7 +102,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDistance/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@6ce47da8 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@2897389e value) {
 
 		List<Goal> goalList = goalService.findByDistance(value);
 			
@@ -110,7 +110,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByAchieved/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByAchieved(@PathVariable myplugin.generator.fmmodel.FMType@1d9a2070 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByAchieved(@PathVariable myplugin.generator.fmmodel.FMType@5eaf7a26 value) {
 
 		List<Goal> goalList = goalService.findByAchieved(value);
 			

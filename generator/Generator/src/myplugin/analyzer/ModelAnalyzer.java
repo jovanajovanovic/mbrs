@@ -3,23 +3,27 @@ package myplugin.analyzer;
 import java.util.Iterator;
 import java.util.List;
 
+import com.nomagic.uml2.ext.jmi.helpers.ModelHelper;
+import com.nomagic.uml2.ext.jmi.helpers.StereotypesHelper;
+import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class;
+import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Element;
+import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Enumeration;
+import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.EnumerationLiteral;
+import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Package;
+import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Property;
+import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Type;
+import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.impl.EnumerationLiteralImpl;
+import com.nomagic.uml2.ext.magicdraw.mdprofiles.Stereotype;
+
 import myplugin.generator.fmmodel.FMClass;
 import myplugin.generator.fmmodel.FMEnumeration;
-import myplugin.generator.fmmodel.FMExtendClass;
 import myplugin.generator.fmmodel.FMModel;
 import myplugin.generator.fmmodel.FMProperty;
 import myplugin.generator.fmmodel.FMType;
-
-import com.nomagic.uml2.ext.jmi.helpers.ModelHelper;
-import com.nomagic.uml2.ext.jmi.helpers.StereotypesHelper;
-import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Element;
-import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.EnumerationLiteral;
-import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Package;
-import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class;
-import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Enumeration;
-import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Property;
-import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Type;
-import com.nomagic.uml2.ext.magicdraw.mdprofiles.Stereotype;
+import myplugin.generator.fmmodel.NumberValidation;
+import myplugin.generator.fmmodel.TextValidation;
+import myplugin.generator.fmmodel.UIClass;
+import myplugin.generator.fmmodel.UIProperty;
 
 
 /** Model Analyzer takes necessary metadata from the MagicDraw model and puts it in 
@@ -122,6 +126,61 @@ public class ModelAnalyzer {
 			
 		}
 		
+		
+		Stereotype uiElementStereotype = StereotypesHelper.getAppliedStereotypeByString(cl, "UIElement");
+		String label = null;
+		if (uiElementStereotype != null) {
+			String name = "";
+			List<Property> tags = uiElementStereotype.getOwnedAttribute();
+	        for (int j = 0; j < tags.size(); ++j) {
+	        	Property tagDef = tags.get(j);
+	        	String tagName = tagDef.getName();
+	        	List value = StereotypesHelper.getStereotypePropertyValue(cl, uiElementStereotype, tagName);
+	        	if(value.size() > 0) {
+	        		switch(tagName) {
+	        			case "label" : 
+	        				label = (String) value.get(0); 
+	        				break;
+		            }
+	        	}
+	        }
+		}
+		
+		Stereotype uiClassStereotype = StereotypesHelper.getAppliedStereotypeByString(cl, "UIClass");
+		if(uiClassStereotype != null) {
+			Boolean create = true;
+			Boolean read = true;
+			Boolean update = true;
+			Boolean delete = true;
+			
+			List<Property> tags = uiClassStereotype.getOwnedAttribute();
+	        for (int j = 0; j < tags.size(); ++j) {
+	            Property tagDef = tags.get(j);
+	            String tagName = tagDef.getName();
+	            List value = StereotypesHelper.getStereotypePropertyValue(cl, uiClassStereotype, tagName);
+	            if(value.size() > 0) {
+	            	switch(tagName) {
+			            case "create": 
+			            	create = (Boolean) value.get(0);
+			            	break;
+			            case "read":
+			            	read = (Boolean) value.get(0);
+			            	break;
+			            case "update":
+			            	update = (Boolean) value.get(0);
+			            	break;
+			            case "delete":
+			            	delete = (Boolean) value.get(0);
+			            	break;
+	            	}
+			     }
+	        }
+		    UIClass uiClass = new UIClass(label, create, read, update, delete);
+		    fmClass.setUiClass(uiClass);
+		    System.out.println("UIClass(label, create, read, update, delete): " + 
+		    		label + " " + create + " " + read + " " + update + " " + delete);
+		}
+		
 		/** @ToDo:
 		 * Add import declarations etc. */		
 		return fmClass;
@@ -157,6 +216,130 @@ public class ModelAnalyzer {
 		
 		FMProperty fmProperty = new FMProperty(attName, new FMType(typeName, typePackage), p.getVisibility().toString(), 
 				lower, upper, association, aggregationKind, associtaionend);
+		
+		Stereotype uiElementStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "UIElement");
+		String label = null;
+		if(uiElementStereotype != null) {
+			String name = "";
+			List<Property> tags = uiElementStereotype.getOwnedAttribute();
+	        for (int j = 0; j < tags.size(); ++j) {
+	        	Property tagDef = tags.get(j);
+	        	String tagName = tagDef.getName();
+	        	List value = StereotypesHelper.getStereotypePropertyValue(p, uiElementStereotype, tagName);
+	        	if(value.size() > 0) {
+	        		switch(tagName) {
+	        			case "label":
+	        				label = (String) value.get(0);
+	        				break;
+		            }
+	        	}
+	        }
+		}
+		
+		Stereotype hiddenStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "Hidden");
+		Boolean hidden = (hiddenStereotype != null)? true : false;
+		fmProperty.setHidden(hidden);
+		
+		Stereotype findByStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "FindBy");
+		Boolean findBy = (findByStereotype != null)? true : false;
+		fmProperty.setFindBy(findBy);
+		
+		Stereotype validationStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "Validation");
+		Boolean unique = false;
+		Boolean notNull = false;
+		if(validationStereotype != null) {
+			List<Property> tags = validationStereotype.getOwnedAttribute();
+	        for (int j = 0; j < tags.size(); ++j) {
+	        	Property tagDef = tags.get(j);
+	        	String tagName = tagDef.getName();
+	        	List value = StereotypesHelper.getStereotypePropertyValue(p, validationStereotype, tagName);
+	        	if(value.size() > 0) {
+		            switch(tagName) {
+		            	case "unique":
+		            		unique = (Boolean) value.get(0);
+		            		break;
+		            	case "notNull":
+		            		notNull = (Boolean) value.get(0);
+		            		break;
+		            }
+	        	}
+	        }
+		}
+		
+		Stereotype textValidationStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "TextValidation");
+		if(textValidationStereotype != null) {	
+			Integer minLength = null;
+			Integer maxLength = null;	
+			List<Property> tags = textValidationStereotype.getOwnedAttribute();
+	        for (int j = 0; j < tags.size(); ++j) {
+	            Property tagDef = tags.get(j);
+	            String tagName = tagDef.getName();
+	            List value = StereotypesHelper.getStereotypePropertyValue(p, textValidationStereotype, tagName);
+	            if(value.size() > 0) {
+		            switch(tagName) {
+		            	case "minLength":
+		            		minLength = (Integer) value.get(0); 
+		            		break;
+		            	case "maxLength": 
+		            		maxLength = (Integer) value.get(0); 
+		            		break;
+		            }
+	            }
+	        }
+			TextValidation textValidation = new TextValidation(unique, notNull, minLength, maxLength);
+			fmProperty.setValidation(textValidation);
+			System.out.println("TextValProperty(unique, notNull, minLength, maxLength): " + unique + " " + notNull + " " + minLength + " " + maxLength);
+		}
+		
+		Stereotype numberValidationStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "NumberValidation");
+		if(numberValidationStereotype != null) {
+			Integer minValue = null;
+			Integer maxValue = null;
+			List<Property> tags = numberValidationStereotype.getOwnedAttribute();
+	        for (int j = 0; j < tags.size(); ++j) {
+	        	Property tagDef = tags.get(j);
+	            String tagName = tagDef.getName();
+	            List value = StereotypesHelper.getStereotypePropertyValue(p, numberValidationStereotype, tagName);
+	            if(value.size() > 0) {
+		            switch(tagName) {
+		            	case "minValue": 
+		            		minValue = (Integer) value.get(0); 
+		            		break;
+		            	case "maxValue": 
+		            		maxValue = (Integer) value.get(0); 
+		            		break;
+		            }
+	            }
+	        }
+			NumberValidation numberValidationProp = new NumberValidation(unique, notNull, minValue, maxValue);
+			fmProperty.setValidation(numberValidationProp);
+			System.out.println("NumValProperty(unique, notNull, minValue, maxValue): " + unique + " " + notNull + " " + minValue + " " + maxValue);
+		}
+		
+		Stereotype uiPropertyStereotype = StereotypesHelper.getAppliedStereotypeByString(p, "UIProperty");
+		if(uiPropertyStereotype != null) {
+			String formType = "text";
+			Boolean readOnly = false;
+			List<Property> tags = uiPropertyStereotype.getOwnedAttribute();
+	        for (int j = 0; j < tags.size(); ++j) {
+	            Property tagDef = tags.get(j);
+	            String tagName = tagDef.getName();
+	            List value = StereotypesHelper.getStereotypePropertyValue(p, uiPropertyStereotype, tagName);
+	            if(value.size() > 0) {
+	            	switch(tagName) {
+			            case "formType" : 
+			            	EnumerationLiteralImpl formTypeEnum = (EnumerationLiteralImpl) value.get(0);
+			            	formType = formTypeEnum.getName();
+			            	break;
+			            case "readOnly" : readOnly = (Boolean) value.get(0); break;
+		    	   	}
+			     }
+	        }
+		       
+		    UIProperty uiProperty = new UIProperty(label, formType, readOnly);
+		    fmProperty.setUiProperty(uiProperty);
+		    System.out.println("UIProperty(label, formType, readOnly): " + label + " " + formType + " " + readOnly);
+		}
 		
 		return fmProperty;
 	}	

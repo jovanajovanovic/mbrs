@@ -15,6 +15,8 @@ public class FMProperty extends FMElement  {
 	private String aggregationKind;
 	private String associationend;
 	
+	private UIProperty uiProperty;
+	
 	/** @param associtaionend 
 	 * @ToDo: Add length, precision, unique... whatever is needed for ejb class generation
 	 * Also, provide these meta-attributes or tags in the modeling languange metaclass or 
@@ -85,9 +87,12 @@ public class FMProperty extends FMElement  {
 		this.associationend = associationend;
 	}
 	
-	
+	public UIProperty getUiProperty() {
+		return uiProperty;
+	}
 
-	
-	
+	public void setUiProperty(UIProperty uiProperty) {
+		this.uiProperty = uiProperty;
+	}
 
 }

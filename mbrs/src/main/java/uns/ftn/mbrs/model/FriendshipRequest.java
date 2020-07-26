@@ -8,7 +8,7 @@ import uns.ftn.mbrs.model.FriendshipRequestStatus;
 import uns.ftn.mbrs.model.User;
 
 
-
+@Table(name="friendshipRequest")
 @Entity
 public class FriendshipRequest {  
 
@@ -20,10 +20,10 @@ public class FriendshipRequest {
 	     @Column
 	     private FriendshipRequestStatus  status ;
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="friendshipRequestor_id", nullable=false)
 	     private User  friendshipRequestor ;
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="friendshipRequestee_id", nullable=false)
 	     private User  friendshipRequestee ;
 	
 		public FriendshipRequest(){}

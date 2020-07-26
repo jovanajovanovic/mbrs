@@ -25,7 +25,9 @@ public class LikeReactionToLikeReactionDTO implements Converter<LikeReaction, Li
 		LikeReactionDTO dto = new LikeReactionDTO();
 		
 		dto.setId(likeReaction.getId());
+		if (likeReaction.getUser() != null){
 		dto.setUser(toUserDTO.convert(likeReaction.getUser()));
+		}		
 		return dto;
 	}
 	

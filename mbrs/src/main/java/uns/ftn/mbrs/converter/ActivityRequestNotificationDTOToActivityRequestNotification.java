@@ -36,11 +36,18 @@ public class ActivityRequestNotificationDTOToActivityRequestNotification impleme
 		
 		activityRequestNotification.setId(dto.getId());
 		
-		activityRequestNotification.setActivityRequest(toActivityRequest.convert(dto.getActivityRequest()));
-		activityRequestNotification.setUser(toUser.convert(dto.getUser()));
-		activityRequestNotification.setDescription(dto.getDescription());
-		activityRequestNotification.setDate(dto.getDate());
-		activityRequestNotification.setType(dto.getType());
+		if (dto.getActivityRequest() != null){
+			activityRequestNotification.setActivityRequest(toActivityRequest.convert(dto.getActivityRequest()));
+		}	
+		if (dto.getUser() != null){
+			activityRequestNotification.setUser(toUser.convert(dto.getUser()));
+		}	
+			activityRequestNotification.setDate(dto.getDate());
+
+			activityRequestNotification.setType(dto.getType());
+
+			activityRequestNotification.setDescription(dto.getDescription());
+
 		
 		return activityRequestNotification;
 	}

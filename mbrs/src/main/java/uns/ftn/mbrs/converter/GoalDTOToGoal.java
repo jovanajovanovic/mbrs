@@ -32,11 +32,16 @@ public class GoalDTOToGoal implements Converter<GoalDTO, Goal>{
 		
 		goal.setId(dto.getId());
 		
-		goal.setTitle(dto.getTitle());
-		goal.setDuration(dto.getDuration());
-		goal.setDate(dto.getDate());
-		goal.setDistance(dto.getDistance());
-		goal.setAchieved(dto.getAchieved());
+			goal.setTitle(dto.getTitle());
+
+			goal.setDuration(dto.getDuration());
+
+			goal.setDate(dto.getDate());
+
+			goal.setDistance(dto.getDistance());
+
+			goal.setAchieved(dto.getAchieved());
+
 		
 		return goal;
 	}

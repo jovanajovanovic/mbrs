@@ -1,6 +1,9 @@
 package uns.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
+
 
 import uns.ftn.mbrs.model.Activity;
 import uns.ftn.mbrs.service.ActivityService;
@@ -78,7 +81,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDuration/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@46728da4 value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDuration(@PathVariable double  value) {
 
 		List<Activity> activityList = activityService.findByDuration(value);
 			
@@ -86,7 +89,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDistance/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@1cb38469 value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDistance(@PathVariable double  value) {
 
 		List<Activity> activityList = activityService.findByDistance(value);
 			
@@ -94,7 +97,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDate(@PathVariable myplugin.generator.fmmodel.FMType@74bb59f3 value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListByDate(@PathVariable  Date  value) {
 
 		List<Activity> activityList = activityService.findByDate(value);
 			
@@ -102,7 +105,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(value = "/filterBySteps/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListBySteps(@PathVariable myplugin.generator.fmmodel.FMType@2c6005ad value) {
+	ResponseEntity<List<ActivityDTO>> getActivityListBySteps(@PathVariable Integer  value) {
 
 		List<Activity> activityList = activityService.findBySteps(value);
 			

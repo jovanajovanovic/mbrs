@@ -7,7 +7,7 @@ import javax.persistence.*;
 import uns.ftn.mbrs.model.Visibility;
 
 
-
+@Table(name="userSettings")
 @Entity
 public class UserSettings {  
 

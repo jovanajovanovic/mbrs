@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.FriendshipRequestNotification;
 import uns.ftn.mbrs.repository.FriendshipRequestNotificationRepository;
 import uns.ftn.mbrs.service.FriendshipRequestNotificationService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class FriendshipRequestNotificationServiceImpl implements FriendshipReque
 	
 	@Override
 	public FriendshipRequestNotification findOne(Long id) {
-		return friendshipRequestNotificationRepository.findOne(id);
+		return friendshipRequestNotificationRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class FriendshipRequestNotificationServiceImpl implements FriendshipReque
 		return friendshipRequestNotificationRepository.save(friendshipRequestNotification);
 	}
 	
+	@Override
 	public FriendshipRequestNotification remove(Long id) {
-		FriendshipRequestNotification friendshipRequestNotification = friendshipRequestNotificationRepository.findOne(id);
+		FriendshipRequestNotification friendshipRequestNotification = friendshipRequestNotificationRepository.findById(id).get();
 		if(friendshipRequestNotification == null){
 			throw new IllegalArgumentException("Tried to delete non-existant FriendshipRequestNotification");
 		}
@@ -42,23 +46,28 @@ public class FriendshipRequestNotificationServiceImpl implements FriendshipReque
 		return friendshipRequestNotification;
 	}
 	
-	public List<FriendshipRequestNotification> findByFriendshipRequestId(Long id) {
-		return friendshipRequestNotificationRepository.findByFriendshipRequestId(id);
+	@Override
+	public List<FriendshipRequestNotification> findByFriendshipRequest(Long id) {
+		return friendshipRequestNotificationRepository.findByFriendshipRequest(id);
 	}
 	
-	public List<FriendshipRequestNotification> findByUserId(Long id) {
-		return friendshipRequestNotificationRepository.findByUserId(id);
+	@Override
+	public List<FriendshipRequestNotification> findByUser(Long id) {
+		return friendshipRequestNotificationRepository.findByUser(id);
 	}
 	
-	public List<FriendshipRequestNotification> findByDescription(String description) {
+	@Override
+	public List<FriendshipRequestNotification> findByDescription(String  description) {
 		return friendshipRequestNotificationRepository.findByDescription(description);
 	}
 	
-	public List<FriendshipRequestNotification> findByDate(date date) {
+	@Override
+	public List<FriendshipRequestNotification> findByDate( Date  date) {
 		return friendshipRequestNotificationRepository.findByDate(date);
 	}
 	
-	public List<FriendshipRequestNotification> findByType(NotificationType type) {
+	@Override
+	public List<FriendshipRequestNotification> findByType(NotificationType  type) {
 		return friendshipRequestNotificationRepository.findByType(type);
 	}
 	

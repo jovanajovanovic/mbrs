@@ -9,7 +9,7 @@ import uns.ftn.mbrs.model.User;
 import uns.ftn.mbrs.model.NotificationType;
 
 
-
+@Table(name="friendshipRequestNotification")
 @Entity
 public class FriendshipRequestNotification {  
 
@@ -21,7 +21,7 @@ public class FriendshipRequestNotification {
 	  	 @OneToOne
 	     private FriendshipRequest  friendshipRequest;
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
 	     @Column
 	     private String  description ;

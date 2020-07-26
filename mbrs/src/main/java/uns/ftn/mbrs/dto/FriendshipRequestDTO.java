@@ -39,17 +39,17 @@ public class FriendshipRequestDTO{
 		this.id = id;
 	}
 	
-	    public FriendshipRequestStatus  getStatus  (){
+	    public FriendshipRequestStatus  getStatus (){
 	           return status ;
 	    }
 	      
-	    public void setStatus (FriendshipRequestStatus   status ){
+	    public void setStatus (FriendshipRequestStatus  status ){
 	           this.status  = status ;
 	    }
 	    	
 	      
 	     
-	    public UserDTO getFriendshipRequestor  (){
+	    public UserDTO getFriendshipRequestor (){
 	           return friendshipRequestor ;
 	    }
 	      
@@ -59,7 +59,7 @@ public class FriendshipRequestDTO{
 	    
 	      
 	     
-	    public UserDTO getFriendshipRequestee  (){
+	    public UserDTO getFriendshipRequestee (){
 	           return friendshipRequestee ;
 	    }
 	      

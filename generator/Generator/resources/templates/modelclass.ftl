@@ -9,7 +9,7 @@ import ${import};
 </#list>
 
 
-
+@Table(name="${class.name?uncap_first}")
 @Entity
 ${class.visibility} class ${class.name} {  
 
@@ -25,14 +25,14 @@ ${class.visibility} class ${class.name} {
 	  	 @OneToOne
 	  	<#else>
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="${property.type.name?uncap_first}_id", referencedColumnName="id")
+		 @JoinColumn(name="<#if property.name=="">${property.type.name?uncap_first}<#else>${property.name}</#if>_id", nullable=false)
 	  	</#if>
 	  	<#else>
 	     @Column
 	    </#if>
 	     ${property.visibility} <#if property.type.name == "date" > Date <#else>${property.type.name} </#if><#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>;
 	 <#elseif property.upper == -1  > 
-	     @OneToMany(mappedBy="${class.name?uncap_first}")
+	     @OneToMany
 	     ${property.visibility} Set<<#if property.type.name == "date" > Date <#else>${property.type.name} </#if>> <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if> = new HashSet<${property.type.name}>();
 	 <#else>   
 	    	<#list 1..property.upper as i>

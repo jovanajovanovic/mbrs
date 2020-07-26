@@ -26,15 +26,26 @@ public class UserToUserDTO implements Converter<User, UserDTO> {
 		
 		dto.setId(user.getId());
 		dto.setUsername(user.getUsername());
+
 		dto.setPassword(user.getPassword());
+
 		dto.setName(user.getName());
+
 		dto.setSurname(user.getSurname());
+
 		dto.setDateOfBirth(user.getDateOfBirth());
+
 		dto.setLocation(user.getLocation());
+
 		dto.setBiography(user.getBiography());
+
 		dto.setHeight(user.getHeight());
+
 		dto.setWeight(user.getWeight());
+
+		if (user.getUserSettings() != null){
 		dto.setUserSettings(toUserSettingsDTO.convert(user.getUserSettings()));
+		}		
 		return dto;
 	}
 	

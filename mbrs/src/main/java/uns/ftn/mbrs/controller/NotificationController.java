@@ -1,6 +1,9 @@
 package uns.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
+
 
 import uns.ftn.mbrs.model.Notification;
 import uns.ftn.mbrs.service.NotificationService;
@@ -78,7 +81,7 @@ public class NotificationController {
 	}
 
 	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByDescription(@PathVariable myplugin.generator.fmmodel.FMType@4a96113d value) {
+	ResponseEntity<List<NotificationDTO>> getNotificationListByDescription(@PathVariable String  value) {
 
 		List<Notification> notificationList = notificationService.findByDescription(value);
 			
@@ -86,7 +89,7 @@ public class NotificationController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByDate(@PathVariable myplugin.generator.fmmodel.FMType@3d05c58d value) {
+	ResponseEntity<List<NotificationDTO>> getNotificationListByDate(@PathVariable  Date  value) {
 
 		List<Notification> notificationList = notificationService.findByDate(value);
 			
@@ -94,7 +97,7 @@ public class NotificationController {
 	}
 
 	@RequestMapping(value = "/filterByType/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByType(@PathVariable myplugin.generator.fmmodel.FMType@6b8a74f5 value) {
+	ResponseEntity<List<NotificationDTO>> getNotificationListByType(@PathVariable NotificationType  value) {
 
 		List<Notification> notificationList = notificationService.findByType(value);
 			

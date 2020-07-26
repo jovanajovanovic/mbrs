@@ -7,7 +7,7 @@ import javax.persistence.*;
 import uns.ftn.mbrs.model.User;
 
 
-
+@Table(name="comment")
 @Entity
 public class Comment {  
 
@@ -21,7 +21,7 @@ public class Comment {
 	     @Column
 	     private  Date  date ;
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
 	
 		public Comment(){}

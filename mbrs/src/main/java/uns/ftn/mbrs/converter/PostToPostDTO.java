@@ -29,9 +29,15 @@ public class PostToPostDTO implements Converter<Post, PostDTO> {
 		
 		dto.setId(post.getId());
 		dto.setDescription(post.getDescription());
+
 		dto.setVisibility(post.getVisibility());
+
+		if (post.getUser() != null){
 		dto.setUser(toUserDTO.convert(post.getUser()));
+		}		
+		if (post.getActivity() != null){
 		dto.setActivity(toActivityDTO.convert(post.getActivity()));
+		}		
 		return dto;
 	}
 	

@@ -1,6 +1,9 @@
 package uns.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
+
 
 import uns.ftn.mbrs.model.LikeReaction;
 import uns.ftn.mbrs.service.LikeReactionService;
@@ -77,10 +80,10 @@ public class LikeReactionController {
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@503bdfb2Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<LikeReactionDTO>> getLikeReactionListBymyplugin.generator.fmmodel.FMType@503bdfb2Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<LikeReactionDTO>> getLikeReactionListByUserId(@PathVariable Long id) {
 
-		List<LikeReaction> likeReactionList = likeReactionService.findBymyplugin.generator.fmmodel.FMType@503bdfb2Id(id);
+		List<LikeReaction> likeReactionList = likeReactionService.findByUser(id);
 			
 		return new ResponseEntity<>(toDTO.convert(likeReactionList), HttpStatus.OK);
 	}

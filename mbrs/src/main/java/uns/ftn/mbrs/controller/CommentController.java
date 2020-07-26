@@ -1,6 +1,9 @@
 package uns.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
+
 
 import uns.ftn.mbrs.model.Comment;
 import uns.ftn.mbrs.service.CommentService;
@@ -78,7 +81,7 @@ public class CommentController {
 	}
 
 	@RequestMapping(value = "/filterByText/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListByText(@PathVariable myplugin.generator.fmmodel.FMType@7e809a5e value) {
+	ResponseEntity<List<CommentDTO>> getCommentListByText(@PathVariable String  value) {
 
 		List<Comment> commentList = commentService.findByText(value);
 			
@@ -86,17 +89,17 @@ public class CommentController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListByDate(@PathVariable myplugin.generator.fmmodel.FMType@64a272a0 value) {
+	ResponseEntity<List<CommentDTO>> getCommentListByDate(@PathVariable  Date  value) {
 
 		List<Comment> commentList = commentService.findByDate(value);
 			
 		return new ResponseEntity<>(toDTO.convert(commentList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@75e0e562Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListBymyplugin.generator.fmmodel.FMType@75e0e562Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<CommentDTO>> getCommentListByUserId(@PathVariable Long id) {
 
-		List<Comment> commentList = commentService.findBymyplugin.generator.fmmodel.FMType@75e0e562Id(id);
+		List<Comment> commentList = commentService.findByUser(id);
 			
 		return new ResponseEntity<>(toDTO.convert(commentList), HttpStatus.OK);
 	}

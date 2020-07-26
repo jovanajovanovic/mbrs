@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.Notification;
 import uns.ftn.mbrs.repository.NotificationRepository;
 import uns.ftn.mbrs.service.NotificationService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class NotificationServiceImpl implements NotificationService {
 	
 	@Override
 	public Notification findOne(Long id) {
-		return notificationRepository.findOne(id);
+		return notificationRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class NotificationServiceImpl implements NotificationService {
 		return notificationRepository.save(notification);
 	}
 	
+	@Override
 	public Notification remove(Long id) {
-		Notification notification = notificationRepository.findOne(id);
+		Notification notification = notificationRepository.findById(id).get();
 		if(notification == null){
 			throw new IllegalArgumentException("Tried to delete non-existant Notification");
 		}
@@ -42,15 +46,18 @@ public class NotificationServiceImpl implements NotificationService {
 		return notification;
 	}
 	
-	public List<Notification> findByDescription(String description) {
+	@Override
+	public List<Notification> findByDescription(String  description) {
 		return notificationRepository.findByDescription(description);
 	}
 	
-	public List<Notification> findByDate(date date) {
+	@Override
+	public List<Notification> findByDate( Date  date) {
 		return notificationRepository.findByDate(date);
 	}
 	
-	public List<Notification> findByType(NotificationType type) {
+	@Override
+	public List<Notification> findByType(NotificationType  type) {
 		return notificationRepository.findByType(type);
 	}
 	

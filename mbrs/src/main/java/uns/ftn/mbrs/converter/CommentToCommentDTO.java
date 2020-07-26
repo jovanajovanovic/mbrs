@@ -26,8 +26,12 @@ public class CommentToCommentDTO implements Converter<Comment, CommentDTO> {
 		
 		dto.setId(comment.getId());
 		dto.setText(comment.getText());
+
 		dto.setDate(comment.getDate());
+
+		if (comment.getUser() != null){
 		dto.setUser(toUserDTO.convert(comment.getUser()));
+		}		
 		return dto;
 	}
 	

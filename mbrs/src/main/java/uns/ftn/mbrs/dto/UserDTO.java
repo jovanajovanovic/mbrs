@@ -29,25 +29,25 @@ public class UserDTO{
 		
 	  	 private double  height;
 		
-	     private ArrayList<GoalDTO>  goal = new ArrayList<Goal>();
+	     private ArrayList<GoalDTO>  goal = new ArrayList<GoalDTO>();
 		
-	     private ArrayList<ActivityRequestDTO>  pendingActivities  = new ArrayList<ActivityRequest>();
+	     private ArrayList<ActivityRequestDTO>  pendingActivities  = new ArrayList<ActivityRequestDTO>();
 		
 	  	 private double  weight;
 		
-	     private ArrayList<ActivityRequestDTO>  activityRequest = new ArrayList<ActivityRequest>();
+	     private ArrayList<ActivityRequestDTO>  activityRequest = new ArrayList<ActivityRequestDTO>();
 		
-	     private ArrayList<PostDTO>  post = new ArrayList<Post>();
+	     private ArrayList<PostDTO>  post = new ArrayList<PostDTO>();
 		
-	     private ArrayList<FriendshipRequestDTO>  pendingFriendships  = new ArrayList<FriendshipRequest>();
+	     private ArrayList<FriendshipRequestDTO>  pendingFriendships  = new ArrayList<FriendshipRequestDTO>();
 		
-	     private ArrayList<FriendshipRequestDTO>  friendshipRequest = new ArrayList<FriendshipRequest>();
+	     private ArrayList<FriendshipRequestDTO>  friendshipRequest = new ArrayList<FriendshipRequestDTO>();
 		
-	     private ArrayList<ActivityRequestNotificationDTO>  activityRequestNotification = new ArrayList<ActivityRequestNotification>();
+	     private ArrayList<ActivityRequestNotificationDTO>  activityRequestNotification = new ArrayList<ActivityRequestNotificationDTO>();
 		
 	     private UserSettingsDTO  userSettings;
 		
-	     private ArrayList<FriendshipRequestNotificationDTO>  friendshipRequestNotification = new ArrayList<FriendshipRequestNotification>();
+	     private ArrayList<FriendshipRequestNotificationDTO>  friendshipRequestNotification = new ArrayList<FriendshipRequestNotificationDTO>();
 		
 	
 	
@@ -104,139 +104,139 @@ public class UserDTO{
 		this.id = id;
 	}
 	
-	    public String  getUsername  (){
+	    public String  getUsername (){
 	           return username ;
 	    }
 	      
-	    public void setUsername (String   username ){
+	    public void setUsername (String  username ){
 	           this.username  = username ;
 	    }
 	    	
 	      
 	     
-	    public String  getPassword  (){
+	    public String  getPassword (){
 	           return password ;
 	    }
 	      
-	    public void setPassword (String   password ){
+	    public void setPassword (String  password ){
 	           this.password  = password ;
 	    }
 	    	
 	      
 	     
-	    public String  getName  (){
+	    public String  getName (){
 	           return name ;
 	    }
 	      
-	    public void setName (String   name ){
+	    public void setName (String  name ){
 	           this.name  = name ;
 	    }
 	    	
 	      
 	     
-	    public String  getSurname  (){
+	    public String  getSurname (){
 	           return surname ;
 	    }
 	      
-	    public void setSurname (String   surname ){
+	    public void setSurname (String  surname ){
 	           this.surname  = surname ;
 	    }
 	    	
 	      
 	     
-	    public  Date  getDateOfBirth  (){
+	    public  Date  getDateOfBirth (){
 	           return dateOfBirth ;
 	    }
 	      
-	    public void setDateOfBirth ( Date   dateOfBirth ){
+	    public void setDateOfBirth (Date dateOfBirth ){
 	           this.dateOfBirth  = dateOfBirth ;
 	    }
 	    	
 	      
 	     
-	    public String  getLocation  (){
+	    public String  getLocation (){
 	           return location ;
 	    }
 	      
-	    public void setLocation (String   location ){
+	    public void setLocation (String  location ){
 	           this.location  = location ;
 	    }
 	    	
 	      
 	     
-	    public String  getBiography  (){
+	    public String  getBiography (){
 	           return biography ;
 	    }
 	      
-	    public void setBiography (String   biography ){
+	    public void setBiography (String  biography ){
 	           this.biography  = biography ;
 	    }
 	    	
 	      
 	     
-	    public double  getHeight  (){
+	    public double  getHeight (){
 	           return height ;
 	    }
 	      
-	    public void setHeight (double   height ){
+	    public void setHeight (double  height ){
 	           this.height  = height ;
 	    }
 	    	
 	      
 	     
-	     public ArrayList<GoalDTO> get Goal(){
+	     public ArrayList<GoalDTO> getGoal(){
 	           return  goal;
 	    }
 	      
 	    public void setGoal( ArrayList<GoalDTO>  goal){
 	           this.goal = goal;
 	    }
-	     public ArrayList<ActivityRequestDTO> get PendingActivities (){
+	     public ArrayList<ActivityRequestDTO> getPendingActivities(){
 	           return  pendingActivities ;
 	    }
 	      
 	    public void setPendingActivities ( ArrayList<ActivityRequestDTO>  pendingActivities ){
 	           this.pendingActivities  = pendingActivities ;
 	    }
-	    public double  getWeight  (){
+	    public double  getWeight (){
 	           return weight ;
 	    }
 	      
-	    public void setWeight (double   weight ){
+	    public void setWeight (double  weight ){
 	           this.weight  = weight ;
 	    }
 	    	
 	      
 	     
-	     public ArrayList<ActivityRequestDTO> get ActivityRequest(){
+	     public ArrayList<ActivityRequestDTO> getActivityRequest(){
 	           return  activityRequest;
 	    }
 	      
 	    public void setActivityRequest( ArrayList<ActivityRequestDTO>  activityRequest){
 	           this.activityRequest = activityRequest;
 	    }
-	     public ArrayList<PostDTO> get Post(){
+	     public ArrayList<PostDTO> getPost(){
 	           return  post;
 	    }
 	      
 	    public void setPost( ArrayList<PostDTO>  post){
 	           this.post = post;
 	    }
-	     public ArrayList<FriendshipRequestDTO> get PendingFriendships (){
+	     public ArrayList<FriendshipRequestDTO> getPendingFriendships(){
 	           return  pendingFriendships ;
 	    }
 	      
 	    public void setPendingFriendships ( ArrayList<FriendshipRequestDTO>  pendingFriendships ){
 	           this.pendingFriendships  = pendingFriendships ;
 	    }
-	     public ArrayList<FriendshipRequestDTO> get FriendshipRequest(){
+	     public ArrayList<FriendshipRequestDTO> getFriendshipRequest(){
 	           return  friendshipRequest;
 	    }
 	      
 	    public void setFriendshipRequest( ArrayList<FriendshipRequestDTO>  friendshipRequest){
 	           this.friendshipRequest = friendshipRequest;
 	    }
-	     public ArrayList<ActivityRequestNotificationDTO> get ActivityRequestNotification(){
+	     public ArrayList<ActivityRequestNotificationDTO> getActivityRequestNotification(){
 	           return  activityRequestNotification;
 	    }
 	      
@@ -253,7 +253,7 @@ public class UserDTO{
 	    
 	      
 	     
-	     public ArrayList<FriendshipRequestNotificationDTO> get FriendshipRequestNotification(){
+	     public ArrayList<FriendshipRequestNotificationDTO> getFriendshipRequestNotification(){
 	           return  friendshipRequestNotification;
 	    }
 	      

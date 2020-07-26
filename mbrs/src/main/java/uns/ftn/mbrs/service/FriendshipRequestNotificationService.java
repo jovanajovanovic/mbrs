@@ -2,16 +2,30 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.FriendshipRequestNotification;
 
-public interface FriendshipRequestNotificationService extends CrudService<FriendshipRequestNotification> {
+import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
 
-	List<FriendshipRequestNotification> findByFriendshipRequestId(Long id);
+public interface FriendshipRequestNotificationService{
 
-	List<FriendshipRequestNotification> findByUserId(Long id);
 
-	List<FriendshipRequestNotification> findByDescription(String description);
+	FriendshipRequestNotification findOne(Long id); 
+	
+	FriendshipRequestNotification save(FriendshipRequestNotification friendshipRequestNotification);
+		
+	List<FriendshipRequestNotification> findAll();
+	
+	FriendshipRequestNotification remove(Long id);
+	
 
-	List<FriendshipRequestNotification> findByDate(date date);
+	List<FriendshipRequestNotification> findByFriendshipRequest(Long id);
 
-	List<FriendshipRequestNotification> findByType(NotificationType type);
+	List<FriendshipRequestNotification> findByUser(Long id);
+
+	List<FriendshipRequestNotification> findByDescription(String  description);
+
+	List<FriendshipRequestNotification> findByDate( Date  date);
+
+	List<FriendshipRequestNotification> findByType(NotificationType  type);
 
 }

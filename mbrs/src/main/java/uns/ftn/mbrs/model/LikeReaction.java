@@ -7,7 +7,7 @@ import javax.persistence.*;
 import uns.ftn.mbrs.model.User;
 
 
-
+@Table(name="likeReaction")
 @Entity
 public class LikeReaction {  
 
@@ -17,7 +17,7 @@ public class LikeReaction {
 		
 		
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
 	
 		public LikeReaction(){}

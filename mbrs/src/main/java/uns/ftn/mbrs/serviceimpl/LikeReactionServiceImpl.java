@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.LikeReaction;
 import uns.ftn.mbrs.repository.LikeReactionRepository;
 import uns.ftn.mbrs.service.LikeReactionService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class LikeReactionServiceImpl implements LikeReactionService {
 	
 	@Override
 	public LikeReaction findOne(Long id) {
-		return likeReactionRepository.findOne(id);
+		return likeReactionRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class LikeReactionServiceImpl implements LikeReactionService {
 		return likeReactionRepository.save(likeReaction);
 	}
 	
+	@Override
 	public LikeReaction remove(Long id) {
-		LikeReaction likeReaction = likeReactionRepository.findOne(id);
+		LikeReaction likeReaction = likeReactionRepository.findById(id).get();
 		if(likeReaction == null){
 			throw new IllegalArgumentException("Tried to delete non-existant LikeReaction");
 		}
@@ -42,8 +46,9 @@ public class LikeReactionServiceImpl implements LikeReactionService {
 		return likeReaction;
 	}
 	
-	public List<LikeReaction> findByUserId(Long id) {
-		return likeReactionRepository.findByUserId(id);
+	@Override
+	public List<LikeReaction> findByUser(Long id) {
+		return likeReactionRepository.findByUser(id);
 	}
 	
 }

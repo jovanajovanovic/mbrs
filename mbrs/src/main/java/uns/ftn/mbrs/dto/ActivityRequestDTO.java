@@ -47,37 +47,37 @@ public class ActivityRequestDTO{
 		this.id = id;
 	}
 	
-	    public  Date  getDate  (){
+	    public  Date  getDate (){
 	           return date ;
 	    }
 	      
-	    public void setDate ( Date   date ){
+	    public void setDate (Date date ){
 	           this.date  = date ;
 	    }
 	    	
 	      
 	     
-	    public String  getLocation  (){
+	    public String  getLocation (){
 	           return location ;
 	    }
 	      
-	    public void setLocation (String   location ){
+	    public void setLocation (String  location ){
 	           this.location  = location ;
 	    }
 	    	
 	      
 	     
-	    public ActivityRequestStatus  getStatus  (){
+	    public ActivityRequestStatus  getStatus (){
 	           return status ;
 	    }
 	      
-	    public void setStatus (ActivityRequestStatus   status ){
+	    public void setStatus (ActivityRequestStatus  status ){
 	           this.status  = status ;
 	    }
 	    	
 	      
 	     
-	    public UserDTO getActivityRequestor  (){
+	    public UserDTO getActivityRequestor (){
 	           return activityRequestor ;
 	    }
 	      
@@ -87,7 +87,7 @@ public class ActivityRequestDTO{
 	    
 	      
 	     
-	    public UserDTO getActivityRequestee  (){
+	    public UserDTO getActivityRequestee (){
 	           return activityRequestee ;
 	    }
 	      

@@ -28,11 +28,18 @@ public class FriendshipRequestNotificationToFriendshipRequestNotificationDTO imp
 		FriendshipRequestNotificationDTO dto = new FriendshipRequestNotificationDTO();
 		
 		dto.setId(friendshipRequestNotification.getId());
+		if (friendshipRequestNotification.getFriendshipRequest() != null){
 		dto.setFriendshipRequest(toFriendshipRequestDTO.convert(friendshipRequestNotification.getFriendshipRequest()));
+		}		
+		if (friendshipRequestNotification.getUser() != null){
 		dto.setUser(toUserDTO.convert(friendshipRequestNotification.getUser()));
+		}		
 		dto.setDescription(friendshipRequestNotification.getDescription());
+
 		dto.setDate(friendshipRequestNotification.getDate());
+
 		dto.setType(friendshipRequestNotification.getType());
+
 		return dto;
 	}
 	

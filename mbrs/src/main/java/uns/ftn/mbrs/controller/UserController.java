@@ -1,6 +1,9 @@
 package uns.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
+
 
 import uns.ftn.mbrs.model.User;
 import uns.ftn.mbrs.service.UserService;
@@ -78,7 +81,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/filterByUsername/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByUsername(@PathVariable myplugin.generator.fmmodel.FMType@6fa9302b value) {
+	ResponseEntity<List<UserDTO>> getUserListByUsername(@PathVariable String  value) {
 
 		List<User> userList = userService.findByUsername(value);
 			
@@ -86,7 +89,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/filterByName/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByName(@PathVariable myplugin.generator.fmmodel.FMType@7e8f3bb7 value) {
+	ResponseEntity<List<UserDTO>> getUserListByName(@PathVariable String  value) {
 
 		List<User> userList = userService.findByName(value);
 			
@@ -94,7 +97,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/filterBySurname/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListBySurname(@PathVariable myplugin.generator.fmmodel.FMType@145fbd68 value) {
+	ResponseEntity<List<UserDTO>> getUserListBySurname(@PathVariable String  value) {
 
 		List<User> userList = userService.findBySurname(value);
 			
@@ -102,7 +105,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/filterByDateOfBirth/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByDateOfBirth(@PathVariable myplugin.generator.fmmodel.FMType@5b1dcbeb value) {
+	ResponseEntity<List<UserDTO>> getUserListByDateOfBirth(@PathVariable  Date  value) {
 
 		List<User> userList = userService.findByDateOfBirth(value);
 			
@@ -110,7 +113,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/filterByLocation/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByLocation(@PathVariable myplugin.generator.fmmodel.FMType@7d1390cb value) {
+	ResponseEntity<List<UserDTO>> getUserListByLocation(@PathVariable String  value) {
 
 		List<User> userList = userService.findByLocation(value);
 			
@@ -118,7 +121,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/filterByBiography/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByBiography(@PathVariable myplugin.generator.fmmodel.FMType@7a465e5d value) {
+	ResponseEntity<List<UserDTO>> getUserListByBiography(@PathVariable String  value) {
 
 		List<User> userList = userService.findByBiography(value);
 			
@@ -126,7 +129,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/filterByHeight/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByHeight(@PathVariable myplugin.generator.fmmodel.FMType@139b0880 value) {
+	ResponseEntity<List<UserDTO>> getUserListByHeight(@PathVariable double  value) {
 
 		List<User> userList = userService.findByHeight(value);
 			
@@ -134,17 +137,17 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/filterByWeight/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByWeight(@PathVariable myplugin.generator.fmmodel.FMType@26eccb8b value) {
+	ResponseEntity<List<UserDTO>> getUserListByWeight(@PathVariable double  value) {
 
 		List<User> userList = userService.findByWeight(value);
 			
 		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@47188255Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListBymyplugin.generator.fmmodel.FMType@47188255Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterByUserSettingsId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<UserDTO>> getUserListByUserSettingsId(@PathVariable Long id) {
 
-		List<User> userList = userService.findBymyplugin.generator.fmmodel.FMType@47188255Id(id);
+		List<User> userList = userService.findByUserSettings(id);
 			
 		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
 	}

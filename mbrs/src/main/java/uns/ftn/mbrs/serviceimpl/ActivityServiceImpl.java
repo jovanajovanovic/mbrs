@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.Activity;
 import uns.ftn.mbrs.repository.ActivityRepository;
 import uns.ftn.mbrs.service.ActivityService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class ActivityServiceImpl implements ActivityService {
 	
 	@Override
 	public Activity findOne(Long id) {
-		return activityRepository.findOne(id);
+		return activityRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class ActivityServiceImpl implements ActivityService {
 		return activityRepository.save(activity);
 	}
 	
+	@Override
 	public Activity remove(Long id) {
-		Activity activity = activityRepository.findOne(id);
+		Activity activity = activityRepository.findById(id).get();
 		if(activity == null){
 			throw new IllegalArgumentException("Tried to delete non-existant Activity");
 		}
@@ -42,19 +46,23 @@ public class ActivityServiceImpl implements ActivityService {
 		return activity;
 	}
 	
-	public List<Activity> findByDuration(double duration) {
+	@Override
+	public List<Activity> findByDuration(double  duration) {
 		return activityRepository.findByDuration(duration);
 	}
 	
-	public List<Activity> findByDistance(double distance) {
+	@Override
+	public List<Activity> findByDistance(double  distance) {
 		return activityRepository.findByDistance(distance);
 	}
 	
-	public List<Activity> findByDate(date date) {
+	@Override
+	public List<Activity> findByDate( Date  date) {
 		return activityRepository.findByDate(date);
 	}
 	
-	public List<Activity> findBySteps(Integer steps) {
+	@Override
+	public List<Activity> findBySteps(Integer  steps) {
 		return activityRepository.findBySteps(steps);
 	}
 	

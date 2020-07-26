@@ -36,11 +36,18 @@ public class FriendshipRequestNotificationDTOToFriendshipRequestNotification imp
 		
 		friendshipRequestNotification.setId(dto.getId());
 		
-		friendshipRequestNotification.setFriendshipRequest(toFriendshipRequest.convert(dto.getFriendshipRequest()));
-		friendshipRequestNotification.setUser(toUser.convert(dto.getUser()));
-		friendshipRequestNotification.setDescription(dto.getDescription());
-		friendshipRequestNotification.setDate(dto.getDate());
-		friendshipRequestNotification.setType(dto.getType());
+		if (dto.getFriendshipRequest() != null){
+			friendshipRequestNotification.setFriendshipRequest(toFriendshipRequest.convert(dto.getFriendshipRequest()));
+		}	
+		if (dto.getUser() != null){
+			friendshipRequestNotification.setUser(toUser.convert(dto.getUser()));
+		}	
+			friendshipRequestNotification.setDescription(dto.getDescription());
+
+			friendshipRequestNotification.setDate(dto.getDate());
+
+			friendshipRequestNotification.setType(dto.getType());
+
 		
 		return friendshipRequestNotification;
 	}

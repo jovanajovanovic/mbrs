@@ -2,27 +2,38 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.User;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
 
-public interface UserService extends CrudService<User> {
+public interface UserService{
 
-	List<User> findByUsername(String username);
 
-	List<User> findByName(String name);
+	User findOne(Long id); 
+	
+	User save(User user);
+		
+	List<User> findAll();
+	
+	User remove(Long id);
+	
 
-	List<User> findBySurname(String surname);
+	List<User> findByUsername(String  username);
 
-	List<User> findByDateOfBirth(Date dateOfBirth);
+	List<User> findByName(String  name);
 
-	List<User> findByLocation(String location);
+	List<User> findBySurname(String  surname);
 
-	List<User> findByBiography(String biography);
+	List<User> findByDateOfBirth( Date  dateOfBirth);
 
-	List<User> findByHeight(double height);
+	List<User> findByLocation(String  location);
 
-	List<User> findByWeight(double weight);
+	List<User> findByBiography(String  biography);
 
-	List<User> findByUserSettingsId(Long id);
+	List<User> findByHeight(double  height);
+
+	List<User> findByWeight(double  weight);
+
+	List<User> findByUserSettings(Long id);
 
 }

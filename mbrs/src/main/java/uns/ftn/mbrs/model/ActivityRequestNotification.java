@@ -9,7 +9,7 @@ import uns.ftn.mbrs.model.User;
 import uns.ftn.mbrs.model.NotificationType;
 
 
-
+@Table(name="activityRequestNotification")
 @Entity
 public class ActivityRequestNotification {  
 
@@ -21,34 +21,34 @@ public class ActivityRequestNotification {
 	  	 @OneToOne
 	     private ActivityRequest  activityRequest;
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
-	     @Column
-	     private String  description ;
 	     @Column
 	     private  Date  date ;
 	     @Column
 	     private NotificationType  type ;
+	     @Column
+	     private String  description ;
 	
 		public ActivityRequestNotification(){}
 		
 		public ActivityRequestNotification(Long id, 
-		ActivityRequest   activityRequest,User   user,String   description , Date   date ,NotificationType   type 
+		ActivityRequest   activityRequest,User   user, Date   date ,NotificationType   type ,String   description 
 		){
 			this.id = id; 
 			this.activityRequest =  activityRequest;
 			this.user =  user;
-			this.description  =  description ;
 			this.date  =  date ;
 			this.type  =  type ;
+			this.description  =  description ;
 		}
 		
-		public ActivityRequestNotification(ActivityRequest   activityRequest ,User   user ,String   description  , Date   date  ,NotificationType   type  ){
+		public ActivityRequestNotification(ActivityRequest   activityRequest ,User   user , Date   date  ,NotificationType   type  ,String   description  ){
 			this.activityRequest  = activityRequest ;
 			this.user  = user ;
-			this.description   = description  ;
 			this.date   = date  ;
 			this.type   = type  ;
+			this.description   = description  ;
 		}
 		
 		public Long getId(){
@@ -75,14 +75,6 @@ public class ActivityRequestNotification {
 	           this.user = user;
 	    }
 	      
-	    public String  getDescription  (){
-	           return description ;
-	    }
-	      
-	    public void setDescription (String   description ){
-	           this.description  = description ;
-	    }
-	      
 	    public  Date  getDate  (){
 	           return date ;
 	    }
@@ -97,6 +89,14 @@ public class ActivityRequestNotification {
 	      
 	    public void setType (NotificationType   type ){
 	           this.type  = type ;
+	    }
+	      
+	    public String  getDescription  (){
+	           return description ;
+	    }
+	      
+	    public void setDescription (String   description ){
+	           this.description  = description ;
 	    }
 	      
 	

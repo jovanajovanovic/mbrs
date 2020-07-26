@@ -32,17 +32,28 @@ public class UserSettingsDTOToUserSettings implements Converter<UserSettingsDTO,
 		
 		userSettings.setId(dto.getId());
 		
-		userSettings.setUserInfoPrivacy(dto.getUserInfoPrivacy());
-		userSettings.setPostPrivacy(dto.getPostPrivacy());
-		userSettings.setGoalPrivacy(dto.getGoalPrivacy());
-		userSettings.setNewComments(dto.getNewComments());
-		userSettings.setNewLikes(dto.getNewLikes());
-		userSettings.setFriendshipRequest(dto.getFriendshipRequest());
-		userSettings.setAcceptedFriendship(dto.getAcceptedFriendship());
-		userSettings.setActivityRequest(dto.getActivityRequest());
-		userSettings.setAcceptedActivity(dto.getAcceptedActivity());
-		userSettings.setCanceledActivity(dto.getCanceledActivity());
-		userSettings.setNightTheme(dto.getNightTheme());
+			userSettings.setUserInfoPrivacy(dto.getUserInfoPrivacy());
+
+			userSettings.setPostPrivacy(dto.getPostPrivacy());
+
+			userSettings.setGoalPrivacy(dto.getGoalPrivacy());
+
+			userSettings.setNewComments(dto.getNewComments());
+
+			userSettings.setNewLikes(dto.getNewLikes());
+
+			userSettings.setFriendshipRequest(dto.getFriendshipRequest());
+
+			userSettings.setAcceptedFriendship(dto.getAcceptedFriendship());
+
+			userSettings.setActivityRequest(dto.getActivityRequest());
+
+			userSettings.setAcceptedActivity(dto.getAcceptedActivity());
+
+			userSettings.setCanceledActivity(dto.getCanceledActivity());
+
+			userSettings.setNightTheme(dto.getNightTheme());
+
 		
 		return userSettings;
 	}

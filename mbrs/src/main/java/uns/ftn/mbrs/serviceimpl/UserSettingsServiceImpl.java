@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.UserSettings;
 import uns.ftn.mbrs.repository.UserSettingsRepository;
 import uns.ftn.mbrs.service.UserSettingsService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class UserSettingsServiceImpl implements UserSettingsService {
 	
 	@Override
 	public UserSettings findOne(Long id) {
-		return userSettingsRepository.findOne(id);
+		return userSettingsRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class UserSettingsServiceImpl implements UserSettingsService {
 		return userSettingsRepository.save(userSettings);
 	}
 	
+	@Override
 	public UserSettings remove(Long id) {
-		UserSettings userSettings = userSettingsRepository.findOne(id);
+		UserSettings userSettings = userSettingsRepository.findById(id).get();
 		if(userSettings == null){
 			throw new IllegalArgumentException("Tried to delete non-existant UserSettings");
 		}
@@ -42,47 +46,58 @@ public class UserSettingsServiceImpl implements UserSettingsService {
 		return userSettings;
 	}
 	
-	public List<UserSettings> findByUserInfoPrivacy(Visibility userInfoPrivacy) {
+	@Override
+	public List<UserSettings> findByUserInfoPrivacy(Visibility  userInfoPrivacy) {
 		return userSettingsRepository.findByUserInfoPrivacy(userInfoPrivacy);
 	}
 	
-	public List<UserSettings> findByPostPrivacy(Visibility postPrivacy) {
+	@Override
+	public List<UserSettings> findByPostPrivacy(Visibility  postPrivacy) {
 		return userSettingsRepository.findByPostPrivacy(postPrivacy);
 	}
 	
-	public List<UserSettings> findByGoalPrivacy(Visibility goalPrivacy) {
+	@Override
+	public List<UserSettings> findByGoalPrivacy(Visibility  goalPrivacy) {
 		return userSettingsRepository.findByGoalPrivacy(goalPrivacy);
 	}
 	
-	public List<UserSettings> findByNewComments(Boolean newComments) {
+	@Override
+	public List<UserSettings> findByNewComments(Boolean  newComments) {
 		return userSettingsRepository.findByNewComments(newComments);
 	}
 	
-	public List<UserSettings> findByNewLikes(Boolean newLikes) {
+	@Override
+	public List<UserSettings> findByNewLikes(Boolean  newLikes) {
 		return userSettingsRepository.findByNewLikes(newLikes);
 	}
 	
-	public List<UserSettings> findByFriendshipRequest(Boolean friendshipRequest) {
+	@Override
+	public List<UserSettings> findByFriendshipRequest(Boolean  friendshipRequest) {
 		return userSettingsRepository.findByFriendshipRequest(friendshipRequest);
 	}
 	
-	public List<UserSettings> findByAcceptedFriendship(Boolean acceptedFriendship) {
+	@Override
+	public List<UserSettings> findByAcceptedFriendship(Boolean  acceptedFriendship) {
 		return userSettingsRepository.findByAcceptedFriendship(acceptedFriendship);
 	}
 	
-	public List<UserSettings> findByActivityRequest(Boolean activityRequest) {
+	@Override
+	public List<UserSettings> findByActivityRequest(Boolean  activityRequest) {
 		return userSettingsRepository.findByActivityRequest(activityRequest);
 	}
 	
-	public List<UserSettings> findByAcceptedActivity(Boolean acceptedActivity) {
+	@Override
+	public List<UserSettings> findByAcceptedActivity(Boolean  acceptedActivity) {
 		return userSettingsRepository.findByAcceptedActivity(acceptedActivity);
 	}
 	
-	public List<UserSettings> findByCanceledActivity(Boolean canceledActivity) {
+	@Override
+	public List<UserSettings> findByCanceledActivity(Boolean  canceledActivity) {
 		return userSettingsRepository.findByCanceledActivity(canceledActivity);
 	}
 	
-	public List<UserSettings> findByNightTheme(Boolean nightTheme) {
+	@Override
+	public List<UserSettings> findByNightTheme(Boolean  nightTheme) {
 		return userSettingsRepository.findByNightTheme(nightTheme);
 	}
 	

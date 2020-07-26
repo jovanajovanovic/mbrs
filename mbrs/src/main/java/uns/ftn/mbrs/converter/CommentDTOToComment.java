@@ -34,9 +34,13 @@ public class CommentDTOToComment implements Converter<CommentDTO, Comment>{
 		
 		comment.setId(dto.getId());
 		
-		comment.setText(dto.getText());
-		comment.setDate(dto.getDate());
-		comment.setUser(toUser.convert(dto.getUser()));
+			comment.setText(dto.getText());
+
+			comment.setDate(dto.getDate());
+
+		if (dto.getUser() != null){
+			comment.setUser(toUser.convert(dto.getUser()));
+		}	
 		
 		return comment;
 	}

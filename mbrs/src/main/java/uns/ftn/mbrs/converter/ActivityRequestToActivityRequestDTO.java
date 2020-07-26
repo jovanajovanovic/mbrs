@@ -19,9 +19,9 @@ import uns.ftn.mbrs.converter.UserToUserDTO;
 public class ActivityRequestToActivityRequestDTO implements Converter<ActivityRequest, ActivityRequestDTO> {
 
 	@Autowired
-	private UserToUserDTO toUserDTO;
+	private UserToUserDTO toactivityRequestorDTO;
 	@Autowired
-	private UserToUserDTO toUserDTO;
+	private UserToUserDTO toactivityRequesteeDTO;
 
 	@Override
 	public ActivityRequestDTO convert(ActivityRequest activityRequest) {
@@ -29,10 +29,17 @@ public class ActivityRequestToActivityRequestDTO implements Converter<ActivityRe
 		
 		dto.setId(activityRequest.getId());
 		dto.setDate(activityRequest.getDate());
+
 		dto.setLocation(activityRequest.getLocation());
+
 		dto.setStatus(activityRequest.getStatus());
-		dto.setUser(toUserDTO.convert(activityRequest.getUser()));
-		dto.setUser(toUserDTO.convert(activityRequest.getUser()));
+
+		if (activityRequest.getActivityRequestor() != null){
+		dto.setActivityRequestor(toactivityRequestorDTO.convert(activityRequest.getActivityRequestor()));
+		}		
+		if (activityRequest.getActivityRequestee() != null){
+		dto.setActivityRequestee(toactivityRequesteeDTO.convert(activityRequest.getActivityRequestee()));
+		}		
 		return dto;
 	}
 	

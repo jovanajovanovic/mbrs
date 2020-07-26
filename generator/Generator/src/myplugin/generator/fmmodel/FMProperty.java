@@ -15,6 +15,11 @@ public class FMProperty extends FMElement  {
 	private String aggregationKind;
 	private String associationend;
 	
+	private Boolean hidden;
+	private Boolean findBy;
+	private Validation validation;
+	private UIProperty uiProperty;
+	
 	/** @param associtaionend 
 	 * @ToDo: Add length, precision, unique... whatever is needed for ejb class generation
 	 * Also, provide these meta-attributes or tags in the modeling languange metaclass or 
@@ -85,9 +90,37 @@ public class FMProperty extends FMElement  {
 		this.associationend = associationend;
 	}
 	
-	
+	public UIProperty getUiProperty() {
+		return uiProperty;
+	}
 
-	
+	public void setUiProperty(UIProperty uiProperty) {
+		this.uiProperty = uiProperty;
+	}
+
+	public Boolean getHidden() {
+		return hidden;
+	}
+
+	public void setHidden(Boolean hidden) {
+		this.hidden = hidden;
+	}
+
+	public Boolean getFindBy() {
+		return findBy;
+	}
+
+	public void setFindBy(Boolean findBy) {
+		this.findBy = findBy;
+	}
+
+	public Validation getValidation() {
+		return validation;
+	}
+
+	public void setValidation(Validation validation) {
+		this.validation = validation;
+	}
 	
 
 }

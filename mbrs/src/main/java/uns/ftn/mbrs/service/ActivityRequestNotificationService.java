@@ -2,16 +2,30 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.ActivityRequestNotification;
 
-public interface ActivityRequestNotificationService extends CrudService<ActivityRequestNotification> {
+import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
 
-	List<ActivityRequestNotification> findByActivityRequestId(Long id);
+public interface ActivityRequestNotificationService{
 
-	List<ActivityRequestNotification> findByUserId(Long id);
 
-	List<ActivityRequestNotification> findByDescription(String description);
+	ActivityRequestNotification findOne(Long id); 
+	
+	ActivityRequestNotification save(ActivityRequestNotification activityRequestNotification);
+		
+	List<ActivityRequestNotification> findAll();
+	
+	ActivityRequestNotification remove(Long id);
+	
 
-	List<ActivityRequestNotification> findByDate(date date);
+	List<ActivityRequestNotification> findByActivityRequest(Long id);
 
-	List<ActivityRequestNotification> findByType(NotificationType type);
+	List<ActivityRequestNotification> findByUser(Long id);
+
+	List<ActivityRequestNotification> findByDescription(String  description);
+
+	List<ActivityRequestNotification> findByDate( Date  date);
+
+	List<ActivityRequestNotification> findByType(NotificationType  type);
 
 }

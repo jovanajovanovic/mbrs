@@ -16,6 +16,8 @@ public class LikeReactionDTOToLikeReaction implements Converter<LikeReactionDTO,
 
 	@Autowired
 	private UserDTOToUser toUser;
+	@Autowired
+	private PostDTOToPost toPost;
 	
 	@Autowired
 	LikeReactionService likeReactionService;
@@ -35,6 +37,7 @@ public class LikeReactionDTOToLikeReaction implements Converter<LikeReactionDTO,
 		likeReaction.setId(dto.getId());
 		
 		likeReaction.setUser(toUser.convert(dto.getUser()));
+		likeReaction.setPost(toPost.convert(dto.getPost()));
 		
 		return likeReaction;
 	}

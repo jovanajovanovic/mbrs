@@ -25,7 +25,7 @@ ${class.visibility} class ${class.name} {
 	  	 @OneToOne
 	  	<#else>
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="${property.type.name?uncap_first}_id", referencedColumnName="id")
+		 @JoinColumn(name="<#if property.name=="">${property.type.name?uncap_first}<#else>${property.name}</#if>_id", nullable=false)
 	  	</#if>
 	  	<#else>
 	     @Column

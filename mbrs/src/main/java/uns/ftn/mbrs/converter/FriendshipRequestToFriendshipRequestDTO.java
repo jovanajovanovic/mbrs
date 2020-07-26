@@ -19,9 +19,9 @@ import uns.ftn.mbrs.converter.UserToUserDTO;
 public class FriendshipRequestToFriendshipRequestDTO implements Converter<FriendshipRequest, FriendshipRequestDTO> {
 
 	@Autowired
-	private UserToUserDTO toUserDTO;
+	private UserToUserDTO tofriendshipRequestorDTO;
 	@Autowired
-	private UserToUserDTO toUserDTO;
+	private UserToUserDTO tofriendshipRequesteeDTO;
 
 	@Override
 	public FriendshipRequestDTO convert(FriendshipRequest friendshipRequest) {
@@ -29,8 +29,8 @@ public class FriendshipRequestToFriendshipRequestDTO implements Converter<Friend
 		
 		dto.setId(friendshipRequest.getId());
 		dto.setStatus(friendshipRequest.getStatus());
-		dto.setUser(toUserDTO.convert(friendshipRequest.getUser()));
-		dto.setUser(toUserDTO.convert(friendshipRequest.getUser()));
+		dto.setFriendshipRequestor(tofriendshipRequestorDTO.convert(friendshipRequest.getFriendshipRequestor()));
+		dto.setFriendshipRequestee(tofriendshipRequesteeDTO.convert(friendshipRequest.getFriendshipRequestee()));
 		return dto;
 	}
 	

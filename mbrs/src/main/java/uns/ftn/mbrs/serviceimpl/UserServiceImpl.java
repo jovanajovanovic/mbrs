@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.User;
 import uns.ftn.mbrs.repository.UserRepository;
 import uns.ftn.mbrs.service.UserService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public User findOne(Long id) {
-		return userRepository.findOne(id);
+		return userRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class UserServiceImpl implements UserService {
 		return userRepository.save(user);
 	}
 	
+	@Override
 	public User remove(Long id) {
-		User user = userRepository.findOne(id);
+		User user = userRepository.findById(id).get();
 		if(user == null){
 			throw new IllegalArgumentException("Tried to delete non-existant User");
 		}
@@ -42,40 +46,49 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 	
-	public List<User> findByUsername(String username) {
+	@Override
+	public List<User> findByUsername(String  username) {
 		return userRepository.findByUsername(username);
 	}
 	
-	public List<User> findByName(String name) {
+	@Override
+	public List<User> findByName(String  name) {
 		return userRepository.findByName(name);
 	}
 	
-	public List<User> findBySurname(String surname) {
+	@Override
+	public List<User> findBySurname(String  surname) {
 		return userRepository.findBySurname(surname);
 	}
 	
-	public List<User> findByDateOfBirth(date dateOfBirth) {
+	@Override
+	public List<User> findByDateOfBirth( Date  dateOfBirth) {
 		return userRepository.findByDateOfBirth(dateOfBirth);
 	}
 	
-	public List<User> findByLocation(String location) {
+	@Override
+	public List<User> findByLocation(String  location) {
 		return userRepository.findByLocation(location);
 	}
 	
-	public List<User> findByBiography(String biography) {
+	@Override
+	public List<User> findByBiography(String  biography) {
 		return userRepository.findByBiography(biography);
 	}
 	
-	public List<User> findByHeight(double height) {
+	@Override
+	public List<User> findByHeight(double  height) {
 		return userRepository.findByHeight(height);
 	}
 	
-	public List<User> findByWeight(double weight) {
+	@Override
+	public List<User> findByWeight(double  weight) {
 		return userRepository.findByWeight(weight);
 	}
 	
-	public List<User> findByUserSettingsId(Long id) {
-		return userRepository.findByUserSettingsId(id);
+	@Override
+	public List<User> findByUserSettings(Long id) {
+		return userRepository.findByUserSettings(id);
 	}
 	
 }

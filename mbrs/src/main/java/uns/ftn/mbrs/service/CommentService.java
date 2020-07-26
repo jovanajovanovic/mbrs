@@ -2,12 +2,28 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.Comment;
 
-public interface CommentService extends CrudService<Comment> {
+import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
 
-	List<Comment> findByText(String text);
+public interface CommentService{
 
-	List<Comment> findByDate(date date);
 
-	List<Comment> findByUserId(Long id);
+	Comment findOne(Long id); 
+	
+	Comment save(Comment comment);
+		
+	List<Comment> findAll();
+	
+	Comment remove(Long id);
+	
+
+	List<Comment> findByText(String  text);
+
+	List<Comment> findByDate( Date  date);
+
+	List<Comment> findByUser(Long id);
+
+	List<Comment> findByPost(Long id);
 
 }

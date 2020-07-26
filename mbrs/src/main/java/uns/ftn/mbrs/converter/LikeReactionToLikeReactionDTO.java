@@ -13,12 +13,15 @@ import uns.ftn.mbrs.service.LikeReactionService;
 
 
 import uns.ftn.mbrs.converter.UserToUserDTO;
+import uns.ftn.mbrs.converter.PostToPostDTO;
 
 @Component
 public class LikeReactionToLikeReactionDTO implements Converter<LikeReaction, LikeReactionDTO> {
 
 	@Autowired
 	private UserToUserDTO toUserDTO;
+	@Autowired
+	private PostToPostDTO toPostDTO;
 
 	@Override
 	public LikeReactionDTO convert(LikeReaction likeReaction) {
@@ -26,6 +29,7 @@ public class LikeReactionToLikeReactionDTO implements Converter<LikeReaction, Li
 		
 		dto.setId(likeReaction.getId());
 		dto.setUser(toUserDTO.convert(likeReaction.getUser()));
+		dto.setPost(toPostDTO.convert(likeReaction.getPost()));
 		return dto;
 	}
 	

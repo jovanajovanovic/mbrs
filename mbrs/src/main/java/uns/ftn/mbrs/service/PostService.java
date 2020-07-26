@@ -2,14 +2,28 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.Post;
 
-public interface PostService extends CrudService<Post> {
+import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
 
-	List<Post> findByDescription(String description);
+public interface PostService{
 
-	List<Post> findByVisibility(Visibility visibility);
 
-	List<Post> findByUserId(Long id);
+	Post findOne(Long id); 
+	
+	Post save(Post post);
+		
+	List<Post> findAll();
+	
+	Post remove(Long id);
+	
 
-	List<Post> findByActivityId(Long id);
+	List<Post> findByDescription(String  description);
+
+	List<Post> findByVisibility(Visibility  visibility);
+
+	List<Post> findByUser(Long id);
+
+	List<Post> findByActivity(Long id);
 
 }

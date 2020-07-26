@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.FriendshipRequest;
 import uns.ftn.mbrs.repository.FriendshipRequestRepository;
 import uns.ftn.mbrs.service.FriendshipRequestService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class FriendshipRequestServiceImpl implements FriendshipRequestService {
 	
 	@Override
 	public FriendshipRequest findOne(Long id) {
-		return friendshipRequestRepository.findOne(id);
+		return friendshipRequestRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class FriendshipRequestServiceImpl implements FriendshipRequestService {
 		return friendshipRequestRepository.save(friendshipRequest);
 	}
 	
+	@Override
 	public FriendshipRequest remove(Long id) {
-		FriendshipRequest friendshipRequest = friendshipRequestRepository.findOne(id);
+		FriendshipRequest friendshipRequest = friendshipRequestRepository.findById(id).get();
 		if(friendshipRequest == null){
 			throw new IllegalArgumentException("Tried to delete non-existant FriendshipRequest");
 		}
@@ -42,16 +46,19 @@ public class FriendshipRequestServiceImpl implements FriendshipRequestService {
 		return friendshipRequest;
 	}
 	
-	public List<FriendshipRequest> findByStatus(FriendshipRequestStatus status) {
+	@Override
+	public List<FriendshipRequest> findByStatus(FriendshipRequestStatus  status) {
 		return friendshipRequestRepository.findByStatus(status);
 	}
 	
-	public List<FriendshipRequest> findByUserId(Long id) {
-		return friendshipRequestRepository.findByUserId(id);
+	@Override
+	public List<FriendshipRequest> findByFriendshipRequestor(Long id) {
+		return friendshipRequestRepository.findByFriendshipRequestor(id);
 	}
 	
-	public List<FriendshipRequest> findByUserId(Long id) {
-		return friendshipRequestRepository.findByUserId(id);
+	@Override
+	public List<FriendshipRequest> findByFriendshipRequestee(Long id) {
+		return friendshipRequestRepository.findByFriendshipRequestee(id);
 	}
 	
 }

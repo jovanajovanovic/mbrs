@@ -68,31 +68,31 @@ public class ActivityRequestNotificationDTO{
 	    
 	      
 	     
-	    public String  getDescription  (){
+	    public String  getDescription (){
 	           return description ;
 	    }
 	      
-	    public void setDescription (String   description ){
+	    public void setDescription (String  description ){
 	           this.description  = description ;
 	    }
 	    	
 	      
 	     
-	    public  Date  getDate  (){
+	    public  Date  getDate (){
 	           return date ;
 	    }
 	      
-	    public void setDate ( Date   date ){
+	    public void setDate (Date date ){
 	           this.date  = date ;
 	    }
 	    	
 	      
 	     
-	    public NotificationType  getType  (){
+	    public NotificationType  getType (){
 	           return type ;
 	    }
 	      
-	    public void setType (NotificationType   type ){
+	    public void setType (NotificationType  type ){
 	           this.type  = type ;
 	    }
 	    	

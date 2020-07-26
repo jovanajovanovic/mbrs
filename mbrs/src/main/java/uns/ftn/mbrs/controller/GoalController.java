@@ -1,6 +1,9 @@
 package uns.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
+
 
 import uns.ftn.mbrs.model.Goal;
 import uns.ftn.mbrs.service.GoalService;
@@ -78,7 +81,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByTitle/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByTitle(@PathVariable myplugin.generator.fmmodel.FMType@6a4381b3 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByTitle(@PathVariable String  value) {
 
 		List<Goal> goalList = goalService.findByTitle(value);
 			
@@ -86,7 +89,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDuration/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDuration(@PathVariable myplugin.generator.fmmodel.FMType@6d69bcd9 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDuration(@PathVariable double  value) {
 
 		List<Goal> goalList = goalService.findByDuration(value);
 			
@@ -94,7 +97,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDate(@PathVariable myplugin.generator.fmmodel.FMType@208757f1 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDate(@PathVariable  Date  value) {
 
 		List<Goal> goalList = goalService.findByDate(value);
 			
@@ -102,7 +105,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByDistance/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByDistance(@PathVariable myplugin.generator.fmmodel.FMType@2897389e value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByDistance(@PathVariable double  value) {
 
 		List<Goal> goalList = goalService.findByDistance(value);
 			
@@ -110,7 +113,7 @@ public class GoalController {
 	}
 
 	@RequestMapping(value = "/filterByAchieved/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<GoalDTO>> getGoalListByAchieved(@PathVariable myplugin.generator.fmmodel.FMType@5eaf7a26 value) {
+	ResponseEntity<List<GoalDTO>> getGoalListByAchieved(@PathVariable Boolean  value) {
 
 		List<Goal> goalList = goalService.findByAchieved(value);
 			

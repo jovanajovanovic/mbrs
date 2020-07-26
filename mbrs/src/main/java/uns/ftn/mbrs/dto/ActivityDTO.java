@@ -41,41 +41,41 @@ public class ActivityDTO{
 		this.id = id;
 	}
 	
-	    public double  getDuration  (){
+	    public double  getDuration (){
 	           return duration ;
 	    }
 	      
-	    public void setDuration (double   duration ){
+	    public void setDuration (double  duration ){
 	           this.duration  = duration ;
 	    }
 	    	
 	      
 	     
-	    public double  getDistance  (){
+	    public double  getDistance (){
 	           return distance ;
 	    }
 	      
-	    public void setDistance (double   distance ){
+	    public void setDistance (double  distance ){
 	           this.distance  = distance ;
 	    }
 	    	
 	      
 	     
-	    public  Date  getDate  (){
+	    public  Date  getDate (){
 	           return date ;
 	    }
 	      
-	    public void setDate ( Date   date ){
+	    public void setDate (Date date ){
 	           this.date  = date ;
 	    }
 	    	
 	      
 	     
-	    public Integer  getSteps  (){
+	    public Integer  getSteps (){
 	           return steps ;
 	    }
 	      
-	    public void setSteps (Integer   steps ){
+	    public void setSteps (Integer  steps ){
 	           this.steps  = steps ;
 	    }
 	    	

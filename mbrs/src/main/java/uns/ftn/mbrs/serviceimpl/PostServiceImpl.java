@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.Post;
 import uns.ftn.mbrs.repository.PostRepository;
 import uns.ftn.mbrs.service.PostService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class PostServiceImpl implements PostService {
 	
 	@Override
 	public Post findOne(Long id) {
-		return postRepository.findOne(id);
+		return postRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class PostServiceImpl implements PostService {
 		return postRepository.save(post);
 	}
 	
+	@Override
 	public Post remove(Long id) {
-		Post post = postRepository.findOne(id);
+		Post post = postRepository.findById(id).get();
 		if(post == null){
 			throw new IllegalArgumentException("Tried to delete non-existant Post");
 		}
@@ -42,20 +46,24 @@ public class PostServiceImpl implements PostService {
 		return post;
 	}
 	
-	public List<Post> findByDescription(String description) {
+	@Override
+	public List<Post> findByDescription(String  description) {
 		return postRepository.findByDescription(description);
 	}
 	
-	public List<Post> findByVisibility(Visibility visibility) {
+	@Override
+	public List<Post> findByVisibility(Visibility  visibility) {
 		return postRepository.findByVisibility(visibility);
 	}
 	
-	public List<Post> findByUserId(Long id) {
-		return postRepository.findByUserId(id);
+	@Override
+	public List<Post> findByUser(Long id) {
+		return postRepository.findByUser(id);
 	}
 	
-	public List<Post> findByActivityId(Long id) {
-		return postRepository.findByActivityId(id);
+	@Override
+	public List<Post> findByActivity(Long id) {
+		return postRepository.findByActivity(id);
 	}
 	
 }

@@ -2,16 +2,30 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.Goal;
 
-public interface GoalService extends CrudService<Goal> {
+import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
 
-	List<Goal> findByTitle(String title);
+public interface GoalService{
 
-	List<Goal> findByDuration(double duration);
 
-	List<Goal> findByDate(date date);
+	Goal findOne(Long id); 
+	
+	Goal save(Goal goal);
+		
+	List<Goal> findAll();
+	
+	Goal remove(Long id);
+	
 
-	List<Goal> findByDistance(double distance);
+	List<Goal> findByTitle(String  title);
 
-	List<Goal> findByAchieved(Boolean achieved);
+	List<Goal> findByDuration(double  duration);
+
+	List<Goal> findByDate( Date  date);
+
+	List<Goal> findByDistance(double  distance);
+
+	List<Goal> findByAchieved(Boolean  achieved);
 
 }

@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.ActivityRequestNotification;
 import uns.ftn.mbrs.repository.ActivityRequestNotificationRepository;
 import uns.ftn.mbrs.service.ActivityRequestNotificationService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 	
 	@Override
 	public ActivityRequestNotification findOne(Long id) {
-		return activityRequestNotificationRepository.findOne(id);
+		return activityRequestNotificationRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 		return activityRequestNotificationRepository.save(activityRequestNotification);
 	}
 	
+	@Override
 	public ActivityRequestNotification remove(Long id) {
-		ActivityRequestNotification activityRequestNotification = activityRequestNotificationRepository.findOne(id);
+		ActivityRequestNotification activityRequestNotification = activityRequestNotificationRepository.findById(id).get();
 		if(activityRequestNotification == null){
 			throw new IllegalArgumentException("Tried to delete non-existant ActivityRequestNotification");
 		}
@@ -42,23 +46,28 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 		return activityRequestNotification;
 	}
 	
-	public List<ActivityRequestNotification> findByActivityRequestId(Long id) {
-		return activityRequestNotificationRepository.findByActivityRequestId(id);
+	@Override
+	public List<ActivityRequestNotification> findByActivityRequest(Long id) {
+		return activityRequestNotificationRepository.findByActivityRequest(id);
 	}
 	
-	public List<ActivityRequestNotification> findByUserId(Long id) {
-		return activityRequestNotificationRepository.findByUserId(id);
+	@Override
+	public List<ActivityRequestNotification> findByUser(Long id) {
+		return activityRequestNotificationRepository.findByUser(id);
 	}
 	
-	public List<ActivityRequestNotification> findByDescription(String description) {
+	@Override
+	public List<ActivityRequestNotification> findByDescription(String  description) {
 		return activityRequestNotificationRepository.findByDescription(description);
 	}
 	
-	public List<ActivityRequestNotification> findByDate(date date) {
+	@Override
+	public List<ActivityRequestNotification> findByDate( Date  date) {
 		return activityRequestNotificationRepository.findByDate(date);
 	}
 	
-	public List<ActivityRequestNotification> findByType(NotificationType type) {
+	@Override
+	public List<ActivityRequestNotification> findByType(NotificationType  type) {
 		return activityRequestNotificationRepository.findByType(type);
 	}
 	

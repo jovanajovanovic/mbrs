@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.Goal;
 import uns.ftn.mbrs.repository.GoalRepository;
 import uns.ftn.mbrs.service.GoalService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class GoalServiceImpl implements GoalService {
 	
 	@Override
 	public Goal findOne(Long id) {
-		return goalRepository.findOne(id);
+		return goalRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class GoalServiceImpl implements GoalService {
 		return goalRepository.save(goal);
 	}
 	
+	@Override
 	public Goal remove(Long id) {
-		Goal goal = goalRepository.findOne(id);
+		Goal goal = goalRepository.findById(id).get();
 		if(goal == null){
 			throw new IllegalArgumentException("Tried to delete non-existant Goal");
 		}
@@ -42,23 +46,28 @@ public class GoalServiceImpl implements GoalService {
 		return goal;
 	}
 	
-	public List<Goal> findByTitle(String title) {
+	@Override
+	public List<Goal> findByTitle(String  title) {
 		return goalRepository.findByTitle(title);
 	}
 	
-	public List<Goal> findByDuration(double duration) {
+	@Override
+	public List<Goal> findByDuration(double  duration) {
 		return goalRepository.findByDuration(duration);
 	}
 	
-	public List<Goal> findByDate(date date) {
+	@Override
+	public List<Goal> findByDate( Date  date) {
 		return goalRepository.findByDate(date);
 	}
 	
-	public List<Goal> findByDistance(double distance) {
+	@Override
+	public List<Goal> findByDistance(double  distance) {
 		return goalRepository.findByDistance(distance);
 	}
 	
-	public List<Goal> findByAchieved(Boolean achieved) {
+	@Override
+	public List<Goal> findByAchieved(Boolean  achieved) {
 		return goalRepository.findByAchieved(achieved);
 	}
 	

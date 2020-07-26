@@ -15,9 +15,9 @@ public class PostDTO{
 		
 	  	 private Visibility  visibility;
 		
-	     private ArrayList<LikeReactionDTO>  likeReaction = new ArrayList<LikeReaction>();
+	     private ArrayList<LikeReactionDTO>  likeReaction = new ArrayList<LikeReactionDTO>();
 		
-	     private ArrayList<CommentDTO>  comment = new ArrayList<Comment>();
+	     private ArrayList<CommentDTO>  comment = new ArrayList<CommentDTO>();
 		
 	     private UserDTO  user;
 		
@@ -54,34 +54,34 @@ public class PostDTO{
 		this.id = id;
 	}
 	
-	    public String  getDescription  (){
+	    public String  getDescription (){
 	           return description ;
 	    }
 	      
-	    public void setDescription (String   description ){
+	    public void setDescription (String  description ){
 	           this.description  = description ;
 	    }
 	    	
 	      
 	     
-	    public Visibility  getVisibility  (){
+	    public Visibility  getVisibility (){
 	           return visibility ;
 	    }
 	      
-	    public void setVisibility (Visibility   visibility ){
+	    public void setVisibility (Visibility  visibility ){
 	           this.visibility  = visibility ;
 	    }
 	    	
 	      
 	     
-	     public ArrayList<LikeReactionDTO> get LikeReaction(){
+	     public ArrayList<LikeReactionDTO> getLikeReaction(){
 	           return  likeReaction;
 	    }
 	      
 	    public void setLikeReaction( ArrayList<LikeReactionDTO>  likeReaction){
 	           this.likeReaction = likeReaction;
 	    }
-	     public ArrayList<CommentDTO> get Comment(){
+	     public ArrayList<CommentDTO> getComment(){
 	           return  comment;
 	    }
 	      

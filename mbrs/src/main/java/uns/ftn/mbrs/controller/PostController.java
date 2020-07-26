@@ -1,6 +1,9 @@
 package uns.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
+
 
 import uns.ftn.mbrs.model.Post;
 import uns.ftn.mbrs.service.PostService;
@@ -78,7 +81,7 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListByDescription(@PathVariable myplugin.generator.fmmodel.FMType@7eada228 value) {
+	ResponseEntity<List<PostDTO>> getPostListByDescription(@PathVariable String  value) {
 
 		List<Post> postList = postService.findByDescription(value);
 			
@@ -86,25 +89,25 @@ public class PostController {
 	}
 
 	@RequestMapping(value = "/filterByVisibility/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListByVisibility(@PathVariable myplugin.generator.fmmodel.FMType@7ebdf158 value) {
+	ResponseEntity<List<PostDTO>> getPostListByVisibility(@PathVariable Visibility  value) {
 
 		List<Post> postList = postService.findByVisibility(value);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@50e75bbdId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@50e75bbdId(@PathVariable Long id) {
+	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<PostDTO>> getPostListByUserId(@PathVariable Long id) {
 
-		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@50e75bbdId(id);
+		List<Post> postList = postService.findByUser(id);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterBymyplugin.generator.fmmodel.FMType@7c066161Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListBymyplugin.generator.fmmodel.FMType@7c066161Id(@PathVariable Long id) {
+	@RequestMapping(value = "/filterByActivityId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<PostDTO>> getPostListByActivityId(@PathVariable Long id) {
 
-		List<Post> postList = postService.findBymyplugin.generator.fmmodel.FMType@7c066161Id(id);
+		List<Post> postList = postService.findByActivity(id);
 			
 		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
 	}

@@ -24,10 +24,10 @@ public class ActivityRequest {
 	     @Column
 	     private ActivityRequestStatus  status ;
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="activityRequestor_id", nullable=false)
 	     private User  activityRequestor ;
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="activityRequestee_id", nullable=false)
 	     private User  activityRequestee ;
 	
 		public ActivityRequest(){}

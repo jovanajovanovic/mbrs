@@ -29,7 +29,7 @@ public class Post {
 	     @OneToMany(mappedBy="post")
 	     private Set<Comment >  comment = new HashSet<Comment>();
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
 	  	 @OneToOne
 	     private Activity  activity;

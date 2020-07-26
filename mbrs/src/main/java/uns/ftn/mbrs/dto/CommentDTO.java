@@ -4,6 +4,7 @@ import java.util.Date;
 
 import java.util.ArrayList; 
 import uns.ftn.mbrs.dto.UserDTO;
+import uns.ftn.mbrs.dto.PostDTO;
 
 public class CommentDTO{
 	private Long id;
@@ -13,20 +14,24 @@ public class CommentDTO{
 		
 	     private UserDTO  user;
 		
+	     private PostDTO  post;
+		
 	
 	
 	
 	public CommentDTO(){}
-	public CommentDTO(Long id, String text, Date date,UserDTO  user){
+	public CommentDTO(Long id, String text, Date date,UserDTO  user,PostDTO  post){
 		this.id = id;
 			this.text   = text  ;
 			this.date   = date  ;
 			this.user  = user ;
+			this.post  = post ;
 		}
-	public CommentDTO( String  text   ,  Date  date   ,UserDTO  user ){
+	public CommentDTO( String  text   ,  Date  date   ,UserDTO  user ,PostDTO  post ){
 			this.text   = text  ;
 			this.date   = date  ;
 			this.user  = user ;
+			this.post  = post ;
 		}
 	
 	
@@ -38,21 +43,21 @@ public class CommentDTO{
 		this.id = id;
 	}
 	
-	    public String  getText  (){
+	    public String  getText (){
 	           return text ;
 	    }
 	      
-	    public void setText (String   text ){
+	    public void setText (String  text ){
 	           this.text  = text ;
 	    }
 	    	
 	      
 	     
-	    public  Date  getDate  (){
+	    public  Date  getDate (){
 	           return date ;
 	    }
 	      
-	    public void setDate ( Date   date ){
+	    public void setDate (Date date ){
 	           this.date  = date ;
 	    }
 	    	
@@ -64,6 +69,16 @@ public class CommentDTO{
 	      
 	    public void setUser(UserDTO  User){
 	           this.user = user;
+	    }
+	    
+	      
+	     
+	    public PostDTO getPost (){
+	           return post;
+	    }
+	      
+	    public void setPost(PostDTO  Post){
+	           this.post = post;
 	    }
 	    
 	      

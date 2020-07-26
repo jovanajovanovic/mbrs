@@ -18,7 +18,7 @@ public class ${class.name}DTO{
 	  </#if>
 	<#elseif property.upper == -1  > 
 	  <#if property.association == true>
-	     ${property.visibility} ArrayList<${property.type.name}DTO> <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if> = new ArrayList<${property.type.name}>();
+	     ${property.visibility} ArrayList<${property.type.name}DTO> <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if> = new ArrayList<${property.type.name}DTO>();
 	  <#else>
 	  	 ${property.visibility} ArrayList<<#if property.type.name == "date" > Date <#else>${property.type.name} </#if>> <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if> = new ArrayList<${property.type.name}>();
 	  </#if>
@@ -73,7 +73,7 @@ public class ${class.name}DTO{
 	<#list properties as property>
 		<#if property.upper == 1 >   
 		<#if property.association == true>
-	    public ${property.type.name}DTO get<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if> (){
+	    public ${property.type.name}DTO get<#if property.name != "" >${property.name?cap_first}<#else>${property.type.name}</#if> (){
 	           return <#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if>;
 	    }
 	      
@@ -82,11 +82,11 @@ public class ${class.name}DTO{
 	    }
 	    
 	    <#else>
-	    public <#if property.type.name == "date" > Date <#else>${property.type.name} </#if> get<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if> (){
+	    public <#if property.type.name == "date" > Date <#else>${property.type.name} </#if> get<#if property.name != "" >${property.name?cap_first}<#else>${property.type.name}</#if> (){
 	           return <#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if>;
 	    }
 	      
-	    public void set<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if>(<#if property.type.name == "date" > Date <#else>${property.type.name} </#if> <#if property.name != "" > ${property.name} <#else> ${property.type.name}</#if>){
+	    public void set<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if>(<#if property.type.name == "date" >Date<#else>${property.type.name} </#if><#if property.name != "" > ${property.name} <#else> ${property.type.name}</#if>){
 	           this.<#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if> = <#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if>;
 	    }
 	    	
@@ -95,7 +95,7 @@ public class ${class.name}DTO{
 	     
 	    <#elseif property.upper == -1 >
 	    <#if property.association == false>
-	    public ArrayList<<#if property.type.name == "date" > Date <#else>${property.type.name} </#if>> get<#if property.name != "" > ${property.name?cap_first} <#else> ${property.type.name}</#if>(){
+	    public ArrayList<<#if property.type.name == "date" > Date <#else>${property.type.name} </#if>> get<#if property.name != "" >${property.name?cap_first} <#else>${property.type.name}</#if>(){
 	           return <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>;
 	    }
 	      
@@ -103,7 +103,7 @@ public class ${class.name}DTO{
 	           this.<#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if> = <#if property.name != "" >${property.name} <#else>${property.type.name?uncap_first}</#if>;
 	    }
 	    <#else>
-	     public ArrayList<${property.type.name}DTO> get<#if property.name != "" > ${property.name?cap_first} <#else> ${property.type.name}</#if>(){
+	     public ArrayList<${property.type.name}DTO> get<#if property.name != "" >${property.name?cap_first}<#else>${property.type.name}</#if>(){
 	           return <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>;
 	    }
 	      

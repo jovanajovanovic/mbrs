@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 import uns.ftn.mbrs.model.User;
+import uns.ftn.mbrs.model.Post;
 
 
 
@@ -17,20 +18,25 @@ public class LikeReaction {
 		
 		
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", referencedColumnName="id")
+		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
+		 @ManyToOne(fetch=FetchType.LAZY)
+		 @JoinColumn(name="post_id", nullable=false)
+	     private Post  post;
 	
 		public LikeReaction(){}
 		
 		public LikeReaction(Long id, 
-		User   user
+		User   user,Post   post
 		){
 			this.id = id; 
 			this.user =  user;
+			this.post =  post;
 		}
 		
-		public LikeReaction(User   user ){
+		public LikeReaction(User   user ,Post   post ){
 			this.user  = user ;
+			this.post  = post ;
 		}
 		
 		public Long getId(){
@@ -47,6 +53,14 @@ public class LikeReaction {
 	      
 	    public void setUser(User   User){
 	           this.user = user;
+	    }
+	      
+	    public Post  getPost (){
+	           return post;
+	    }
+	      
+	    public void setPost(Post   Post){
+	           this.post = post;
 	    }
 	      
 	

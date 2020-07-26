@@ -2,28 +2,42 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.UserSettings;
 
-public interface UserSettingsService extends CrudService<UserSettings> {
+import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
 
-	List<UserSettings> findByUserInfoPrivacy(Visibility userInfoPrivacy);
+public interface UserSettingsService{
 
-	List<UserSettings> findByPostPrivacy(Visibility postPrivacy);
 
-	List<UserSettings> findByGoalPrivacy(Visibility goalPrivacy);
+	UserSettings findOne(Long id); 
+	
+	UserSettings save(UserSettings userSettings);
+		
+	List<UserSettings> findAll();
+	
+	UserSettings remove(Long id);
+	
 
-	List<UserSettings> findByNewComments(Boolean newComments);
+	List<UserSettings> findByUserInfoPrivacy(Visibility  userInfoPrivacy);
 
-	List<UserSettings> findByNewLikes(Boolean newLikes);
+	List<UserSettings> findByPostPrivacy(Visibility  postPrivacy);
 
-	List<UserSettings> findByFriendshipRequest(Boolean friendshipRequest);
+	List<UserSettings> findByGoalPrivacy(Visibility  goalPrivacy);
 
-	List<UserSettings> findByAcceptedFriendship(Boolean acceptedFriendship);
+	List<UserSettings> findByNewComments(Boolean  newComments);
 
-	List<UserSettings> findByActivityRequest(Boolean activityRequest);
+	List<UserSettings> findByNewLikes(Boolean  newLikes);
 
-	List<UserSettings> findByAcceptedActivity(Boolean acceptedActivity);
+	List<UserSettings> findByFriendshipRequest(Boolean  friendshipRequest);
 
-	List<UserSettings> findByCanceledActivity(Boolean canceledActivity);
+	List<UserSettings> findByAcceptedFriendship(Boolean  acceptedFriendship);
 
-	List<UserSettings> findByNightTheme(Boolean nightTheme);
+	List<UserSettings> findByActivityRequest(Boolean  activityRequest);
+
+	List<UserSettings> findByAcceptedActivity(Boolean  acceptedActivity);
+
+	List<UserSettings> findByCanceledActivity(Boolean  canceledActivity);
+
+	List<UserSettings> findByNightTheme(Boolean  nightTheme);
 
 }

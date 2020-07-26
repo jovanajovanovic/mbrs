@@ -1,6 +1,9 @@
 package ${class.typePackage};
 
 import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
+
 
 import uns.ftn.mbrs.model.${class.name};
 import uns.ftn.mbrs.service.${class.name}Service;
@@ -80,7 +83,7 @@ ${class.visibility} class ${class.name}Controller {
 	<#list properties as property>
 		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false>
 	@RequestMapping(value = "/filterBy${property.name?cap_first}/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.name?cap_first}(@PathVariable ${property.type.name} value) {
+	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.name?cap_first}(@PathVariable <#if property.type.name == "date"> Date <#else>${property.type.name} </#if> value) {
 
 		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy${property.name?cap_first}(value);
 			
@@ -90,9 +93,9 @@ ${class.visibility} class ${class.name}Controller {
 		</#if>
 		<#if property.association == true && property.upper == 1>
 	@RequestMapping(value = "/filterBy${property.type.name}Id/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.type.name}Id(@PathVariable Long id) {
+	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy<#if property.name != "">${property.name?cap_first}<#else>${property.type.name}</#if>Id(@PathVariable Long id) {
 
-		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy${property.type.name}Id(id);
+		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy<#if property.name != "">${property.name?cap_first}<#else>${property.type.name}</#if>(id);
 			
 		return new ResponseEntity<>(toDTO.convert(${class.name?uncap_first}List), HttpStatus.OK);
 	}

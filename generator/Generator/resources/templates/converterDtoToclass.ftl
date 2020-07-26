@@ -17,7 +17,7 @@ public class ${class.name}DTOTo${class.name} implements Converter<${class.name}D
 	<#list properties as property>
 	<#if property.upper == 1 && property.association == true>
 	@Autowired
-	private ${property.type.name}DTOTo${property.type.name} to${property.type.name};
+	private ${property.type.name}DTOTo${property.type.name} to<#if property.name!="">${property.name}<#else>${property.type.name}</#if>;
 	</#if>
 	</#list>
 	
@@ -43,7 +43,7 @@ public class ${class.name}DTOTo${class.name} implements Converter<${class.name}D
 				<#if property.association == false>
 		${class.name?uncap_first}.set${property.name?cap_first}(dto.get${property.name?cap_first}());
 				<#else>
-		${class.name?uncap_first}.set${property.type.name}(to${property.type.name}.convert(dto.get${property.type.name}()));
+		${class.name?uncap_first}.set<#if property.name!="">${property.name?cap_first}<#else>${property.type.name}</#if>(to<#if property.name != "">${property.name}<#else>${property.type.name}</#if>.convert(dto.get<#if property.name!="">${property.name?cap_first}<#else>${property.type.name}</#if>()));
 				</#if>
 			</#if>		
 		</#list>

@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import uns.ftn.mbrs.model.Comment;
 import uns.ftn.mbrs.repository.CommentRepository;
 import uns.ftn.mbrs.service.CommentService;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class CommentServiceImpl implements CommentService {
 	
 	@Override
 	public Comment findOne(Long id) {
-		return commentRepository.findOne(id);
+		return commentRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class CommentServiceImpl implements CommentService {
 		return commentRepository.save(comment);
 	}
 	
+	@Override
 	public Comment remove(Long id) {
-		Comment comment = commentRepository.findOne(id);
+		Comment comment = commentRepository.findById(id).get();
 		if(comment == null){
 			throw new IllegalArgumentException("Tried to delete non-existant Comment");
 		}
@@ -42,16 +46,24 @@ public class CommentServiceImpl implements CommentService {
 		return comment;
 	}
 	
-	public List<Comment> findByText(String text) {
+	@Override
+	public List<Comment> findByText(String  text) {
 		return commentRepository.findByText(text);
 	}
 	
-	public List<Comment> findByDate(date date) {
+	@Override
+	public List<Comment> findByDate( Date  date) {
 		return commentRepository.findByDate(date);
 	}
 	
-	public List<Comment> findByUserId(Long id) {
-		return commentRepository.findByUserId(id);
+	@Override
+	public List<Comment> findByUser(Long id) {
+		return commentRepository.findByUser(id);
+	}
+	
+	@Override
+	public List<Comment> findByPost(Long id) {
+		return commentRepository.findByPost(id);
 	}
 	
 }

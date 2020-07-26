@@ -16,6 +16,8 @@ public class CommentDTOToComment implements Converter<CommentDTO, Comment>{
 
 	@Autowired
 	private UserDTOToUser toUser;
+	@Autowired
+	private PostDTOToPost toPost;
 	
 	@Autowired
 	CommentService commentService;
@@ -37,6 +39,7 @@ public class CommentDTOToComment implements Converter<CommentDTO, Comment>{
 		comment.setText(dto.getText());
 		comment.setDate(dto.getDate());
 		comment.setUser(toUser.convert(dto.getUser()));
+		comment.setPost(toPost.convert(dto.getPost()));
 		
 		return comment;
 	}

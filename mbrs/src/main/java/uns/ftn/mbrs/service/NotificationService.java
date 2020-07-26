@@ -2,12 +2,26 @@ package uns.ftn.mbrs.service;
 
 import uns.ftn.mbrs.model.Notification;
 
-public interface NotificationService extends CrudService<Notification> {
+import java.util.List;
+import java.util.Date;
+import uns.ftn.mbrs.model.*;
 
-	List<Notification> findByDescription(String description);
+public interface NotificationService{
 
-	List<Notification> findByDate(date date);
 
-	List<Notification> findByType(NotificationType type);
+	Notification findOne(Long id); 
+	
+	Notification save(Notification notification);
+		
+	List<Notification> findAll();
+	
+	Notification remove(Long id);
+	
+
+	List<Notification> findByDescription(String  description);
+
+	List<Notification> findByDate( Date  date);
+
+	List<Notification> findByType(NotificationType  type);
 
 }

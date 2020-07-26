@@ -45,51 +45,51 @@ public class GoalDTO{
 		this.id = id;
 	}
 	
-	    public String  getTitle  (){
+	    public String  getTitle (){
 	           return title ;
 	    }
 	      
-	    public void setTitle (String   title ){
+	    public void setTitle (String  title ){
 	           this.title  = title ;
 	    }
 	    	
 	      
 	     
-	    public double  getDuration  (){
+	    public double  getDuration (){
 	           return duration ;
 	    }
 	      
-	    public void setDuration (double   duration ){
+	    public void setDuration (double  duration ){
 	           this.duration  = duration ;
 	    }
 	    	
 	      
 	     
-	    public  Date  getDate  (){
+	    public  Date  getDate (){
 	           return date ;
 	    }
 	      
-	    public void setDate ( Date   date ){
+	    public void setDate (Date date ){
 	           this.date  = date ;
 	    }
 	    	
 	      
 	     
-	    public double  getDistance  (){
+	    public double  getDistance (){
 	           return distance ;
 	    }
 	      
-	    public void setDistance (double   distance ){
+	    public void setDistance (double  distance ){
 	           this.distance  = distance ;
 	    }
 	    	
 	      
 	     
-	    public Boolean  getAchieved  (){
+	    public Boolean  getAchieved (){
 	           return achieved ;
 	    }
 	      
-	    public void setAchieved (Boolean   achieved ){
+	    public void setAchieved (Boolean  achieved ){
 	           this.achieved  = achieved ;
 	    }
 	    	

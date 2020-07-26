@@ -38,8 +38,9 @@ public class ${class.name}To${class.name}DTO implements Converter<${class.name},
 				<#if property.association == false>
 		dto.set${property.name?cap_first}(${class.name?uncap_first}.get${property.name?cap_first}());
 				<#else>
+		if (${class.name?uncap_first}.get<#if property.name!="">${property.name?cap_first}<#else>${property.type.name}</#if>() != null){
 		dto.set<#if property.name!="">${property.name?cap_first}<#else>${property.type.name}</#if>(to<#if property.name == "">${property.type.name}<#else>${property.name}</#if>DTO.convert(${class.name?uncap_first}.get<#if property.name == "">${property.type.name}<#else>${property.name?cap_first}</#if>()));
-				</#if>
+		}		</#if>
 			</#if>
 		</#list>
 		return dto;

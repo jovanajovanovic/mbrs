@@ -88,12 +88,4 @@ public class LikeReactionController {
 		return new ResponseEntity<>(toDTO.convert(likeReactionList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterByPostId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<LikeReactionDTO>> getLikeReactionListByPostId(@PathVariable Long id) {
-
-		List<LikeReaction> likeReactionList = likeReactionService.findByPost(id);
-			
-		return new ResponseEntity<>(toDTO.convert(likeReactionList), HttpStatus.OK);
-	}
-
 }

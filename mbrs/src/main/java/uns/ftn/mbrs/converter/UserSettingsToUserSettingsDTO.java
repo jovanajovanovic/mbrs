@@ -23,16 +23,27 @@ public class UserSettingsToUserSettingsDTO implements Converter<UserSettings, Us
 		
 		dto.setId(userSettings.getId());
 		dto.setUserInfoPrivacy(userSettings.getUserInfoPrivacy());
+
 		dto.setPostPrivacy(userSettings.getPostPrivacy());
+
 		dto.setGoalPrivacy(userSettings.getGoalPrivacy());
+
 		dto.setNewComments(userSettings.getNewComments());
+
 		dto.setNewLikes(userSettings.getNewLikes());
+
 		dto.setFriendshipRequest(userSettings.getFriendshipRequest());
+
 		dto.setAcceptedFriendship(userSettings.getAcceptedFriendship());
+
 		dto.setActivityRequest(userSettings.getActivityRequest());
+
 		dto.setAcceptedActivity(userSettings.getAcceptedActivity());
+
 		dto.setCanceledActivity(userSettings.getCanceledActivity());
+
 		dto.setNightTheme(userSettings.getNightTheme());
+
 		return dto;
 	}
 	

@@ -104,12 +104,4 @@ public class CommentController {
 		return new ResponseEntity<>(toDTO.convert(commentList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterByPostId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListByPostId(@PathVariable Long id) {
-
-		List<Comment> commentList = commentService.findByPost(id);
-			
-		return new ResponseEntity<>(toDTO.convert(commentList), HttpStatus.OK);
-	}
-
 }

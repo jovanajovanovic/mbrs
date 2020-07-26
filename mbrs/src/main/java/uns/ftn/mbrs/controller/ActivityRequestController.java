@@ -104,7 +104,7 @@ public class ActivityRequestController {
 		return new ResponseEntity<>(toDTO.convert(activityRequestList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/filterByActivityRequestorId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByActivityRequestorId(@PathVariable Long id) {
 
 		List<ActivityRequest> activityRequestList = activityRequestService.findByActivityRequestor(id);
@@ -112,7 +112,7 @@ public class ActivityRequestController {
 		return new ResponseEntity<>(toDTO.convert(activityRequestList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/filterByActivityRequesteeId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByActivityRequesteeId(@PathVariable Long id) {
 
 		List<ActivityRequest> activityRequestList = activityRequestService.findByActivityRequestee(id);

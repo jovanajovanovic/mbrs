@@ -29,10 +29,17 @@ public class ActivityRequestToActivityRequestDTO implements Converter<ActivityRe
 		
 		dto.setId(activityRequest.getId());
 		dto.setDate(activityRequest.getDate());
+
 		dto.setLocation(activityRequest.getLocation());
+
 		dto.setStatus(activityRequest.getStatus());
+
+		if (activityRequest.getActivityRequestor() != null){
 		dto.setActivityRequestor(toactivityRequestorDTO.convert(activityRequest.getActivityRequestor()));
+		}		
+		if (activityRequest.getActivityRequestee() != null){
 		dto.setActivityRequestee(toactivityRequesteeDTO.convert(activityRequest.getActivityRequestee()));
+		}		
 		return dto;
 	}
 	

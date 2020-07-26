@@ -5,10 +5,9 @@ import java.util.Date;
 import javax.persistence.*;
 
 import uns.ftn.mbrs.model.User;
-import uns.ftn.mbrs.model.Post;
 
 
-
+@Table(name="comment")
 @Entity
 public class Comment {  
 
@@ -24,27 +23,22 @@ public class Comment {
 		 @ManyToOne(fetch=FetchType.LAZY)
 		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
-		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="post_id", nullable=false)
-	     private Post  post;
 	
 		public Comment(){}
 		
 		public Comment(Long id, 
-		String   text , Date   date ,User   user,Post   post
+		String   text , Date   date ,User   user
 		){
 			this.id = id; 
 			this.text  =  text ;
 			this.date  =  date ;
 			this.user =  user;
-			this.post =  post;
 		}
 		
-		public Comment(String   text  , Date   date  ,User   user ,Post   post ){
+		public Comment(String   text  , Date   date  ,User   user ){
 			this.text   = text  ;
 			this.date   = date  ;
 			this.user  = user ;
-			this.post  = post ;
 		}
 		
 		public Long getId(){
@@ -77,14 +71,6 @@ public class Comment {
 	      
 	    public void setUser(User   User){
 	           this.user = user;
-	    }
-	      
-	    public Post  getPost (){
-	           return post;
-	    }
-	      
-	    public void setPost(Post   Post){
-	           this.post = post;
 	    }
 	      
 	

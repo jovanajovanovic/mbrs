@@ -20,6 +20,4 @@ public interface LikeReactionService{
 
 	List<LikeReaction> findByUser(Long id);
 
-	List<LikeReaction> findByPost(Long id);
-
 }

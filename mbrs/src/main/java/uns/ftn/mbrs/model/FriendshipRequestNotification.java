@@ -9,7 +9,7 @@ import uns.ftn.mbrs.model.User;
 import uns.ftn.mbrs.model.NotificationType;
 
 
-
+@Table(name="friendshipRequestNotification")
 @Entity
 public class FriendshipRequestNotification {  
 

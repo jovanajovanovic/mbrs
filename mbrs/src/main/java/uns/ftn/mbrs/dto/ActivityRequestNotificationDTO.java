@@ -13,30 +13,30 @@ public class ActivityRequestNotificationDTO{
 		
 	     private UserDTO  user;
 		
-	  	 private String  description;
-		
 	  	 private  Date  date;
 		
 	  	 private NotificationType  type;
+		
+	  	 private String  description;
 		
 	
 	
 	
 	public ActivityRequestNotificationDTO(){}
-	public ActivityRequestNotificationDTO(Long id, ActivityRequestDTO  activityRequest,UserDTO  user,String description, Date date,NotificationType type){
+	public ActivityRequestNotificationDTO(Long id, ActivityRequestDTO  activityRequest,UserDTO  user, Date date,NotificationType type,String description){
 		this.id = id;
 			this.activityRequest  = activityRequest ;
 			this.user  = user ;
-			this.description   = description  ;
 			this.date   = date  ;
 			this.type   = type  ;
+			this.description   = description  ;
 		}
-	public ActivityRequestNotificationDTO(ActivityRequestDTO  activityRequest ,UserDTO  user , String  description   ,  Date  date   , NotificationType  type   ){
+	public ActivityRequestNotificationDTO(ActivityRequestDTO  activityRequest ,UserDTO  user ,  Date  date   , NotificationType  type   , String  description   ){
 			this.activityRequest  = activityRequest ;
 			this.user  = user ;
-			this.description   = description  ;
 			this.date   = date  ;
 			this.type   = type  ;
+			this.description   = description  ;
 		}
 	
 	
@@ -68,16 +68,6 @@ public class ActivityRequestNotificationDTO{
 	    
 	      
 	     
-	    public String  getDescription (){
-	           return description ;
-	    }
-	      
-	    public void setDescription (String  description ){
-	           this.description  = description ;
-	    }
-	    	
-	      
-	     
 	    public  Date  getDate (){
 	           return date ;
 	    }
@@ -94,6 +84,16 @@ public class ActivityRequestNotificationDTO{
 	      
 	    public void setType (NotificationType  type ){
 	           this.type  = type ;
+	    }
+	    	
+	      
+	     
+	    public String  getDescription (){
+	           return description ;
+	    }
+	      
+	    public void setDescription (String  description ){
+	           this.description  = description ;
 	    }
 	    	
 	      

@@ -7,7 +7,7 @@ import javax.persistence.*;
 import uns.ftn.mbrs.model.NotificationType;
 
 
-
+@Table(name="notification")
 @Entity
 public class Notification {  
 

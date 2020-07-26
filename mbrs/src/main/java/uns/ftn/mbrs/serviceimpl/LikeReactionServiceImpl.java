@@ -51,9 +51,4 @@ public class LikeReactionServiceImpl implements LikeReactionService {
 		return likeReactionRepository.findByUser(id);
 	}
 	
-	@Override
-	public List<LikeReaction> findByPost(Long id) {
-		return likeReactionRepository.findByPost(id);
-	}
-	
 }

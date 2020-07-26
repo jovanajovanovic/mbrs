@@ -13,15 +13,12 @@ import uns.ftn.mbrs.service.CommentService;
 
 
 import uns.ftn.mbrs.converter.UserToUserDTO;
-import uns.ftn.mbrs.converter.PostToPostDTO;
 
 @Component
 public class CommentToCommentDTO implements Converter<Comment, CommentDTO> {
 
 	@Autowired
 	private UserToUserDTO toUserDTO;
-	@Autowired
-	private PostToPostDTO toPostDTO;
 
 	@Override
 	public CommentDTO convert(Comment comment) {
@@ -29,9 +26,12 @@ public class CommentToCommentDTO implements Converter<Comment, CommentDTO> {
 		
 		dto.setId(comment.getId());
 		dto.setText(comment.getText());
+
 		dto.setDate(comment.getDate());
+
+		if (comment.getUser() != null){
 		dto.setUser(toUserDTO.convert(comment.getUser()));
-		dto.setPost(toPostDTO.convert(comment.getPost()));
+		}		
 		return dto;
 	}
 	

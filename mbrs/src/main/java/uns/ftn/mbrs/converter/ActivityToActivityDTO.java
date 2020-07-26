@@ -23,9 +23,13 @@ public class ActivityToActivityDTO implements Converter<Activity, ActivityDTO> {
 		
 		dto.setId(activity.getId());
 		dto.setDuration(activity.getDuration());
+
 		dto.setDistance(activity.getDistance());
+
 		dto.setDate(activity.getDate());
+
 		dto.setSteps(activity.getSteps());
+
 		return dto;
 	}
 	

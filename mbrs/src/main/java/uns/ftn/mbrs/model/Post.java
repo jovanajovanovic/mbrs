@@ -11,7 +11,7 @@ import uns.ftn.mbrs.model.User;
 import uns.ftn.mbrs.model.Activity;
 
 
-
+@Table(name="post")
 @Entity
 public class Post {  
 
@@ -24,9 +24,9 @@ public class Post {
 	     private String  description ;
 	     @Column
 	     private Visibility  visibility ;
-	     @OneToMany(mappedBy="post")
+	     @OneToMany
 	     private Set<LikeReaction >  likeReaction = new HashSet<LikeReaction>();
-	     @OneToMany(mappedBy="post")
+	     @OneToMany
 	     private Set<Comment >  comment = new HashSet<Comment>();
 		 @ManyToOne(fetch=FetchType.LAZY)
 		 @JoinColumn(name="user_id", nullable=false)

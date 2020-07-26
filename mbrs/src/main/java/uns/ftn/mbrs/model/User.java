@@ -13,7 +13,7 @@ import uns.ftn.mbrs.model.UserSettings;
 import uns.ftn.mbrs.model.FriendshipRequestNotification;
 
 
-
+@Table(name="user")
 @Entity
 public class User {  
 
@@ -38,25 +38,25 @@ public class User {
 	     private String  biography ;
 	     @Column
 	     private double  height ;
-	     @OneToMany(mappedBy="user")
+	     @OneToMany
 	     private Set<Goal >  goal = new HashSet<Goal>();
-	     @OneToMany(mappedBy="user")
+	     @OneToMany
 	     private Set<ActivityRequest >  pendingActivities  = new HashSet<ActivityRequest>();
 	     @Column
 	     private double  weight ;
-	     @OneToMany(mappedBy="user")
+	     @OneToMany
 	     private Set<ActivityRequest >  activityRequest = new HashSet<ActivityRequest>();
-	     @OneToMany(mappedBy="user")
+	     @OneToMany
 	     private Set<Post >  post = new HashSet<Post>();
-	     @OneToMany(mappedBy="user")
+	     @OneToMany
 	     private Set<FriendshipRequest >  pendingFriendships  = new HashSet<FriendshipRequest>();
-	     @OneToMany(mappedBy="user")
+	     @OneToMany
 	     private Set<FriendshipRequest >  friendshipRequest = new HashSet<FriendshipRequest>();
-	     @OneToMany(mappedBy="user")
+	     @OneToMany
 	     private Set<ActivityRequestNotification >  activityRequestNotification = new HashSet<ActivityRequestNotification>();
 	  	 @OneToOne
 	     private UserSettings  userSettings;
-	     @OneToMany(mappedBy="user")
+	     @OneToMany
 	     private Set<FriendshipRequestNotification >  friendshipRequestNotification = new HashSet<FriendshipRequestNotification>();
 	
 		public User(){}

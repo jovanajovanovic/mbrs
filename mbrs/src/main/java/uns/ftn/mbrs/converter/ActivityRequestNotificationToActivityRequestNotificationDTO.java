@@ -28,11 +28,18 @@ public class ActivityRequestNotificationToActivityRequestNotificationDTO impleme
 		ActivityRequestNotificationDTO dto = new ActivityRequestNotificationDTO();
 		
 		dto.setId(activityRequestNotification.getId());
+		if (activityRequestNotification.getActivityRequest() != null){
 		dto.setActivityRequest(toActivityRequestDTO.convert(activityRequestNotification.getActivityRequest()));
+		}		
+		if (activityRequestNotification.getUser() != null){
 		dto.setUser(toUserDTO.convert(activityRequestNotification.getUser()));
-		dto.setDescription(activityRequestNotification.getDescription());
+		}		
 		dto.setDate(activityRequestNotification.getDate());
+
 		dto.setType(activityRequestNotification.getType());
+
+		dto.setDescription(activityRequestNotification.getDescription());
+
 		return dto;
 	}
 	

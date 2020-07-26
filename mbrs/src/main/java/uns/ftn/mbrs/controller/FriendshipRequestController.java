@@ -88,7 +88,7 @@ public class FriendshipRequestController {
 		return new ResponseEntity<>(toDTO.convert(friendshipRequestList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/filterByFriendshipRequestorId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListByFriendshipRequestorId(@PathVariable Long id) {
 
 		List<FriendshipRequest> friendshipRequestList = friendshipRequestService.findByFriendshipRequestor(id);
@@ -96,7 +96,7 @@ public class FriendshipRequestController {
 		return new ResponseEntity<>(toDTO.convert(friendshipRequestList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/filterByFriendshipRequesteeId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListByFriendshipRequesteeId(@PathVariable Long id) {
 
 		List<FriendshipRequest> friendshipRequestList = friendshipRequestService.findByFriendshipRequestee(id);

@@ -23,8 +23,11 @@ public class NotificationToNotificationDTO implements Converter<Notification, No
 		
 		dto.setId(notification.getId());
 		dto.setDescription(notification.getDescription());
+
 		dto.setDate(notification.getDate());
+
 		dto.setType(notification.getType());
+
 		return dto;
 	}
 	

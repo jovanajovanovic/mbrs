@@ -36,9 +36,14 @@ public class FriendshipRequestDTOToFriendshipRequest implements Converter<Friend
 		
 		friendshipRequest.setId(dto.getId());
 		
-		friendshipRequest.setStatus(dto.getStatus());
-		friendshipRequest.setFriendshipRequestor(tofriendshipRequestor.convert(dto.getFriendshipRequestor()));
-		friendshipRequest.setFriendshipRequestee(tofriendshipRequestee.convert(dto.getFriendshipRequestee()));
+			friendshipRequest.setStatus(dto.getStatus());
+
+		if (dto.getFriendshipRequestor() != null){
+			friendshipRequest.setFriendshipRequestor(tofriendshipRequestor.convert(dto.getFriendshipRequestor()));
+		}	
+		if (dto.getFriendshipRequestee() != null){
+			friendshipRequest.setFriendshipRequestee(tofriendshipRequestee.convert(dto.getFriendshipRequestee()));
+		}	
 		
 		return friendshipRequest;
 	}

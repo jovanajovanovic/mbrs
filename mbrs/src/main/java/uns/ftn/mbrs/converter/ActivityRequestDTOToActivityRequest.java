@@ -36,11 +36,18 @@ public class ActivityRequestDTOToActivityRequest implements Converter<ActivityRe
 		
 		activityRequest.setId(dto.getId());
 		
-		activityRequest.setDate(dto.getDate());
-		activityRequest.setLocation(dto.getLocation());
-		activityRequest.setStatus(dto.getStatus());
-		activityRequest.setActivityRequestor(toactivityRequestor.convert(dto.getActivityRequestor()));
-		activityRequest.setActivityRequestee(toactivityRequestee.convert(dto.getActivityRequestee()));
+			activityRequest.setDate(dto.getDate());
+
+			activityRequest.setLocation(dto.getLocation());
+
+			activityRequest.setStatus(dto.getStatus());
+
+		if (dto.getActivityRequestor() != null){
+			activityRequest.setActivityRequestor(toactivityRequestor.convert(dto.getActivityRequestor()));
+		}	
+		if (dto.getActivityRequestee() != null){
+			activityRequest.setActivityRequestee(toactivityRequestee.convert(dto.getActivityRequestee()));
+		}	
 		
 		return activityRequest;
 	}

@@ -61,9 +61,4 @@ public class CommentServiceImpl implements CommentService {
 		return commentRepository.findByUser(id);
 	}
 	
-	@Override
-	public List<Comment> findByPost(Long id) {
-		return commentRepository.findByPost(id);
-	}
-	
 }

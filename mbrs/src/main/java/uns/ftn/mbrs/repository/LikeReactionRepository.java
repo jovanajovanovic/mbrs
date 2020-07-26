@@ -15,6 +15,4 @@ public interface LikeReactionRepository extends JpaRepository<LikeReaction, Long
 
 	List<LikeReaction> findByUser(Long id);
 
-	List<LikeReaction> findByPost(Long id);
-
 }

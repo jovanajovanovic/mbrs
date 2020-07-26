@@ -9,7 +9,7 @@ import ${import};
 </#list>
 
 
-
+@Table(name="${class.name?uncap_first}")
 @Entity
 ${class.visibility} class ${class.name} {  
 
@@ -32,7 +32,7 @@ ${class.visibility} class ${class.name} {
 	    </#if>
 	     ${property.visibility} <#if property.type.name == "date" > Date <#else>${property.type.name} </#if><#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>;
 	 <#elseif property.upper == -1  > 
-	     @OneToMany(mappedBy="${class.name?uncap_first}")
+	     @OneToMany
 	     ${property.visibility} Set<<#if property.type.name == "date" > Date <#else>${property.type.name} </#if>> <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if> = new HashSet<${property.type.name}>();
 	 <#else>   
 	    	<#list 1..property.upper as i>

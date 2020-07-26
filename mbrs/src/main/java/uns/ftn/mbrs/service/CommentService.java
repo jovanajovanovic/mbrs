@@ -24,6 +24,4 @@ public interface CommentService{
 
 	List<Comment> findByUser(Long id);
 
-	List<Comment> findByPost(Long id);
-
 }

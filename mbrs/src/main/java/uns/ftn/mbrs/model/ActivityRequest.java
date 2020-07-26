@@ -8,7 +8,7 @@ import uns.ftn.mbrs.model.ActivityRequestStatus;
 import uns.ftn.mbrs.model.User;
 
 
-
+@Table(name="activityRequest")
 @Entity
 public class ActivityRequest {  
 

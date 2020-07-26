@@ -22,10 +22,10 @@ public interface ActivityRequestNotificationService{
 
 	List<ActivityRequestNotification> findByUser(Long id);
 
-	List<ActivityRequestNotification> findByDescription(String  description);
-
 	List<ActivityRequestNotification> findByDate( Date  date);
 
 	List<ActivityRequestNotification> findByType(NotificationType  type);
+
+	List<ActivityRequestNotification> findByDescription(String  description);
 
 }

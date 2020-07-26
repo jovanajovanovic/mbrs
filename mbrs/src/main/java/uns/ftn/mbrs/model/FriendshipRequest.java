@@ -8,7 +8,7 @@ import uns.ftn.mbrs.model.FriendshipRequestStatus;
 import uns.ftn.mbrs.model.User;
 
 
-
+@Table(name="friendshipRequest")
 @Entity
 public class FriendshipRequest {  
 

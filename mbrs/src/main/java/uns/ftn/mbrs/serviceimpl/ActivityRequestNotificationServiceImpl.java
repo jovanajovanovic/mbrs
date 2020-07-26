@@ -57,11 +57,6 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 	}
 	
 	@Override
-	public List<ActivityRequestNotification> findByDescription(String  description) {
-		return activityRequestNotificationRepository.findByDescription(description);
-	}
-	
-	@Override
 	public List<ActivityRequestNotification> findByDate( Date  date) {
 		return activityRequestNotificationRepository.findByDate(date);
 	}
@@ -69,6 +64,11 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 	@Override
 	public List<ActivityRequestNotification> findByType(NotificationType  type) {
 		return activityRequestNotificationRepository.findByType(type);
+	}
+	
+	@Override
+	public List<ActivityRequestNotification> findByDescription(String  description) {
+		return activityRequestNotificationRepository.findByDescription(description);
 	}
 	
 }

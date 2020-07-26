@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 
 
-
+@Table(name="activity")
 @Entity
 public class Activity {  
 

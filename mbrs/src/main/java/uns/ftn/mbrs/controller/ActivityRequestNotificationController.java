@@ -96,14 +96,6 @@ public class ActivityRequestNotificationController {
 		return new ResponseEntity<>(toDTO.convert(activityRequestNotificationList), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestNotificationDTO>> getActivityRequestNotificationListByDescription(@PathVariable String  value) {
-
-		List<ActivityRequestNotification> activityRequestNotificationList = activityRequestNotificationService.findByDescription(value);
-			
-		return new ResponseEntity<>(toDTO.convert(activityRequestNotificationList), HttpStatus.OK);
-	}
-
 	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
 	ResponseEntity<List<ActivityRequestNotificationDTO>> getActivityRequestNotificationListByDate(@PathVariable  Date  value) {
 
@@ -116,6 +108,14 @@ public class ActivityRequestNotificationController {
 	ResponseEntity<List<ActivityRequestNotificationDTO>> getActivityRequestNotificationListByType(@PathVariable NotificationType  value) {
 
 		List<ActivityRequestNotification> activityRequestNotificationList = activityRequestNotificationService.findByType(value);
+			
+		return new ResponseEntity<>(toDTO.convert(activityRequestNotificationList), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
+	ResponseEntity<List<ActivityRequestNotificationDTO>> getActivityRequestNotificationListByDescription(@PathVariable String  value) {
+
+		List<ActivityRequestNotification> activityRequestNotificationList = activityRequestNotificationService.findByDescription(value);
 			
 		return new ResponseEntity<>(toDTO.convert(activityRequestNotificationList), HttpStatus.OK);
 	}

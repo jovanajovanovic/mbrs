@@ -92,7 +92,7 @@ ${class.visibility} class ${class.name}Controller {
 
 		</#if>
 		<#if property.association == true && property.upper == 1>
-	@RequestMapping(value = "/filterBy${property.type.name}Id/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/filterBy<#if property.name == "">${property.type.name}<#else>${property.name?cap_first}</#if>Id/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy<#if property.name != "">${property.name?cap_first}<#else>${property.type.name}</#if>Id(@PathVariable Long id) {
 
 		List<${class.name}> ${class.name?uncap_first}List = ${class.name?uncap_first}Service.findBy<#if property.name != "">${property.name?cap_first}<#else>${property.type.name}</#if>(id);

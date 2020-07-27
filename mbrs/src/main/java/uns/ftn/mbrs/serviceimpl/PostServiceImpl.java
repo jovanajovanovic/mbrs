@@ -21,6 +21,7 @@ public class PostServiceImpl implements PostService {
 	@Autowired
 	private PostRepository postRepository;
 	
+	
 	@Override
 	public Post findOne(Long id) {
 		return postRepository.findById(id).get();
@@ -44,16 +45,6 @@ public class PostServiceImpl implements PostService {
 		}
 		postRepository.delete(post);
 		return post;
-	}
-	
-	@Override
-	public List<Post> findByDescription(String  description) {
-		return postRepository.findByDescription(description);
-	}
-	
-	@Override
-	public List<Post> findByVisibility(Visibility  visibility) {
-		return postRepository.findByVisibility(visibility);
 	}
 	
 	@Override

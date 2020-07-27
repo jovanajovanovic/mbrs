@@ -73,13 +73,14 @@ public class GoalController {
 		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
 	}
 
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<GoalDTO> delete(@PathVariable Long id) {
 		Goal deleted = goalService.remove(id);
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-
+	
 	@RequestMapping(value = "/filterByTitle/{value}", method = RequestMethod.GET)
 	ResponseEntity<List<GoalDTO>> getGoalListByTitle(@PathVariable String  value) {
 
@@ -116,6 +117,14 @@ public class GoalController {
 	ResponseEntity<List<GoalDTO>> getGoalListByAchieved(@PathVariable Boolean  value) {
 
 		List<Goal> goalList = goalService.findByAchieved(value);
+			
+		return new ResponseEntity<>(toDTO.convert(goalList), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
+	ResponseEntity<List<GoalDTO>> getGoalListByUserId(@PathVariable Long id) {
+
+		List<Goal> goalList = goalService.findByUser(id);
 			
 		return new ResponseEntity<>(toDTO.convert(goalList), HttpStatus.OK);
 	}

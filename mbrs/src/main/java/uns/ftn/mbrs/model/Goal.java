@@ -3,7 +3,9 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
+import uns.ftn.mbrs.model.User;
 
 
 @Table(name="goal")
@@ -17,19 +19,27 @@ public class Goal {
 		
 	     @Column
 	     private String  title ;
+	 	
 	     @Column
 	     private double  duration ;
+	 	
 	     @Column
 	     private  Date  date ;
+	 	
 	     @Column
 	     private double  distance ;
+	 	
 	     @Column
 	     private Boolean  achieved ;
+	 	
+		 @ManyToOne(fetch=FetchType.LAZY)
+	     private User  user;
+	 	
 	
 		public Goal(){}
 		
 		public Goal(Long id, 
-		String   title ,double   duration , Date   date ,double   distance ,Boolean   achieved 
+		String   title ,double   duration , Date   date ,double   distance ,Boolean   achieved ,User   user
 		){
 			this.id = id; 
 			this.title  =  title ;
@@ -37,14 +47,16 @@ public class Goal {
 			this.date  =  date ;
 			this.distance  =  distance ;
 			this.achieved  =  achieved ;
+			this.user =  user;
 		}
 		
-		public Goal(String   title  ,double   duration  , Date   date  ,double   distance  ,Boolean   achieved  ){
+		public Goal(String   title  ,double   duration  , Date   date  ,double   distance  ,Boolean   achieved  ,User   user ){
 			this.title   = title  ;
 			this.duration   = duration  ;
 			this.date   = date  ;
 			this.distance   = distance  ;
 			this.achieved   = achieved  ;
+			this.user  = user ;
 		}
 		
 		public Long getId(){
@@ -93,6 +105,14 @@ public class Goal {
 	      
 	    public void setAchieved (Boolean   achieved ){
 	           this.achieved  = achieved ;
+	    }
+	      
+	    public User  getUser (){
+	           return user;
+	    }
+	      
+	    public void setUser(User   User){
+	           this.user = user;
 	    }
 	      
 	

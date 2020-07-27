@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 <#list imports as import>
 import ${import};
 </#list>
@@ -25,12 +26,18 @@ ${class.visibility} class ${class.name} {
 	  	 @OneToOne
 	  	<#else>
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="<#if property.name=="">${property.type.name?uncap_first}<#else>${property.name}</#if>_id", nullable=false)
-	  	</#if>
-	  	<#else>
-	     @Column
+		</#if>
+	  <#else>
+	     @Column<#if property.validation??>(<#if property.validation.unique?? >unique=<#if property.validation.unique==true>true<#else>false</#if></#if>, <#if property.validation.notNull?? >nullable=<#if property.validation.notNull==true>true<#else>false</#if></#if>)</#if>
+	     <#if property.validation??> 
+	     <#if property.validation.minLength??>@Length(min=${property.validation.minLength}, message="The field must be at least ${property.validation.minLength} characters")</#if>
+	     <#if property.validation.maxLength??>@Length(max=${property.validation.maxLength}, message="The field muste be less than ${property.validation.maxLength} characters")</#if>
+	     <#if property.validation.minValue?? >@Min(value=${property.validation.minValue})</#if>
+	     <#if property.validation.maxValue??> @Max(value=${property.validation.maxValue})</#if>
+	    </#if>
 	    </#if>
 	     ${property.visibility} <#if property.type.name == "date" > Date <#else>${property.type.name} </#if><#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if>;
+	 	
 	 <#elseif property.upper == -1  > 
 	     @OneToMany
 	     ${property.visibility} Set<<#if property.type.name == "date" > Date <#else>${property.type.name} </#if>> <#if property.name != "" > ${property.name} <#else> ${property.type.name?uncap_first}</#if> = new HashSet<${property.type.name}>();
@@ -38,7 +45,7 @@ ${class.visibility} class ${class.name} {
 	    	<#list 1..property.upper as i>
          ${property.visibility}<#if property.type.name == "date" > Date <#else>${property.type.name} </#if> ${property.name}${i};
 			</#list>  
-	    </#if>     
+	  </#if>     
 	</#list>
 	
 		public ${class.name}(){}

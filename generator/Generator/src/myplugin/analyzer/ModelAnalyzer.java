@@ -146,6 +146,7 @@ public class ModelAnalyzer {
 	        }
 		}
 		
+		
 		Stereotype uiClassStereotype = StereotypesHelper.getAppliedStereotypeByString(cl, "UIClass");
 		if(uiClassStereotype != null) {
 			Boolean create = true;
@@ -180,6 +181,7 @@ public class ModelAnalyzer {
 		    System.out.println("UIClass(label, create, read, update, delete): " + 
 		    		label + " " + create + " " + read + " " + update + " " + delete);
 		}
+		
 		
 		/** @ToDo:
 		 * Add import declarations etc. */		

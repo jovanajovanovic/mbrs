@@ -8,12 +8,10 @@ import uns.ftn.mbrs.model.*;
 
 public interface LikeReactionService{
 
-
+	
 	LikeReaction findOne(Long id); 
 	
 	LikeReaction save(LikeReaction likeReaction);
-		
-	List<LikeReaction> findAll();
 	
 	LikeReaction remove(Long id);
 	

@@ -21,6 +21,7 @@ public class ActivityServiceImpl implements ActivityService {
 	@Autowired
 	private ActivityRepository activityRepository;
 	
+	
 	@Override
 	public Activity findOne(Long id) {
 		return activityRepository.findById(id).get();
@@ -44,26 +45,6 @@ public class ActivityServiceImpl implements ActivityService {
 		}
 		activityRepository.delete(activity);
 		return activity;
-	}
-	
-	@Override
-	public List<Activity> findByDuration(double  duration) {
-		return activityRepository.findByDuration(duration);
-	}
-	
-	@Override
-	public List<Activity> findByDistance(double  distance) {
-		return activityRepository.findByDistance(distance);
-	}
-	
-	@Override
-	public List<Activity> findByDate( Date  date) {
-		return activityRepository.findByDate(date);
-	}
-	
-	@Override
-	public List<Activity> findBySteps(Integer  steps) {
-		return activityRepository.findBySteps(steps);
 	}
 	
 }

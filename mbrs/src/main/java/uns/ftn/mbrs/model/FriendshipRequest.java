@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 import uns.ftn.mbrs.model.FriendshipRequestStatus;
 import uns.ftn.mbrs.model.User;
 
@@ -19,12 +20,13 @@ public class FriendshipRequest {
 		
 	     @Column
 	     private FriendshipRequestStatus  status ;
+	 	
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="friendshipRequestor_id", nullable=false)
 	     private User  friendshipRequestor ;
+	 	
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="friendshipRequestee_id", nullable=false)
 	     private User  friendshipRequestee ;
+	 	
 	
 		public FriendshipRequest(){}
 		

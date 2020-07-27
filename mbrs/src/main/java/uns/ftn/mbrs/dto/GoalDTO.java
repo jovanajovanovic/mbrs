@@ -3,6 +3,7 @@ package uns.ftn.mbrs.dto;
 import java.util.Date;
 
 import java.util.ArrayList; 
+import uns.ftn.mbrs.dto.UserDTO;
 
 public class GoalDTO{
 	private Long id;
@@ -16,24 +17,28 @@ public class GoalDTO{
 		
 	  	 private Boolean  achieved;
 		
+	     private UserDTO  user;
+		
 	
 	
 	
 	public GoalDTO(){}
-	public GoalDTO(Long id, String title,double duration, Date date,double distance,Boolean achieved){
+	public GoalDTO(Long id, String title,double duration, Date date,double distance,Boolean achieved,UserDTO  user){
 		this.id = id;
 			this.title   = title  ;
 			this.duration   = duration  ;
 			this.date   = date  ;
 			this.distance   = distance  ;
 			this.achieved   = achieved  ;
+			this.user  = user ;
 		}
-	public GoalDTO( String  title   , double  duration   ,  Date  date   , double  distance   , Boolean  achieved   ){
+	public GoalDTO( String  title   , double  duration   ,  Date  date   , double  distance   , Boolean  achieved   ,UserDTO  user ){
 			this.title   = title  ;
 			this.duration   = duration  ;
 			this.date   = date  ;
 			this.distance   = distance  ;
 			this.achieved   = achieved  ;
+			this.user  = user ;
 		}
 	
 	
@@ -93,6 +98,16 @@ public class GoalDTO{
 	           this.achieved  = achieved ;
 	    }
 	    	
+	      
+	     
+	    public UserDTO getUser (){
+	           return user;
+	    }
+	      
+	    public void setUser(UserDTO  User){
+	           this.user = user;
+	    }
+	    
 	      
 	     
 

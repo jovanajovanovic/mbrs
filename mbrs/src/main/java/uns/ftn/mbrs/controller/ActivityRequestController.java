@@ -73,37 +73,14 @@ public class ActivityRequestController {
 		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
 	}
 
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<ActivityRequestDTO> delete(@PathVariable Long id) {
 		ActivityRequest deleted = activityRequestService.remove(id);
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByDate(@PathVariable  Date  value) {
-
-		List<ActivityRequest> activityRequestList = activityRequestService.findByDate(value);
-			
-		return new ResponseEntity<>(toDTO.convert(activityRequestList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByLocation/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByLocation(@PathVariable String  value) {
-
-		List<ActivityRequest> activityRequestList = activityRequestService.findByLocation(value);
-			
-		return new ResponseEntity<>(toDTO.convert(activityRequestList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByStatus/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByStatus(@PathVariable ActivityRequestStatus  value) {
-
-		List<ActivityRequest> activityRequestList = activityRequestService.findByStatus(value);
-			
-		return new ResponseEntity<>(toDTO.convert(activityRequestList), HttpStatus.OK);
-	}
-
+	
 	@RequestMapping(value = "/filterByActivityRequestorId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<ActivityRequestDTO>> getActivityRequestListByActivityRequestorId(@PathVariable Long id) {
 

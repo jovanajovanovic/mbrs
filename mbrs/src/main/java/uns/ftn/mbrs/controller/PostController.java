@@ -73,29 +73,14 @@ public class PostController {
 		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
 	}
 
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<PostDTO> delete(@PathVariable Long id) {
 		Post deleted = postService.remove(id);
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListByDescription(@PathVariable String  value) {
-
-		List<Post> postList = postService.findByDescription(value);
-			
-		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByVisibility/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<PostDTO>> getPostListByVisibility(@PathVariable Visibility  value) {
-
-		List<Post> postList = postService.findByVisibility(value);
-			
-		return new ResponseEntity<>(toDTO.convert(postList), HttpStatus.OK);
-	}
-
+	
 	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<PostDTO>> getPostListByUserId(@PathVariable Long id) {
 

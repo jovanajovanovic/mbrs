@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 import uns.ftn.mbrs.model.ActivityRequestStatus;
 import uns.ftn.mbrs.model.User;
 
@@ -19,16 +20,19 @@ public class ActivityRequest {
 		
 	     @Column
 	     private  Date  date ;
+	 	
 	     @Column
 	     private String  location ;
+	 	
 	     @Column
 	     private ActivityRequestStatus  status ;
+	 	
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="activityRequestor_id", nullable=false)
 	     private User  activityRequestor ;
+	 	
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="activityRequestee_id", nullable=false)
 	     private User  activityRequestee ;
+	 	
 	
 		public ActivityRequest(){}
 		

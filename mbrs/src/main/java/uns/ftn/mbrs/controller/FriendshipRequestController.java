@@ -61,33 +61,14 @@ public class FriendshipRequestController {
 		return new ResponseEntity<>(toDTO.convert(savedFriendshipRequest), HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
-	public ResponseEntity<FriendshipRequestDTO> edit(@RequestBody @Valid FriendshipRequestDTO friendshipRequest, @PathVariable Long id) {
-
-		if (id != friendshipRequest.getId()) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-
-		FriendshipRequest persisted = friendshipRequestService.save(toFriendshipRequest.convert(friendshipRequest));
-
-		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
-	}
-
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<FriendshipRequestDTO> delete(@PathVariable Long id) {
 		FriendshipRequest deleted = friendshipRequestService.remove(id);
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/filterByStatus/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListByStatus(@PathVariable FriendshipRequestStatus  value) {
-
-		List<FriendshipRequest> friendshipRequestList = friendshipRequestService.findByStatus(value);
-			
-		return new ResponseEntity<>(toDTO.convert(friendshipRequestList), HttpStatus.OK);
-	}
-
+	
 	@RequestMapping(value = "/filterByFriendshipRequestorId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<FriendshipRequestDTO>> getFriendshipRequestListByFriendshipRequestorId(@PathVariable Long id) {
 

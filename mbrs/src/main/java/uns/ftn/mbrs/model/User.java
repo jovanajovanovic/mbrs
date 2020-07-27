@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 import uns.ftn.mbrs.model.Goal;
 import uns.ftn.mbrs.model.ActivityRequest;
 import uns.ftn.mbrs.model.Post;
@@ -24,26 +25,51 @@ public class User {
 		
 	     @Column
 	     private String  username ;
-	     @Column
+	 	
+	     @Column(unique=false, nullable=false)
+	     @Length(min=8, message="The field must be at least 8 characters")
+	     
+	     
+	     
 	     private String  password ;
+	 	
 	     @Column
 	     private String  name ;
+	 	
 	     @Column
 	     private String  surname ;
+	 	
 	     @Column
 	     private  Date  dateOfBirth ;
+	 	
 	     @Column
 	     private String  location ;
-	     @Column
+	 	
+	     @Column(unique=false, nullable=false)
+	     
+	     @Length(max=200, message="The field muste be less than 200 characters")
+	     
+	     
 	     private String  biography ;
-	     @Column
+	 	
+	     @Column(unique=false, nullable=false)
+	     
+	     
+	     @Min(value=0)
+	     
 	     private double  height ;
+	 	
 	     @OneToMany
 	     private Set<Goal >  goal = new HashSet<Goal>();
 	     @OneToMany
 	     private Set<ActivityRequest >  pendingActivities  = new HashSet<ActivityRequest>();
-	     @Column
+	     @Column(unique=false, nullable=false)
+	     
+	     
+	     @Min(value=0)
+	     
 	     private double  weight ;
+	 	
 	     @OneToMany
 	     private Set<ActivityRequest >  activityRequest = new HashSet<ActivityRequest>();
 	     @OneToMany
@@ -56,6 +82,7 @@ public class User {
 	     private Set<ActivityRequestNotification >  activityRequestNotification = new HashSet<ActivityRequestNotification>();
 	  	 @OneToOne
 	     private UserSettings  userSettings;
+	 	
 	     @OneToMany
 	     private Set<FriendshipRequestNotification >  friendshipRequestNotification = new HashSet<FriendshipRequestNotification>();
 	

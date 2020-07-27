@@ -8,18 +8,23 @@ import uns.ftn.mbrs.model.*;
 
 public interface ${class.name}Service{
 
-
+	
 	${class.name} findOne(Long id); 
 	
+	<#if class.uiClass?? && ( class.uiClass.create == true || class.uiClass.update)>
 	${class.name} save(${class.name} ${class.name?uncap_first});
-		
-	List<${class.name}> findAll();
+	</#if>
 	
+	<#if class.uiClass?? && class.uiClass.read == true>
+	List<${class.name}> findAll();
+	</#if>
+	<#if class.uiClass?? && class.uiClass.delete == true>
 	${class.name} remove(Long id);
+	</#if>
 	
 
 	<#list properties as property>
-		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false>
+		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false && property.findBy==true>
 	List<${class.name}> findBy${property.name?cap_first}(<#if property.type.name == "date"> Date <#else>${property.type.name} </#if> ${property.name});
 
 		</#if>

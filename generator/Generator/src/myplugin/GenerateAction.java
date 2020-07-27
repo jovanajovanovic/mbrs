@@ -22,6 +22,9 @@ import myplugin.analyzer.ModelAnalyzer;
 import myplugin.generator.AngularAddEntityGenerator;
 import myplugin.generator.AngularEditEntityGenerator;
 import myplugin.generator.ControllerGenerator;
+import myplugin.generator.ConverterToDtoGenerator;
+import myplugin.generator.ConvertertDtoToGenerator;
+import myplugin.generator.DTOGenerator;
 import myplugin.generator.EJBGenerator;
 import myplugin.generator.EditTypescriptGenerator;
 import myplugin.generator.EnumGenerator;
@@ -66,10 +69,13 @@ class GenerateAction extends MDAction {
 			
 			generateModel(analyzer, root, generatorOptions);
 			generateEnumeration(analyzer, root, generatorOptions);
+			generateDtoModel(analyzer, root, generatorOptions);
 			generateController(analyzer, root, generatorOptions);
 			generateService(analyzer, root, generatorOptions);
 			generateServiceImpl(analyzer, root, generatorOptions);
 			generateRepository(analyzer, root, generatorOptions);
+			generateDtoToConverter(analyzer, root, generatorOptions);
+			generateToDtoConverter(analyzer, root, generatorOptions);
 			generateAdd(analyzer, root, generatorOptions);
 			generateModule(analyzer, root, generatorOptions);
 			generateRouting(analyzer, root, generatorOptions);
@@ -88,9 +94,46 @@ class GenerateAction extends MDAction {
 		}
 	}
 
+	private void generateToDtoConverter(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		// TODO Auto-generated method stub
+		analyzer = new ModelAnalyzer(root, "uns.ftn.mbrs.converter");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ConverterToDtoGenerator");
+		ConverterToDtoGenerator converterGenerator = new ConverterToDtoGenerator(generatorOptions);
+		converterGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+
+	private void generateDtoToConverter(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		// TODO Auto-generated method stub
+		analyzer = new ModelAnalyzer(root, "uns.ftn.mbrs.converter");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ConverterDtoToGenerator");
+		ConvertertDtoToGenerator converterGenerator = new ConvertertDtoToGenerator(generatorOptions);
+		converterGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+
+	}
+
+	private void generateDtoModel(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
+		// TODO Auto-generated method stub
+		analyzer = new ModelAnalyzer(root, "uns.ftn.mbrs.dto");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("DTOGenerator");
+		DTOGenerator enumGenerator = new DTOGenerator(generatorOptions);
+		enumGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+
 	private void generateEnumeration(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions) throws AnalyzeException {
 		// TODO Auto-generated method stub
-		analyzer = new ModelAnalyzer(root, "model");
+		analyzer = new ModelAnalyzer(root, "uns.ftn.mbrs.model");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("EnumerationGenerator");
 		EnumGenerator enumGenerator = new EnumGenerator(generatorOptions);
@@ -103,7 +146,7 @@ class GenerateAction extends MDAction {
 
 	private void generateModel(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
 			throws AnalyzeException {
-		analyzer = new ModelAnalyzer(root, "model");
+		analyzer = new ModelAnalyzer(root, "uns.ftn.mbrs.model");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ModelGenerator");
 		ModelLayerGenerator ejbGenerator = new ModelLayerGenerator(generatorOptions);
@@ -115,7 +158,7 @@ class GenerateAction extends MDAction {
 
 	private void generateController(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
 			throws AnalyzeException {
-		analyzer = new ModelAnalyzer(root, "controller");
+		analyzer = new ModelAnalyzer(root, "uns.ftn.mbrs.controller");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ControllerGenerator");
 		ControllerGenerator controllerGenerator = new ControllerGenerator(generatorOptions);
@@ -127,7 +170,7 @@ class GenerateAction extends MDAction {
 
 	private void generateService(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
 			throws AnalyzeException {
-		analyzer = new ModelAnalyzer(root, "service");
+		analyzer = new ModelAnalyzer(root,"uns.ftn.mbrs.service");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ServiceGenerator");
 		ServiceGenerator serviceGenerator = new ServiceGenerator(generatorOptions);
@@ -139,7 +182,7 @@ class GenerateAction extends MDAction {
 
 	private void generateServiceImpl(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
 			throws AnalyzeException {
-		analyzer = new ModelAnalyzer(root, "serviceimpl");
+		analyzer = new ModelAnalyzer(root,"uns.ftn.mbrs.serviceimpl");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ServiceImplGenerator");
 		ServiceImplGenerator serviceImplGenerator = new ServiceImplGenerator(generatorOptions);
@@ -151,7 +194,7 @@ class GenerateAction extends MDAction {
 
 	private void generateRepository(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
 			throws AnalyzeException {
-		analyzer = new ModelAnalyzer(root, "repository");
+		analyzer = new ModelAnalyzer(root,"uns.ftn.mbrs.repository");
 		analyzer.prepareModel();
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("RepositoryGenerator");
 		RepositoryGenerator repositoryGenerator = new RepositoryGenerator(generatorOptions);

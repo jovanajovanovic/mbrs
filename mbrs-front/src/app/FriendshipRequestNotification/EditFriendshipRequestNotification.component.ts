@@ -29,6 +29,9 @@ export class EditFriendshipRequestNotificationComponent implements OnInit {
       });
   	  	
       this.FriendshipRequestNotification = this.formBuilder.group({
+         	description :['',Validators.required],
+	     	date :['',Validators.required],
+	     	type :['',Validators.required],
       });
       
       this.service.getFriendshipRequestNotificationById(this.id).subscribe(
@@ -40,6 +43,13 @@ export class EditFriendshipRequestNotificationComponent implements OnInit {
   }
 
   setValues(){
+     
+     
+         	this.FriendshipRequestNotification.controls.description.setValue(this.data.description);
+     
+	     	this.FriendshipRequestNotification.controls.date.setValue(this.data.date);
+     
+	     	this.FriendshipRequestNotification.controls.type.setValue(this.data.type);
      
   }
 

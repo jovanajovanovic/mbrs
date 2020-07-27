@@ -49,7 +49,6 @@ export class EditNotificationComponent implements OnInit {
      
 	     	this.Notification.controls.type.setValue(this.data.type);
      
-     
   }
 
   get f() { return this.Notification.controls; }

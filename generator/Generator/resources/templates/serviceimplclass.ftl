@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import model.${class.name};
-import repository.${class.name}Repository;
-import service.${class.name}Service;
+import uns.ftn.mbrs.model.${class.name};
+import uns.ftn.mbrs.repository.${class.name}Repository;
+import uns.ftn.mbrs.service.${class.name}Service;
+import uns.ftn.mbrs.model.*;
+
+import java.util.Date;
 
 
 @Service
@@ -20,7 +23,7 @@ public class ${class.name}ServiceImpl implements ${class.name}Service {
 	
 	@Override
 	public ${class.name} findOne(Long id) {
-		return ${class.name?uncap_first}Repository.findOne(id);
+		return ${class.name?uncap_first}Repository.findById(id).get();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class ${class.name}ServiceImpl implements ${class.name}Service {
 		return ${class.name?uncap_first}Repository.save(${class.name?uncap_first});
 	}
 	
+	@Override
 	public ${class.name} remove(Long id) {
-		${class.name} ${class.name?uncap_first} = ${class.name?uncap_first}Repository.findOne(id);
+		${class.name} ${class.name?uncap_first} = ${class.name?uncap_first}Repository.findById(id).get();
 		if(${class.name?uncap_first} == null){
 			throw new IllegalArgumentException("Tried to delete non-existant ${class.name}");
 		}
@@ -44,14 +48,16 @@ public class ${class.name}ServiceImpl implements ${class.name}Service {
 	
 	<#list properties as property>
 		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false>
-	public List<${class.name}> findBy${property.name?cap_first}(${property.type.name} ${property.name}) {
+	@Override
+	public List<${class.name}> findBy${property.name?cap_first}(<#if property.type.name == "date"> Date <#else>${property.type.name} </#if> ${property.name}) {
 		return ${class.name?uncap_first}Repository.findBy${property.name?cap_first}(${property.name});
 	}
 	
 		</#if>
 		<#if property.association == true && property.upper == 1>
-	public List<${class.name}> findBy${property.type.name}Id(Long id) {
-		return ${class.name?uncap_first}Repository.findBy${property.type.name}Id(id);
+	@Override
+	public List<${class.name}> findBy<#if property.name != "">${property.name?cap_first}<#else>${property.type.name}</#if>(Long id) {
+		return ${class.name?uncap_first}Repository.findBy<#if property.name != "">${property.name?cap_first}<#else>${property.type.name}</#if>(id);
 	}
 	
 		</#if>

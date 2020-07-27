@@ -22,6 +22,9 @@ export class AddFriendshipRequestNotificationComponent implements OnInit {
 
   ngOnInit() {
       this.FriendshipRequestNotification = this.formBuilder.group({
+         	description :['',Validators.required],
+	     	date :['',Validators.required],
+	     	type :['',Validators.required],
       });
   }
 

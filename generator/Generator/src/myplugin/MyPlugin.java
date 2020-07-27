@@ -27,8 +27,11 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		
 		modelOptions();
 		enumerationOptions();
+		dtoModelOptions();
 		controllerOptions();
 		serviceOptions();
+		converterToDtoOptions();
+		converterDtoToOptions();
 		serviceImplOptions();
 		repositoryOptions();
 		angularAddOptions();
@@ -43,40 +46,64 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		
 	}
 	
+	String s1 = "C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs\\src\\main\\java";
+	
+	private void converterDtoToOptions() {
+		// TODO Auto-generated method stub
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "converterDtoToclass", "templates", "{0}.java", true, "uns.ftn.mbrs.converter"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ConverterDtoToGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+
+	private void converterToDtoOptions() {
+		// TODO Auto-generated method stub
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "converterclass", "templates", "{0}.java", true, "uns.ftn.mbrs.converter"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ConverterToDtoGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+
+	private void dtoModelOptions() {
+		// TODO Auto-generated method stub
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "dtoclass", "templates", "{0}DTO.java", true, "uns.ftn.mbrs.dto"); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("DTOGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+		
+	}
+
 	private void enumerationOptions() {
 		// TODO Auto-generated method stub
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "enum", "templates", "{0}.java", true, "model"); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "enum", "templates", "{0}.java", true, "uns.ftn.mbrs.model"); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("EnumerationGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 		
 	}
 
 	private void modelOptions() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "modelclass", "templates", "{0}.java", true, "model"); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "modelclass", "templates", "{0}.java", true, "uns.ftn.mbrs.model"); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModelGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void controllerOptions() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "controllerclass", "templates", "{0}Controller.java", true, "controller"); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "controllerclass", "templates", "{0}Controller.java", true, "uns.ftn.mbrs.controller"); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ControllerGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void serviceOptions() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "serviceclass", "templates", "{0}Service.java", true, "service"); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "serviceclass", "templates", "{0}Service.java", true, "uns.ftn.mbrs.service"); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ServiceGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void serviceImplOptions() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "serviceimplclass", "templates", "{0}ServiceImpl.java", true, "serviceimpl"); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "serviceimplclass", "templates", "{0}ServiceImpl.java", true, "uns.ftn.mbrs.serviceimpl"); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ServiceImplGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void repositoryOptions() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("c:/temp", "repositoryclass", "templates", "{0}Repository.java", true, "repository"); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions(s1, "repositoryclass", "templates", "{0}Repository.java", true, "uns.ftn.mbrs.repository"); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("RepositoryGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}

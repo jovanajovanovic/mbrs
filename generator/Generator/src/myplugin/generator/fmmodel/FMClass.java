@@ -8,20 +8,19 @@ import java.util.List;
 public class FMClass extends FMType {	
 	
 	private String visibility;
-	
-	//Class properties
 	private List<FMProperty> FMProperties = new ArrayList<FMProperty>();
-	
-	//list of packages (for import declarations) 
 	private List<String> importedPackages = new ArrayList<String>();
-	
-	/** @ToDo: add list of methods */
 	private String label;
+	private UIClass uiClass = null;
+	
+	//parent
+//	private FMExtendClass baseClassifier;
 
 	
 	public FMClass(String name, String classPackage, String visibility) {
 		super(name, classPackage);		
 		this.visibility = visibility;
+//		this.baseClassifier = base;
 	}	
 	
 	public List<FMProperty> getProperties(){
@@ -70,6 +69,23 @@ public class FMClass extends FMType {
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+//	
+//	public FMExtendClass getBaseClassifier() {
+//		return baseClassifier;
+//	}
+//
+//	public void setBaseClassifier(FMExtendClass baseClassifier) {
+//		this.baseClassifier = baseClassifier;
+//	}
+
+	public UIClass getUiClass() {
+		return uiClass;
+	}
+
+	public void setUiClass(UIClass uiClass) {
+		this.uiClass = uiClass;
 	}
 
 	@Override

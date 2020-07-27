@@ -5,6 +5,28 @@
     
 	<div class="container">
 	    <form action="" [formGroup]="ActivityRequestNotification" (ngSubmit)="onSubmit($event)">
+		        <div class="form-group"> 
+		            <label for="date">date</label> 
+		            <input class="form-control" formControlName="date" type="date" id="date"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="type">type</label> 
+		            <select class="form-control" formControlName="type" id="type">
+					  <option value="1">FRIENDSHIP_REQUEST</option>
+					  <option value="2">APPROVED_FRIENDSHIP</option>
+					  <option value="3">DECLINED_FRIENDSHIP</option>
+					  <option value="4">COMMENT_ON_POST</option>
+					  <option value="5">LIKE_ON_POST</option>
+					  <option value="6">ACTIVITY_REQUEST</option>
+					  <option value="7">APPROVED_ACTIVITY_REQUEST</option>
+					  <option value="8">REJECTED_ACTIVITY_REQUEST</option>
+					  <option value="9">CANCELED_ACTIVITY_REQUEST</option>
+					</select>
+		        </div>
+		        <div class="form-group"> 
+		            <label for="description">description</label> 
+		            <input class="form-control" formControlName="description" type="text" id="description"> 
+		        </div>
 		          
 	        <div class="container"> 
 	            <button type="submit" class="btn btn-success" style="margin-left: -13px;margin-top: 20px">Add</button>  

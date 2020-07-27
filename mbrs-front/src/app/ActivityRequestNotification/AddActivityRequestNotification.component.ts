@@ -22,6 +22,9 @@ export class AddActivityRequestNotificationComponent implements OnInit {
 
   ngOnInit() {
       this.ActivityRequestNotification = this.formBuilder.group({
+	     	date :['',Validators.required],
+	     	type :['',Validators.required],
+         	description :['',Validators.required],
       });
   }
 

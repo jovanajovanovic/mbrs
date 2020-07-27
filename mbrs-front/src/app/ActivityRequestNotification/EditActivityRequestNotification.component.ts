@@ -29,6 +29,9 @@ export class EditActivityRequestNotificationComponent implements OnInit {
       });
   	  	
       this.ActivityRequestNotification = this.formBuilder.group({
+	     	date :['',Validators.required],
+	     	type :['',Validators.required],
+         	description :['',Validators.required],
       });
       
       this.service.getActivityRequestNotificationById(this.id).subscribe(
@@ -40,6 +43,13 @@ export class EditActivityRequestNotificationComponent implements OnInit {
   }
 
   setValues(){
+     
+     
+	     	this.ActivityRequestNotification.controls.date.setValue(this.data.date);
+     
+	     	this.ActivityRequestNotification.controls.type.setValue(this.data.type);
+     
+         	this.ActivityRequestNotification.controls.description.setValue(this.data.description);
      
   }
 

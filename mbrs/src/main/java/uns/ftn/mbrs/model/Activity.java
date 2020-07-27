@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 
 
 @Table(name="activity")
@@ -17,12 +18,16 @@ public class Activity {
 		
 	     @Column
 	     private double  duration ;
+	 	
 	     @Column
 	     private double  distance ;
+	 	
 	     @Column
 	     private  Date  date ;
+	 	
 	     @Column
 	     private Integer  steps ;
+	 	
 	
 		public Activity(){}
 		

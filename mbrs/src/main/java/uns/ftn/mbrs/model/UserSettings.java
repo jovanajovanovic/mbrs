@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 import uns.ftn.mbrs.model.Visibility;
 
 
@@ -18,26 +19,37 @@ public class UserSettings {
 		
 	     @Column
 	     private Visibility  userInfoPrivacy ;
+	 	
 	     @Column
 	     private Visibility  postPrivacy ;
+	 	
 	     @Column
 	     private Visibility  goalPrivacy ;
+	 	
 	     @Column
 	     private Boolean  newComments ;
+	 	
 	     @Column
 	     private Boolean  newLikes ;
+	 	
 	     @Column
 	     private Boolean  friendshipRequest ;
+	 	
 	     @Column
 	     private Boolean  acceptedFriendship ;
+	 	
 	     @Column
 	     private Boolean  activityRequest ;
+	 	
 	     @Column
 	     private Boolean  acceptedActivity ;
+	 	
 	     @Column
 	     private Boolean  canceledActivity ;
+	 	
 	     @Column
 	     private Boolean  nightTheme ;
+	 	
 	
 		public UserSettings(){}
 		

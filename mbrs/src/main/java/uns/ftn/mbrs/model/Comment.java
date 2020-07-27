@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 import uns.ftn.mbrs.model.User;
 
 
@@ -18,11 +19,13 @@ public class Comment {
 		
 	     @Column
 	     private String  text ;
+	 	
 	     @Column
 	     private  Date  date ;
+	 	
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
+	 	
 	
 		public Comment(){}
 		

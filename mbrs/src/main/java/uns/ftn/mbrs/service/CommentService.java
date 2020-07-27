@@ -8,19 +8,14 @@ import uns.ftn.mbrs.model.*;
 
 public interface CommentService{
 
-
+	
 	Comment findOne(Long id); 
 	
 	Comment save(Comment comment);
-		
-	List<Comment> findAll();
 	
+	List<Comment> findAll();
 	Comment remove(Long id);
 	
-
-	List<Comment> findByText(String  text);
-
-	List<Comment> findByDate( Date  date);
 
 	List<Comment> findByUser(Long id);
 

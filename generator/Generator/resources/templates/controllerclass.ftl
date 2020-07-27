@@ -35,6 +35,7 @@ ${class.visibility} class ${class.name}Controller {
 	@Autowired
 	private ${class.name}DTOTo${class.name} to${class.name};
 	
+	<#if class.uiClass?? && class.uiClass.read == true>
 	@RequestMapping(method = RequestMethod.GET)
 	ResponseEntity<List<${class.name}DTO>> get${class.name}List () {
 
@@ -52,7 +53,9 @@ ${class.visibility} class ${class.name}Controller {
 
 		return new ResponseEntity<>(toDTO.convert(${class.name?uncap_first}), HttpStatus.OK);
 	}
+	</#if>
 
+	<#if class.uiClass?? && class.uiClass.create == true>
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<${class.name}DTO> add(@RequestBody @Valid ${class.name}DTO new${class.name}) {
 
@@ -60,7 +63,9 @@ ${class.visibility} class ${class.name}Controller {
 
 		return new ResponseEntity<>(toDTO.convert(saved${class.name}), HttpStatus.CREATED);
 	}
+	</#if>
 	
+	<#if class.uiClass?? && class.uiClass.update == true>
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
 	public ResponseEntity<${class.name}DTO> edit(@RequestBody @Valid ${class.name}DTO ${class.name?uncap_first}, @PathVariable Long id) {
 
@@ -73,15 +78,20 @@ ${class.visibility} class ${class.name}Controller {
 		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
 	}
 
+	</#if>
+	
+	<#if class.uiClass?? && class.uiClass.delete == true>
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<${class.name}DTO> delete(@PathVariable Long id) {
 		${class.name} deleted = ${class.name?uncap_first}Service.remove(id);
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-
+	</#if>
+	
+	<#if class.uiClass?? && class.uiClass.read == true>
 	<#list properties as property>
-		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false>
+		<#if property.name != "id" && property.name != "password" && property.upper == 1 && property.association == false && property.findBy == true>
 	@RequestMapping(value = "/filterBy${property.name?cap_first}/{value}", method = RequestMethod.GET)
 	ResponseEntity<List<${class.name}DTO>> get${class.name}ListBy${property.name?cap_first}(@PathVariable <#if property.type.name == "date"> Date <#else>${property.type.name} </#if> value) {
 
@@ -102,4 +112,5 @@ ${class.visibility} class ${class.name}Controller {
 
 		</#if>
  	</#list>
+ 	</#if>
 }

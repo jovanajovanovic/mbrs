@@ -73,77 +73,8 @@ public class UserController {
 		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	ResponseEntity<UserDTO> delete(@PathVariable Long id) {
-		User deleted = userService.remove(id);
-
-		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByUsername/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByUsername(@PathVariable String  value) {
-
-		List<User> userList = userService.findByUsername(value);
-			
-		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByName/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByName(@PathVariable String  value) {
-
-		List<User> userList = userService.findByName(value);
-			
-		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterBySurname/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListBySurname(@PathVariable String  value) {
-
-		List<User> userList = userService.findBySurname(value);
-			
-		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByDateOfBirth/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByDateOfBirth(@PathVariable  Date  value) {
-
-		List<User> userList = userService.findByDateOfBirth(value);
-			
-		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByLocation/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByLocation(@PathVariable String  value) {
-
-		List<User> userList = userService.findByLocation(value);
-			
-		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByBiography/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByBiography(@PathVariable String  value) {
-
-		List<User> userList = userService.findByBiography(value);
-			
-		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByHeight/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByHeight(@PathVariable double  value) {
-
-		List<User> userList = userService.findByHeight(value);
-			
-		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByWeight/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<UserDTO>> getUserListByWeight(@PathVariable double  value) {
-
-		List<User> userList = userService.findByWeight(value);
-			
-		return new ResponseEntity<>(toDTO.convert(userList), HttpStatus.OK);
-	}
-
+	
+	
 	@RequestMapping(value = "/filterByUserSettingsId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<UserDTO>> getUserListByUserSettingsId(@PathVariable Long id) {
 

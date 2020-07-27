@@ -8,17 +8,14 @@ import uns.ftn.mbrs.model.*;
 
 public interface FriendshipRequestService{
 
-
+	
 	FriendshipRequest findOne(Long id); 
 	
 	FriendshipRequest save(FriendshipRequest friendshipRequest);
-		
-	List<FriendshipRequest> findAll();
 	
+	List<FriendshipRequest> findAll();
 	FriendshipRequest remove(Long id);
 	
-
-	List<FriendshipRequest> findByStatus(FriendshipRequestStatus  status);
 
 	List<FriendshipRequest> findByFriendshipRequestor(Long id);
 

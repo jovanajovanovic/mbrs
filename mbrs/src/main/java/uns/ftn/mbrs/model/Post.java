@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 import uns.ftn.mbrs.model.Visibility;
 import uns.ftn.mbrs.model.LikeReaction;
 import uns.ftn.mbrs.model.Comment;
@@ -22,17 +23,20 @@ public class Post {
 		
 	     @Column
 	     private String  description ;
+	 	
 	     @Column
 	     private Visibility  visibility ;
+	 	
 	     @OneToMany
 	     private Set<LikeReaction >  likeReaction = new HashSet<LikeReaction>();
 	     @OneToMany
 	     private Set<Comment >  comment = new HashSet<Comment>();
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
+	 	
 	  	 @OneToOne
 	     private Activity  activity;
+	 	
 	
 		public Post(){}
 		

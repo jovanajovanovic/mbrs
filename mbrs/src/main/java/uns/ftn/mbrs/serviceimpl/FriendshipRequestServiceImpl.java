@@ -21,6 +21,7 @@ public class FriendshipRequestServiceImpl implements FriendshipRequestService {
 	@Autowired
 	private FriendshipRequestRepository friendshipRequestRepository;
 	
+	
 	@Override
 	public FriendshipRequest findOne(Long id) {
 		return friendshipRequestRepository.findById(id).get();
@@ -44,11 +45,6 @@ public class FriendshipRequestServiceImpl implements FriendshipRequestService {
 		}
 		friendshipRequestRepository.delete(friendshipRequest);
 		return friendshipRequest;
-	}
-	
-	@Override
-	public List<FriendshipRequest> findByStatus(FriendshipRequestStatus  status) {
-		return friendshipRequestRepository.findByStatus(status);
 	}
 	
 	@Override

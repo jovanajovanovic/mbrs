@@ -14,6 +14,8 @@ import uns.ftn.mbrs.service.GoalService;
 @Component
 public class GoalDTOToGoal implements Converter<GoalDTO, Goal>{
 
+	@Autowired
+	private UserDTOToUser toUser;
 	
 	@Autowired
 	GoalService goalService;
@@ -42,6 +44,9 @@ public class GoalDTOToGoal implements Converter<GoalDTO, Goal>{
 
 			goal.setAchieved(dto.getAchieved());
 
+		if (dto.getUser() != null){
+			goal.setUser(toUser.convert(dto.getUser()));
+		}	
 		
 		return goal;
 	}

@@ -8,19 +8,14 @@ import uns.ftn.mbrs.model.*;
 
 public interface PostService{
 
-
+	
 	Post findOne(Long id); 
 	
 	Post save(Post post);
-		
-	List<Post> findAll();
 	
+	List<Post> findAll();
 	Post remove(Long id);
 	
-
-	List<Post> findByDescription(String  description);
-
-	List<Post> findByVisibility(Visibility  visibility);
 
 	List<Post> findByUser(Long id);
 

@@ -35,73 +35,8 @@ public class NotificationController {
 	@Autowired
 	private NotificationDTOToNotification toNotification;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationList () {
 
-		List<Notification> notificationList = notificationService.findAll();
 	
-		return new ResponseEntity<>(toDTO.convert(notificationList), HttpStatus.OK);
-	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	ResponseEntity<NotificationDTO> getNotification(@PathVariable Long id) {
-		Notification notification = notificationService.findOne(id);
-		if (notification == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-
-		return new ResponseEntity<>(toDTO.convert(notification), HttpStatus.OK);
-	}
-
-	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<NotificationDTO> add(@RequestBody @Valid NotificationDTO newNotification) {
-
-		Notification savedNotification = notificationService.save(toNotification.convert(newNotification));
-
-		return new ResponseEntity<>(toDTO.convert(savedNotification), HttpStatus.CREATED);
-	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
-	public ResponseEntity<NotificationDTO> edit(@RequestBody @Valid NotificationDTO notification, @PathVariable Long id) {
-
-		if (id != notification.getId()) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-
-		Notification persisted = notificationService.save(toNotification.convert(notification));
-
-		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	ResponseEntity<NotificationDTO> delete(@PathVariable Long id) {
-		Notification deleted = notificationService.remove(id);
-
-		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByDescription(@PathVariable String  value) {
-
-		List<Notification> notificationList = notificationService.findByDescription(value);
-			
-		return new ResponseEntity<>(toDTO.convert(notificationList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByDate(@PathVariable  Date  value) {
-
-		List<Notification> notificationList = notificationService.findByDate(value);
-			
-		return new ResponseEntity<>(toDTO.convert(notificationList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByType/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<NotificationDTO>> getNotificationListByType(@PathVariable NotificationType  value) {
-
-		List<Notification> notificationList = notificationService.findByType(value);
-			
-		return new ResponseEntity<>(toDTO.convert(notificationList), HttpStatus.OK);
-	}
-
 }

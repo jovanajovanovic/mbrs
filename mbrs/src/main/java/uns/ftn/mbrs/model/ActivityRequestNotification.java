@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 import uns.ftn.mbrs.model.ActivityRequest;
 import uns.ftn.mbrs.model.User;
 import uns.ftn.mbrs.model.NotificationType;
@@ -20,15 +21,19 @@ public class ActivityRequestNotification {
 		
 	  	 @OneToOne
 	     private ActivityRequest  activityRequest;
+	 	
 		 @ManyToOne(fetch=FetchType.LAZY)
-		 @JoinColumn(name="user_id", nullable=false)
 	     private User  user;
+	 	
 	     @Column
 	     private  Date  date ;
+	 	
 	     @Column
 	     private NotificationType  type ;
+	 	
 	     @Column
 	     private String  description ;
+	 	
 	
 		public ActivityRequestNotification(){}
 		

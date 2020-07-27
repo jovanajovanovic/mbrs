@@ -8,22 +8,13 @@ import uns.ftn.mbrs.model.*;
 
 public interface ActivityService{
 
-
+	
 	Activity findOne(Long id); 
 	
 	Activity save(Activity activity);
-		
-	List<Activity> findAll();
 	
+	List<Activity> findAll();
 	Activity remove(Long id);
 	
-
-	List<Activity> findByDuration(double  duration);
-
-	List<Activity> findByDistance(double  distance);
-
-	List<Activity> findByDate( Date  date);
-
-	List<Activity> findBySteps(Integer  steps);
 
 }

@@ -21,6 +21,7 @@ public class FriendshipRequestNotificationServiceImpl implements FriendshipReque
 	@Autowired
 	private FriendshipRequestNotificationRepository friendshipRequestNotificationRepository;
 	
+	
 	@Override
 	public FriendshipRequestNotification findOne(Long id) {
 		return friendshipRequestNotificationRepository.findById(id).get();
@@ -36,15 +37,6 @@ public class FriendshipRequestNotificationServiceImpl implements FriendshipReque
 		return friendshipRequestNotificationRepository.save(friendshipRequestNotification);
 	}
 	
-	@Override
-	public FriendshipRequestNotification remove(Long id) {
-		FriendshipRequestNotification friendshipRequestNotification = friendshipRequestNotificationRepository.findById(id).get();
-		if(friendshipRequestNotification == null){
-			throw new IllegalArgumentException("Tried to delete non-existant FriendshipRequestNotification");
-		}
-		friendshipRequestNotificationRepository.delete(friendshipRequestNotification);
-		return friendshipRequestNotification;
-	}
 	
 	@Override
 	public List<FriendshipRequestNotification> findByFriendshipRequest(Long id) {
@@ -54,21 +46,6 @@ public class FriendshipRequestNotificationServiceImpl implements FriendshipReque
 	@Override
 	public List<FriendshipRequestNotification> findByUser(Long id) {
 		return friendshipRequestNotificationRepository.findByUser(id);
-	}
-	
-	@Override
-	public List<FriendshipRequestNotification> findByDescription(String  description) {
-		return friendshipRequestNotificationRepository.findByDescription(description);
-	}
-	
-	@Override
-	public List<FriendshipRequestNotification> findByDate( Date  date) {
-		return friendshipRequestNotificationRepository.findByDate(date);
-	}
-	
-	@Override
-	public List<FriendshipRequestNotification> findByType(NotificationType  type) {
-		return friendshipRequestNotificationRepository.findByType(type);
 	}
 	
 }

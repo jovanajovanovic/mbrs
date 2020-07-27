@@ -8,13 +8,12 @@ import uns.ftn.mbrs.model.*;
 
 public interface GoalService{
 
-
+	
 	Goal findOne(Long id); 
 	
 	Goal save(Goal goal);
-		
-	List<Goal> findAll();
 	
+	List<Goal> findAll();
 	Goal remove(Long id);
 	
 
@@ -27,5 +26,7 @@ public interface GoalService{
 	List<Goal> findByDistance(double  distance);
 
 	List<Goal> findByAchieved(Boolean  achieved);
+
+	List<Goal> findByUser(Long id);
 
 }

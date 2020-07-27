@@ -61,41 +61,14 @@ public class CommentController {
 		return new ResponseEntity<>(toDTO.convert(savedComment), HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
-	public ResponseEntity<CommentDTO> edit(@RequestBody @Valid CommentDTO comment, @PathVariable Long id) {
-
-		if (id != comment.getId()) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-
-		Comment persisted = commentService.save(toComment.convert(comment));
-
-		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
-	}
-
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<CommentDTO> delete(@PathVariable Long id) {
 		Comment deleted = commentService.remove(id);
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/filterByText/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListByText(@PathVariable String  value) {
-
-		List<Comment> commentList = commentService.findByText(value);
-			
-		return new ResponseEntity<>(toDTO.convert(commentList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<CommentDTO>> getCommentListByDate(@PathVariable  Date  value) {
-
-		List<Comment> commentList = commentService.findByDate(value);
-			
-		return new ResponseEntity<>(toDTO.convert(commentList), HttpStatus.OK);
-	}
-
+	
 	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<CommentDTO>> getCommentListByUserId(@PathVariable Long id) {
 

@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ActivityRequestController {  
 
 	@Autowired
-	private ActivityRequestService activityRequestService;
+	protected ActivityRequestService activityRequestService;
 	
 	@Autowired
 	private ActivityRequestToActivityRequestDTO toDTO;

@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GoalController {  
 
 	@Autowired
-	private GoalService goalService;
+	protected GoalService goalService;
 	
 	@Autowired
 	private GoalToGoalDTO toDTO;

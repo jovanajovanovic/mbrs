@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 ${class.visibility} class ${class.name}Controller {  
 
 	@Autowired
-	private ${class.name}Service ${class.name?uncap_first}Service;
+	protected ${class.name}Service ${class.name?uncap_first}Service;
 	
 	@Autowired
 	private ${class.name}To${class.name}DTO toDTO;

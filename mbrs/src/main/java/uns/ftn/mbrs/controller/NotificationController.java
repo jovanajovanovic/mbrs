@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class NotificationController {  
 
 	@Autowired
-	private NotificationService notificationService;
+	protected NotificationService notificationService;
 	
 	@Autowired
 	private NotificationToNotificationDTO toDTO;

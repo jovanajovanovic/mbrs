@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FriendshipRequestController {  
 
 	@Autowired
-	private FriendshipRequestService friendshipRequestService;
+	protected FriendshipRequestService friendshipRequestService;
 	
 	@Autowired
 	private FriendshipRequestToFriendshipRequestDTO toDTO;

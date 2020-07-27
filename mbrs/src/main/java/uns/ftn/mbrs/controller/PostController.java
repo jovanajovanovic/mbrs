@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostController {  
 
 	@Autowired
-	private PostService postService;
+	protected PostService postService;
 	
 	@Autowired
 	private PostToPostDTO toDTO;

@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ActivityRequestNotificationController {  
 
 	@Autowired
-	private ActivityRequestNotificationService activityRequestNotificationService;
+	protected ActivityRequestNotificationService activityRequestNotificationService;
 	
 	@Autowired
 	private ActivityRequestNotificationToActivityRequestNotificationDTO toDTO;

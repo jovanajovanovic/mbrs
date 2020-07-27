@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ActivityController {  
 
 	@Autowired
-	private ActivityService activityService;
+	protected ActivityService activityService;
 	
 	@Autowired
 	private ActivityToActivityDTO toDTO;

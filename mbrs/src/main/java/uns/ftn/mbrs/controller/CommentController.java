@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommentController {  
 
 	@Autowired
-	private CommentService commentService;
+	protected CommentService commentService;
 	
 	@Autowired
 	private CommentToCommentDTO toDTO;

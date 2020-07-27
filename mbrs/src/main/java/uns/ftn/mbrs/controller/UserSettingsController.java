@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserSettingsController {  
 
 	@Autowired
-	private UserSettingsService userSettingsService;
+	protected UserSettingsService userSettingsService;
 	
 	@Autowired
 	private UserSettingsToUserSettingsDTO toDTO;

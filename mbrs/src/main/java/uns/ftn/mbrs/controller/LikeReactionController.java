@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LikeReactionController {  
 
 	@Autowired
-	private LikeReactionService likeReactionService;
+	protected LikeReactionService likeReactionService;
 	
 	@Autowired
 	private LikeReactionToLikeReactionDTO toDTO;

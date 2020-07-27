@@ -14,40 +14,40 @@ export class Service {
   
   
   addFriendshipRequestNotification(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/FriendshipRequestNotification',data);
+    return this.http.post(SERVER_URL + 'api/FriendshipRequestNotification',data);
   }
   addNotification(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/Notification',data);
+    return this.http.post(SERVER_URL + 'api/Notification',data);
   }
   addActivityRequestNotification(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/ActivityRequestNotification',data);
+    return this.http.post(SERVER_URL + 'api/ActivityRequestNotification',data);
   }
   addFriendshipRequest(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/FriendshipRequest',data);
+    return this.http.post(SERVER_URL + 'api/FriendshipRequest',data);
   }
   addUserSettings(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/UserSettings',data);
+    return this.http.post(SERVER_URL + 'api/UserSettings',data);
   }
   addActivity(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/Activity',data);
+    return this.http.post(SERVER_URL + 'api/Activity',data);
   }
   addPost(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/Post',data);
+    return this.http.post(SERVER_URL + 'api/Post',data);
   }
   addUser(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/User',data);
+    return this.http.post(SERVER_URL + 'api/User',data);
   }
   addActivityRequest(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/ActivityRequest',data);
+    return this.http.post(SERVER_URL + 'api/ActivityRequest',data);
   }
   addGoal(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/Goal',data);
+    return this.http.post(SERVER_URL + 'api/Goal',data);
   }
   addComment(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/Comment',data);
+    return this.http.post(SERVER_URL + 'api/Comment',data);
   }
   addLikeReaction(data): Observable<any>{
-    return this.http.post(SERVER_URL + '/api/LikeReaction',data);
+    return this.http.post(SERVER_URL + 'api/LikeReaction',data);
   }
 
 }

@@ -14,9 +14,18 @@ export class Service {
   
   
 <#list classes as class>
-  add${class.name}(data): Observable<any>{
-    return this.http.post(SERVER_URL + 'api/${class.name}',data);
+  get${class.name}ById(id): Observable<any>{
+    return this.http.get(SERVER_URL + 'api/${class.name}/' +id);
   }
+
+  add${class.name}(data): Observable<any>{
+    return this.http.post(SERVER_URL + 'api/${class.name}/',data);
+  }
+  
+  edit${class.name}(data,id): Observable<any>{
+    return this.http.put(SERVER_URL + 'api/${class.name}/'+id, data);
+  }
+  
 </#list>
 
 }

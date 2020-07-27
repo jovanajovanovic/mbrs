@@ -48,6 +48,8 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 		angularRoute();
 		angularService();
 		angularAddOptionsTs();
+		angularEditOptions();
+		angularEditOptionsTs();
 	}
 	
 	private void enumerationOptions() {
@@ -91,32 +93,44 @@ public class MyPlugin extends com.nomagic.magicdraw.plugins.Plugin {
 	//********* ANGULAR **************
 	
 	private void angularModule() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app", "module", "templates", "{0}.ts", true, ""); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\JOVAN\\Desktop\\MBRS\\AngularProject\\mbrs-front\\src\\app", "module", "templates", "{0}.ts", true, ""); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ModuleGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void angularRoute() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app", "routing", "templates", "{0}.ts", true, ""); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\JOVAN\\Desktop\\MBRS\\AngularProject\\mbrs-front\\src\\app", "routing", "templates", "{0}.ts", true, ""); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("RoutingGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void angularService() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app\\service", "service", "templates", "{0}.ts", true, ""); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\JOVAN\\Desktop\\MBRS\\AngularProject\\mbrs-front\\src\\app", "service", "templates", "{0}.ts", true, ""); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("ServiceFrontGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void angularAddOptions() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app", "addEntity", "templates", "{0}.html", true, ""); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\JOVAN\\Desktop\\MBRS\\AngularProject\\mbrs-front\\src\\app", "addEntity", "templates", "{0}.html", true, ""); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularAddEntityGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 	
 	private void angularAddOptionsTs() {
-		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\Deki\\Desktop\\master\\mbrs\\mbrs-front\\src\\app", "typescript", "templates", "{0}.ts", true, ""); 				
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\JOVAN\\Desktop\\MBRS\\AngularProject\\mbrs-front\\src\\app", "typescript", "templates", "{0}.ts", true, ""); 				
 		ProjectOptions.getProjectOptions().getGeneratorOptions().put("TypescriptGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	private void angularEditOptions() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\JOVAN\\Desktop\\MBRS\\AngularProject\\mbrs-front\\src\\app", "editEntity", "templates", "{0}.html", true, ""); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("AngularEditEntityGenerator", generatorOptions);
+		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
+	}
+	
+	private void angularEditOptionsTs() {
+		GeneratorOptions generatorOptions = new GeneratorOptions("C:\\Users\\JOVAN\\Desktop\\MBRS\\AngularProject\\mbrs-front\\src\\app", "editTypescript", "templates", "{0}.ts", true, ""); 				
+		ProjectOptions.getProjectOptions().getGeneratorOptions().put("EditTypescriptGenerator", generatorOptions);
 		generatorOptions.setTemplateDir(pluginDir + File.separator + generatorOptions.getTemplateDir());
 	}
 

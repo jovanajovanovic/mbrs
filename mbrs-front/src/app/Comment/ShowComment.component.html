@@ -1,0 +1,25 @@
+<table class="container table mt-3 table-hover" style="text-align:center;">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" colspan="5">
+                  Comment
+            </th>
+          </tr>
+      <tr>
+      
+	         	<th scope="col">text</th>
+		     	<th scope="col">date</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dat of data ; let i = index" id="1">
+        <th scope="row">i</th>
+	         	<th scope="row">{{data.text}}</th>
+		     	<th scope="row">{{data.date}}</th>
+	    <td>
+	        <a (click)="deleteComment(dat.id)">delete</a>
+	    </td>
+      </tr>
+    </tbody>
+</table>

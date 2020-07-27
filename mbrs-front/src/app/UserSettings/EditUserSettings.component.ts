@@ -51,17 +51,28 @@ export class EditUserSettingsComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.userInfoPrivacy);
-     this.form.controls.name.setValue(this.data.postPrivacy);
-     this.form.controls.name.setValue(this.data.goalPrivacy);
-     this.form.controls.name.setValue(this.data.newComments);
-     this.form.controls.name.setValue(this.data.newLikes);
-     this.form.controls.name.setValue(this.data.friendshipRequest);
-     this.form.controls.name.setValue(this.data.acceptedFriendship);
-     this.form.controls.name.setValue(this.data.activityRequest);
-     this.form.controls.name.setValue(this.data.acceptedActivity);
-     this.form.controls.name.setValue(this.data.canceledActivity);
-     this.form.controls.name.setValue(this.data.nightTheme);
+	     	this.UserSettings.controls.userInfoPrivacy.setValue(this.data.userInfoPrivacy);
+     
+	     	this.UserSettings.controls.postPrivacy.setValue(this.data.postPrivacy);
+     
+	     	this.UserSettings.controls.goalPrivacy.setValue(this.data.goalPrivacy);
+     
+	     	this.UserSettings.controls.newComments.setValue(this.data.newComments);
+     
+	     	this.UserSettings.controls.newLikes.setValue(this.data.newLikes);
+     
+	     	this.UserSettings.controls.friendshipRequest.setValue(this.data.friendshipRequest);
+     
+	     	this.UserSettings.controls.acceptedFriendship.setValue(this.data.acceptedFriendship);
+     
+	     	this.UserSettings.controls.activityRequest.setValue(this.data.activityRequest);
+     
+	     	this.UserSettings.controls.acceptedActivity.setValue(this.data.acceptedActivity);
+     
+	     	this.UserSettings.controls.canceledActivity.setValue(this.data.canceledActivity);
+     
+	     	this.UserSettings.controls.nightTheme.setValue(this.data.nightTheme);
+     
   }
 
   get f() { return this.UserSettings.controls; }

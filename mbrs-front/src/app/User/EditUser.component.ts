@@ -49,23 +49,32 @@ export class EditUserComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.username);
-     this.form.controls.name.setValue(this.data.password);
-     this.form.controls.name.setValue(this.data.name);
-     this.form.controls.name.setValue(this.data.surname);
-     this.form.controls.name.setValue(this.data.dateOfBirth);
-     this.form.controls.name.setValue(this.data.location);
-     this.form.controls.name.setValue(this.data.biography);
-     this.form.controls.name.setValue(this.data.height);
-     this.form.controls.name.setValue(this.data.);
-     this.form.controls.name.setValue(this.data.pendingActivities);
-     this.form.controls.name.setValue(this.data.weight);
-     this.form.controls.name.setValue(this.data.);
-     this.form.controls.name.setValue(this.data.);
-     this.form.controls.name.setValue(this.data.pendingFriendships);
-     this.form.controls.name.setValue(this.data.);
-     this.form.controls.name.setValue(this.data.);
-     this.form.controls.name.setValue(this.data.);
+         	this.User.controls.username.setValue(this.data.username);
+     
+         	this.User.controls.password.setValue(this.data.password);
+     
+         	this.User.controls.name.setValue(this.data.name);
+     
+         	this.User.controls.surname.setValue(this.data.surname);
+     
+	     	this.User.controls.dateOfBirth.setValue(this.data.dateOfBirth);
+     
+         	this.User.controls.location.setValue(this.data.location);
+     
+         	this.User.controls.biography.setValue(this.data.biography);
+     
+	     	this.User.controls.height.setValue(this.data.height);
+     
+     
+     
+	     	this.User.controls.weight.setValue(this.data.weight);
+     
+     
+     
+     
+     
+     
+     
   }
 
   get f() { return this.User.controls; }

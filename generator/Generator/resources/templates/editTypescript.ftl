@@ -60,7 +60,24 @@ export class Edit${class.name}Component implements OnInit {
 
   setValues(){
    <#list properties as property>
-     this.form.controls.name.setValue(this.data.${property.name});
+   		 <#if property.type.name == "String" >
+         	this.${class.name}.controls.${property.name}.setValue(this.data.${property.name});
+	     <#elseif property.type.name == "Boolean" >
+	     	this.${class.name}.controls.${property.name}.setValue(this.data.${property.name});
+	     <#elseif property.type.name == "double" || property.type == "Integer">
+	     	this.${class.name}.controls.${property.name}.setValue(this.data.${property.name});
+	     <#elseif property.type.name == "date" >  
+	     	this.${class.name}.controls.${property.name}.setValue(this.data.${property.name});
+	     <#elseif property.type.name == "NotificationType" >
+	     	this.${class.name}.controls.${property.name}.setValue(this.data.${property.name});
+	     <#elseif property.type.name == "Visibility" >  
+	     	this.${class.name}.controls.${property.name}.setValue(this.data.${property.name});
+	     <#elseif property.type.name == "FriendshipRequestStatus" >  
+	     	this.${class.name}.controls.${property.name}.setValue(this.data.${property.name});
+	     <#elseif property.type.name == "ActivityRequestStatus" >  
+	     	this.${class.name}.controls.${property.name}.setValue(this.data.${property.name});
+	     </#if>   
+     
    </#list>    
   }
 

@@ -1,0 +1,21 @@
+<table class="container table mt-3 table-hover" style="text-align:center;">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" colspan="5">
+                  ActivityRequestNotification
+            </th>
+          </tr>
+      <tr>
+      
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dat of data ; let i = index" id="1">
+        <th scope="row">i</th>
+	    <td>
+	        <a (click)="deleteActivityRequestNotification(dat.id)">delete</a>
+	    </td>
+      </tr>
+    </tbody>
+</table>

@@ -42,9 +42,11 @@ export class EditCommentComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.text);
-     this.form.controls.name.setValue(this.data.date);
-     this.form.controls.name.setValue(this.data.);
+         	this.Comment.controls.text.setValue(this.data.text);
+     
+	     	this.Comment.controls.date.setValue(this.data.date);
+     
+     
   }
 
   get f() { return this.Comment.controls; }

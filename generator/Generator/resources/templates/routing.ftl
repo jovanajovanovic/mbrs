@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 <#list classes as class>
 	import { Add${class.name}Component } from './${class.name}/Add${class.name}.component';
 	import { Edit${class.name}Component } from './${class.name}/Edit${class.name}.component';
-	 <#--import { Show${class.name}Component } from './${class.name}/Show${class.name}.component'; -->
+	import { Show${class.name}Component } from './${class.name}/Show${class.name}.component';
 </#list>
 
 const routes: Routes = [
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: '${class.name}/edit/:${class.name}Id',
     component: Edit${class.name}Component
+  },
+  {
+    path: '${class.name}/show',
+    component: Show${class.name}Component
   },
   
 </#list>

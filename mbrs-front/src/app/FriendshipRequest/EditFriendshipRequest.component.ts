@@ -41,9 +41,10 @@ export class EditFriendshipRequestComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.status);
-     this.form.controls.name.setValue(this.data.friendshipRequestor);
-     this.form.controls.name.setValue(this.data.friendshipRequestee);
+	     	this.FriendshipRequest.controls.status.setValue(this.data.status);
+     
+     
+     
   }
 
   get f() { return this.FriendshipRequest.controls; }

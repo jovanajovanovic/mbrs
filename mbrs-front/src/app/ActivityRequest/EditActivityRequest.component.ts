@@ -43,11 +43,14 @@ export class EditActivityRequestComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.date);
-     this.form.controls.name.setValue(this.data.location);
-     this.form.controls.name.setValue(this.data.status);
-     this.form.controls.name.setValue(this.data.activityRequestor);
-     this.form.controls.name.setValue(this.data.activityRequestee);
+	     	this.ActivityRequest.controls.date.setValue(this.data.date);
+     
+         	this.ActivityRequest.controls.location.setValue(this.data.location);
+     
+	     	this.ActivityRequest.controls.status.setValue(this.data.status);
+     
+     
+     
   }
 
   get f() { return this.ActivityRequest.controls; }

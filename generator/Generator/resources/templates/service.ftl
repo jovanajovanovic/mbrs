@@ -13,7 +13,13 @@ export class Service {
   }
   
   
+  
 <#list classes as class>
+
+  get${class.name}All(): Observable<any>{
+    return this.http.get(SERVER_URL + 'api/${class.name}');
+  }
+  
   get${class.name}ById(id): Observable<any>{
     return this.http.get(SERVER_URL + 'api/${class.name}/' +id);
   }
@@ -24,6 +30,10 @@ export class Service {
   
   edit${class.name}(data,id): Observable<any>{
     return this.http.put(SERVER_URL + 'api/${class.name}/'+id, data);
+  }
+  
+   delete${class.name}ById(id): Observable<any>{
+    return this.http.delete(SERVER_URL + 'api/${class.name}/' + id);
   }
   
 </#list>

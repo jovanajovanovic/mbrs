@@ -42,12 +42,14 @@ export class EditPostComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.description);
-     this.form.controls.name.setValue(this.data.visibility);
-     this.form.controls.name.setValue(this.data.);
-     this.form.controls.name.setValue(this.data.);
-     this.form.controls.name.setValue(this.data.);
-     this.form.controls.name.setValue(this.data.);
+         	this.Post.controls.description.setValue(this.data.description);
+     
+	     	this.Post.controls.visibility.setValue(this.data.visibility);
+     
+     
+     
+     
+     
   }
 
   get f() { return this.Post.controls; }

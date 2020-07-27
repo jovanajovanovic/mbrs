@@ -43,10 +43,13 @@ export class EditActivityComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.duration);
-     this.form.controls.name.setValue(this.data.distance);
-     this.form.controls.name.setValue(this.data.date);
-     this.form.controls.name.setValue(this.data.steps);
+	     	this.Activity.controls.duration.setValue(this.data.duration);
+     
+	     	this.Activity.controls.distance.setValue(this.data.distance);
+     
+	     	this.Activity.controls.date.setValue(this.data.date);
+     
+     
   }
 
   get f() { return this.Activity.controls; }

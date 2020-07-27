@@ -1,0 +1,31 @@
+<table class="container table mt-3 table-hover" style="text-align:center;">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" colspan="5">
+                  Goal
+            </th>
+          </tr>
+      <tr>
+      
+	         	<th scope="col">title</th>
+		     	<th scope="col">duration</th>
+		     	<th scope="col">date</th>
+		     	<th scope="col">distance</th>
+		     	<th scope="col">achieved</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dat of data ; let i = index" id="1">
+        <th scope="row">i</th>
+	         	<th scope="row">{{data.title}}</th>
+		     	<th scope="row">{{data.duration}}</th>
+		     	<th scope="row">{{data.date}}</th>
+		     	<th scope="row">{{data.distance}}</th>
+		     	<th scope="row">{{data.achieved}}</th>
+	    <td>
+	        <a (click)="deleteGoal(dat.id)">delete</a>
+	    </td>
+      </tr>
+    </tbody>
+</table>

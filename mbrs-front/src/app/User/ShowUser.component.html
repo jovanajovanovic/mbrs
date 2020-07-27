@@ -1,0 +1,39 @@
+<table class="container table mt-3 table-hover" style="text-align:center;">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" colspan="5">
+                  User
+            </th>
+          </tr>
+      <tr>
+      
+	         	<th scope="col">username</th>
+	         	<th scope="col">password</th>
+	         	<th scope="col">name</th>
+	         	<th scope="col">surname</th>
+		     	<th scope="col">dateOfBirth</th>
+	         	<th scope="col">location</th>
+	         	<th scope="col">biography</th>
+		     	<th scope="col">height</th>
+		     	<th scope="col">weight</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dat of data ; let i = index" id="1">
+        <th scope="row">i</th>
+	         	<th scope="row">{{data.username}}</th>
+	         	<th scope="row">{{data.password}}</th>
+	         	<th scope="row">{{data.name}}</th>
+	         	<th scope="row">{{data.surname}}</th>
+		     	<th scope="row">{{data.dateOfBirth}}</th>
+	         	<th scope="row">{{data.location}}</th>
+	         	<th scope="row">{{data.biography}}</th>
+		     	<th scope="row">{{data.height}}</th>
+		     	<th scope="row">{{data.weight}}</th>
+	    <td>
+	        <a (click)="deleteUser(dat.id)">delete</a>
+	    </td>
+      </tr>
+    </tbody>
+</table>

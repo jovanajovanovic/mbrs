@@ -40,7 +40,7 @@ export class EditActivityRequestNotificationComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.);
+     
   }
 
   get f() { return this.ActivityRequestNotification.controls; }

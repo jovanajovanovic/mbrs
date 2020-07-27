@@ -45,11 +45,16 @@ export class EditGoalComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.title);
-     this.form.controls.name.setValue(this.data.duration);
-     this.form.controls.name.setValue(this.data.date);
-     this.form.controls.name.setValue(this.data.distance);
-     this.form.controls.name.setValue(this.data.achieved);
+         	this.Goal.controls.title.setValue(this.data.title);
+     
+	     	this.Goal.controls.duration.setValue(this.data.duration);
+     
+	     	this.Goal.controls.date.setValue(this.data.date);
+     
+	     	this.Goal.controls.distance.setValue(this.data.distance);
+     
+	     	this.Goal.controls.achieved.setValue(this.data.achieved);
+     
   }
 
   get f() { return this.Goal.controls; }

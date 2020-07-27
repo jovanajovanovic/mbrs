@@ -43,10 +43,13 @@ export class EditNotificationComponent implements OnInit {
   }
 
   setValues(){
-     this.form.controls.name.setValue(this.data.description);
-     this.form.controls.name.setValue(this.data.date);
-     this.form.controls.name.setValue(this.data.type);
-     this.form.controls.name.setValue(this.data.);
+         	this.Notification.controls.description.setValue(this.data.description);
+     
+	     	this.Notification.controls.date.setValue(this.data.date);
+     
+	     	this.Notification.controls.type.setValue(this.data.type);
+     
+     
   }
 
   get f() { return this.Notification.controls; }

@@ -1,0 +1,43 @@
+<table class="container table mt-3 table-hover" style="text-align:center;">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" colspan="5">
+                  UserSettings
+            </th>
+          </tr>
+      <tr>
+      
+		     	<th scope="col">userInfoPrivacy</th>
+		     	<th scope="col">postPrivacy</th>
+		     	<th scope="col">goalPrivacy</th>
+		     	<th scope="col">newComments</th>
+		     	<th scope="col">newLikes</th>
+		     	<th scope="col">friendshipRequest</th>
+		     	<th scope="col">acceptedFriendship</th>
+		     	<th scope="col">activityRequest</th>
+		     	<th scope="col">acceptedActivity</th>
+		     	<th scope="col">canceledActivity</th>
+		     	<th scope="col">nightTheme</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dat of data ; let i = index" id="1">
+        <th scope="row">i</th>
+		     	<th scope="row">{{data.userInfoPrivacy}}</th>
+		     	<th scope="row">{{data.postPrivacy}}</th>
+		     	<th scope="row">{{data.goalPrivacy}}</th>
+		     	<th scope="row">{{data.newComments}}</th>
+		     	<th scope="row">{{data.newLikes}}</th>
+		     	<th scope="row">{{data.friendshipRequest}}</th>
+		     	<th scope="row">{{data.acceptedFriendship}}</th>
+		     	<th scope="row">{{data.activityRequest}}</th>
+		     	<th scope="row">{{data.acceptedActivity}}</th>
+		     	<th scope="row">{{data.canceledActivity}}</th>
+		     	<th scope="row">{{data.nightTheme}}</th>
+	    <td>
+	        <a (click)="deleteUserSettings(dat.id)">delete</a>
+	    </td>
+      </tr>
+    </tbody>
+</table>

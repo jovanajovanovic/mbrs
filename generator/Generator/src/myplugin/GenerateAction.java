@@ -32,6 +32,8 @@ import myplugin.generator.RoutingGenerator;
 import myplugin.generator.ServiceFrontGenerator;
 import myplugin.generator.ServiceGenerator;
 import myplugin.generator.ServiceImplGenerator;
+import myplugin.generator.ShowEntityGenerator;
+import myplugin.generator.ShowEntityTypescriptGenerator;
 import myplugin.generator.TypescriptGenerator;
 import myplugin.generator.fmmodel.FMModel;
 import myplugin.generator.options.GeneratorOptions;
@@ -75,6 +77,8 @@ class GenerateAction extends MDAction {
 			generateAddTs(analyzer, root, generatorOptions);
 			generateEdit(analyzer, root, generatorOptions);
 			generateEditTs(analyzer, root, generatorOptions);
+			generateShow(analyzer, root, generatorOptions);
+			generateShowTs(analyzer, root, generatorOptions);
 
 		} catch (AnalyzeException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
@@ -240,6 +244,30 @@ class GenerateAction extends MDAction {
 		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("EditTypescriptGenerator");
 		EditTypescriptGenerator editTypescriptGenerator = new EditTypescriptGenerator(generatorOptions);
 		editTypescriptGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateShow(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
+			throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ShowEntityGenerator");
+		ShowEntityGenerator showEntityGenerator = new ShowEntityGenerator(generatorOptions);
+		showEntityGenerator.generate();
+		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
+				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
+		exportToXml();
+	}
+	
+	private void generateShowTs(ModelAnalyzer analyzer, Package root, GeneratorOptions generatorOptions)
+			throws AnalyzeException {
+		analyzer = new ModelAnalyzer(root, "");
+		analyzer.prepareModel();
+		generatorOptions = ProjectOptions.getProjectOptions().getGeneratorOptions().get("ShowEntityTypescriptGenerator");
+		ShowEntityTypescriptGenerator showEntityTypescriptGenerator = new ShowEntityTypescriptGenerator(generatorOptions);
+		showEntityTypescriptGenerator.generate();
 		JOptionPane.showMessageDialog(null, "Code is successfully generated! Generated code is in folder: "
 				+ generatorOptions.getOutputPath() + ", package: " + generatorOptions.getFilePackage());
 		exportToXml();

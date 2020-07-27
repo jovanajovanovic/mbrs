@@ -9,6 +9,7 @@ import { ProbaComponent } from './proba/proba.component';
 
 <#list classes as class>
 	import { Add${class.name}Component } from './${class.name}/Add${class.name}.component';
+	import { Edit${class.name}Component } from './${class.name}/Edit${class.name}.component';
 </#list>
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ProbaComponent } from './proba/proba.component';
     ProbaComponent,
     <#list classes as class>
     Add${class.name}Component,
+    Edit${class.name}Component,
     </#list>
     
   ],

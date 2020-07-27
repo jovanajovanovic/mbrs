@@ -16,7 +16,7 @@
 		            <label for="${property.name}">${property.name}</label> 
 		            <input class="form-control" formControlName="${property.name}" type="checkbox" id="${property.name}"> 
 		        </div>
-		     <#elseif property.type.name == "double" || property.type == "Integer">  
+		     <#elseif property.type.name == "double" || property.type.name == "Integer">  
 		        <div class="form-group"> 
 		            <label for="${property.name}">${property.name}</label> 
 		            <input class="form-control" formControlName="${property.name}" type="number" id="${property.name}"> 

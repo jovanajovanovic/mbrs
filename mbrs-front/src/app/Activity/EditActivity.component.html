@@ -1,0 +1,25 @@
+ 
+    <div class="container" style="color:green"> 
+     	<h1 style="margin-bottom: 30px">Activity</h1> 
+    </div> 
+    
+	<div class="container">
+	    <form action="" [formGroup]="Activity" (ngSubmit)="onSubmit($event)">
+		        <div class="form-group"> 
+		            <label for="duration">duration</label> 
+		            <input class="form-control" formControlName="duration" type="number" id="duration"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="distance">distance</label> 
+		            <input class="form-control" formControlName="distance" type="number" id="distance"> 
+		        </div>
+		        <div class="form-group"> 
+		            <label for="date">date</label> 
+		            <input class="form-control" formControlName="date" type="date" id="date"> 
+		        </div>
+		          
+	        <div class="container"> 
+	            <button type="submit" class="btn btn-success" style="margin-left: -13px;margin-top: 20px">Edit</button>  
+	        </div> 
+	    </form> 
+	</div> 

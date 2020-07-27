@@ -24,17 +24,17 @@
     <tbody>
       <tr *ngFor="let dat of data ; let i = index" id="1">
         <th scope="row">i</th>
-		     	<th scope="row">{{data.userInfoPrivacy}}</th>
-		     	<th scope="row">{{data.postPrivacy}}</th>
-		     	<th scope="row">{{data.goalPrivacy}}</th>
-		     	<th scope="row">{{data.newComments}}</th>
-		     	<th scope="row">{{data.newLikes}}</th>
-		     	<th scope="row">{{data.friendshipRequest}}</th>
-		     	<th scope="row">{{data.acceptedFriendship}}</th>
-		     	<th scope="row">{{data.activityRequest}}</th>
-		     	<th scope="row">{{data.acceptedActivity}}</th>
-		     	<th scope="row">{{data.canceledActivity}}</th>
-		     	<th scope="row">{{data.nightTheme}}</th>
+		     	<th scope="row">{{dat.userInfoPrivacy}}</th>
+		     	<th scope="row">{{dat.postPrivacy}}</th>
+		     	<th scope="row">{{dat.goalPrivacy}}</th>
+		     	<th scope="row">{{dat.newComments}}</th>
+		     	<th scope="row">{{dat.newLikes}}</th>
+		     	<th scope="row">{{dat.friendshipRequest}}</th>
+		     	<th scope="row">{{dat.acceptedFriendship}}</th>
+		     	<th scope="row">{{dat.activityRequest}}</th>
+		     	<th scope="row">{{dat.acceptedActivity}}</th>
+		     	<th scope="row">{{dat.canceledActivity}}</th>
+		     	<th scope="row">{{dat.nightTheme}}</th>
 	    <td>
 	        <a (click)="deleteUserSettings(dat.id)">delete</a>
 	    </td>

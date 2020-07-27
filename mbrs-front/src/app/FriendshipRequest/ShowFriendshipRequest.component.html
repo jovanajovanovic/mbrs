@@ -14,7 +14,7 @@
     <tbody>
       <tr *ngFor="let dat of data ; let i = index" id="1">
         <th scope="row">i</th>
-		     	<th scope="row">{{data.status}}</th>
+		     	<th scope="row">{{dat.status}}</th>
 	    <td>
 	        <a (click)="deleteFriendshipRequest(dat.id)">delete</a>
 	    </td>

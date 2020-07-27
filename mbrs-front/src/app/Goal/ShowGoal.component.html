@@ -18,11 +18,11 @@
     <tbody>
       <tr *ngFor="let dat of data ; let i = index" id="1">
         <th scope="row">i</th>
-	         	<th scope="row">{{data.title}}</th>
-		     	<th scope="row">{{data.duration}}</th>
-		     	<th scope="row">{{data.date}}</th>
-		     	<th scope="row">{{data.distance}}</th>
-		     	<th scope="row">{{data.achieved}}</th>
+	         	<th scope="row">{{dat.title}}</th>
+		     	<th scope="row">{{dat.duration}}</th>
+		     	<th scope="row">{{dat.date}}</th>
+		     	<th scope="row">{{dat.distance}}</th>
+		     	<th scope="row">{{dat.achieved}}</th>
 	    <td>
 	        <a (click)="deleteGoal(dat.id)">delete</a>
 	    </td>

@@ -61,25 +61,8 @@ public class FriendshipRequestNotificationController {
 		return new ResponseEntity<>(toDTO.convert(savedFriendshipRequestNotification), HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
-	public ResponseEntity<FriendshipRequestNotificationDTO> edit(@RequestBody @Valid FriendshipRequestNotificationDTO friendshipRequestNotification, @PathVariable Long id) {
-
-		if (id != friendshipRequestNotification.getId()) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-
-		FriendshipRequestNotification persisted = friendshipRequestNotificationService.save(toFriendshipRequestNotification.convert(friendshipRequestNotification));
-
-		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	ResponseEntity<FriendshipRequestNotificationDTO> delete(@PathVariable Long id) {
-		FriendshipRequestNotification deleted = friendshipRequestNotificationService.remove(id);
-
-		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
-	}
-
+	
+	
 	@RequestMapping(value = "/filterByFriendshipRequestId/{id}", method = RequestMethod.GET)
 	ResponseEntity<List<FriendshipRequestNotificationDTO>> getFriendshipRequestNotificationListByFriendshipRequestId(@PathVariable Long id) {
 
@@ -92,30 +75,6 @@ public class FriendshipRequestNotificationController {
 	ResponseEntity<List<FriendshipRequestNotificationDTO>> getFriendshipRequestNotificationListByUserId(@PathVariable Long id) {
 
 		List<FriendshipRequestNotification> friendshipRequestNotificationList = friendshipRequestNotificationService.findByUser(id);
-			
-		return new ResponseEntity<>(toDTO.convert(friendshipRequestNotificationList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByDescription/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<FriendshipRequestNotificationDTO>> getFriendshipRequestNotificationListByDescription(@PathVariable String  value) {
-
-		List<FriendshipRequestNotification> friendshipRequestNotificationList = friendshipRequestNotificationService.findByDescription(value);
-			
-		return new ResponseEntity<>(toDTO.convert(friendshipRequestNotificationList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<FriendshipRequestNotificationDTO>> getFriendshipRequestNotificationListByDate(@PathVariable  Date  value) {
-
-		List<FriendshipRequestNotification> friendshipRequestNotificationList = friendshipRequestNotificationService.findByDate(value);
-			
-		return new ResponseEntity<>(toDTO.convert(friendshipRequestNotificationList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByType/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<FriendshipRequestNotificationDTO>> getFriendshipRequestNotificationListByType(@PathVariable NotificationType  value) {
-
-		List<FriendshipRequestNotification> friendshipRequestNotificationList = friendshipRequestNotificationService.findByType(value);
 			
 		return new ResponseEntity<>(toDTO.convert(friendshipRequestNotificationList), HttpStatus.OK);
 	}

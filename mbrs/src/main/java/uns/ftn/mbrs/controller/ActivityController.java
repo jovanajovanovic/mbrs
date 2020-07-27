@@ -61,55 +61,12 @@ public class ActivityController {
 		return new ResponseEntity<>(toDTO.convert(savedActivity), HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
-	public ResponseEntity<ActivityDTO> edit(@RequestBody @Valid ActivityDTO activity, @PathVariable Long id) {
-
-		if (id != activity.getId()) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-
-		Activity persisted = activityService.save(toActivity.convert(activity));
-
-		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
-	}
-
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<ActivityDTO> delete(@PathVariable Long id) {
 		Activity deleted = activityService.remove(id);
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/filterByDuration/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDuration(@PathVariable double  value) {
-
-		List<Activity> activityList = activityService.findByDuration(value);
-			
-		return new ResponseEntity<>(toDTO.convert(activityList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByDistance/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDistance(@PathVariable double  value) {
-
-		List<Activity> activityList = activityService.findByDistance(value);
-			
-		return new ResponseEntity<>(toDTO.convert(activityList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterByDate/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListByDate(@PathVariable  Date  value) {
-
-		List<Activity> activityList = activityService.findByDate(value);
-			
-		return new ResponseEntity<>(toDTO.convert(activityList), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/filterBySteps/{value}", method = RequestMethod.GET)
-	ResponseEntity<List<ActivityDTO>> getActivityListBySteps(@PathVariable Integer  value) {
-
-		List<Activity> activityList = activityService.findBySteps(value);
-			
-		return new ResponseEntity<>(toDTO.convert(activityList), HttpStatus.OK);
-	}
-
+	
 }

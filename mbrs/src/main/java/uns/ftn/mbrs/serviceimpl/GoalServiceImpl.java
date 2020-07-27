@@ -21,6 +21,7 @@ public class GoalServiceImpl implements GoalService {
 	@Autowired
 	private GoalRepository goalRepository;
 	
+	
 	@Override
 	public Goal findOne(Long id) {
 		return goalRepository.findById(id).get();
@@ -69,6 +70,11 @@ public class GoalServiceImpl implements GoalService {
 	@Override
 	public List<Goal> findByAchieved(Boolean  achieved) {
 		return goalRepository.findByAchieved(achieved);
+	}
+	
+	@Override
+	public List<Goal> findByUser(Long id) {
+		return goalRepository.findByUser(id);
 	}
 	
 }

@@ -26,6 +26,7 @@ export class ShowUserComponent implements OnInit {
       this.service.getUserAll().subscribe(
       data => {
         this.data = data
+        console.log(this.data)
       }
     );
     

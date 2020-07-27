@@ -26,6 +26,7 @@
 		     	<th scope="col">${property.name}</th>
 		     </#if>   
        </#list>
+       <th scope="col">Delete</th>
         
       </tr>
     </thead>
@@ -34,21 +35,21 @@
         <th scope="row">i</th>
         <#list properties as property>
 	         <#if property.type.name == "String" >
-	         	<th scope="row">{{data.${property.name}}}</th>
+	         	<th scope="row">{{dat.${property.name}}}</th>
 		     <#elseif property.type.name == "Boolean" >
-		     	<th scope="row">{{data.${property.name}}}</th>
+		     	<th scope="row">{{dat.${property.name}}}</th>
 		     <#elseif property.type.name == "double" || property.type == "Integer">
-		     	<th scope="row">{{data.${property.name}}}</th>
+		     	<th scope="row">{{dat.${property.name}}}</th>
 		     <#elseif property.type.name == "date" >  
-		     	<th scope="row">{{data.${property.name}}}</th>
+		     	<th scope="row">{{dat.${property.name}}}</th>
 		     <#elseif property.type.name == "NotificationType" >
-		     	<th scope="row">{{data.${property.name}}}</th>
+		     	<th scope="row">{{dat.${property.name}}}</th>
 		     <#elseif property.type.name == "Visibility" >  
-		     	<th scope="row">{{data.${property.name}}}</th>
+		     	<th scope="row">{{dat.${property.name}}}</th>
 		     <#elseif property.type.name == "FriendshipRequestStatus" >  
-		     	<th scope="row">{{data.${property.name}}}</th>
+		     	<th scope="row">{{dat.${property.name}}}</th>
 		     <#elseif property.type.name == "ActivityRequestStatus" >  
-		     	<th scope="row">{{data.${property.name}}}</th>
+		     	<th scope="row">{{dat.${property.name}}}</th>
 		     </#if>   
        </#list>
 	    <td>

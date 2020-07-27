@@ -15,8 +15,8 @@
     <tbody>
       <tr *ngFor="let dat of data ; let i = index" id="1">
         <th scope="row">i</th>
-	         	<th scope="row">{{data.description}}</th>
-		     	<th scope="row">{{data.visibility}}</th>
+	         	<th scope="row">{{dat.description}}</th>
+		     	<th scope="row">{{dat.visibility}}</th>
 	    <td>
 	        <a (click)="deletePost(dat.id)">delete</a>
 	    </td>

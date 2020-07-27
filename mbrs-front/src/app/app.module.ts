@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProbaComponent } from './proba/proba.component';
+import { CommonModule } from "@angular/common";
 
 	import { AddFriendshipRequestNotificationComponent } from './FriendshipRequestNotification/AddFriendshipRequestNotification.component';
 	import { EditFriendshipRequestNotificationComponent } from './FriendshipRequestNotification/EditFriendshipRequestNotification.component';
@@ -63,6 +64,7 @@ import { ProbaComponent } from './proba/proba.component';
     
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

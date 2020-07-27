@@ -55,6 +55,7 @@ export class EditGoalComponent implements OnInit {
      
 	     	this.Goal.controls.achieved.setValue(this.data.achieved);
      
+     
   }
 
   get f() { return this.Goal.controls; }

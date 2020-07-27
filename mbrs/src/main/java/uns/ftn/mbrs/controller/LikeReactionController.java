@@ -35,23 +35,6 @@ public class LikeReactionController {
 	@Autowired
 	private LikeReactionDTOToLikeReaction toLikeReaction;
 	
-	@RequestMapping(method = RequestMethod.GET)
-	ResponseEntity<List<LikeReactionDTO>> getLikeReactionList () {
-
-		List<LikeReaction> likeReactionList = likeReactionService.findAll();
-	
-		return new ResponseEntity<>(toDTO.convert(likeReactionList), HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	ResponseEntity<LikeReactionDTO> getLikeReaction(@PathVariable Long id) {
-		LikeReaction likeReaction = likeReactionService.findOne(id);
-		if (likeReaction == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-
-		return new ResponseEntity<>(toDTO.convert(likeReaction), HttpStatus.OK);
-	}
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<LikeReactionDTO> add(@RequestBody @Valid LikeReactionDTO newLikeReaction) {
@@ -61,31 +44,12 @@ public class LikeReactionController {
 		return new ResponseEntity<>(toDTO.convert(savedLikeReaction), HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = "application/json")
-	public ResponseEntity<LikeReactionDTO> edit(@RequestBody @Valid LikeReactionDTO likeReaction, @PathVariable Long id) {
-
-		if (id != likeReaction.getId()) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-
-		LikeReaction persisted = likeReactionService.save(toLikeReaction.convert(likeReaction));
-
-		return new ResponseEntity<>(toDTO.convert(persisted), HttpStatus.OK);
-	}
-
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<LikeReactionDTO> delete(@PathVariable Long id) {
 		LikeReaction deleted = likeReactionService.remove(id);
 
 		return new ResponseEntity<>(toDTO.convert(deleted), HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/filterByUserId/{id}", method = RequestMethod.GET)
-	ResponseEntity<List<LikeReactionDTO>> getLikeReactionListByUserId(@PathVariable Long id) {
-
-		List<LikeReaction> likeReactionList = likeReactionService.findByUser(id);
-			
-		return new ResponseEntity<>(toDTO.convert(likeReactionList), HttpStatus.OK);
-	}
-
+	
 }

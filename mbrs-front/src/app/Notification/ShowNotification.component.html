@@ -16,9 +16,9 @@
     <tbody>
       <tr *ngFor="let dat of data ; let i = index" id="1">
         <th scope="row">i</th>
-	         	<th scope="row">{{data.description}}</th>
-		     	<th scope="row">{{data.date}}</th>
-		     	<th scope="row">{{data.type}}</th>
+	         	<th scope="row">{{dat.description}}</th>
+		     	<th scope="row">{{dat.date}}</th>
+		     	<th scope="row">{{dat.type}}</th>
 	    <td>
 	        <a (click)="deleteNotification(dat.id)">delete</a>
 	    </td>

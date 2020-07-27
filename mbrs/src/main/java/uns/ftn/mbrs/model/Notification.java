@@ -3,7 +3,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
 import javax.persistence.*;
-
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
 import uns.ftn.mbrs.model.NotificationType;
 
 
@@ -18,10 +19,13 @@ public class Notification {
 		
 	     @Column
 	     private String  description ;
+	 	
 	     @Column
 	     private  Date  date ;
+	 	
 	     @Column
 	     private NotificationType  type ;
+	 	
 	
 		public Notification(){}
 		

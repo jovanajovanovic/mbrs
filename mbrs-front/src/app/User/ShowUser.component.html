@@ -20,20 +20,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let dat of data ; let i = index" id="1">
-        <th scope="row">i</th>
-	         	<th scope="row">{{data.username}}</th>
-	         	<th scope="row">{{data.password}}</th>
-	         	<th scope="row">{{data.name}}</th>
-	         	<th scope="row">{{data.surname}}</th>
-		     	<th scope="row">{{data.dateOfBirth}}</th>
-	         	<th scope="row">{{data.location}}</th>
-	         	<th scope="row">{{data.biography}}</th>
-		     	<th scope="row">{{data.height}}</th>
-		     	<th scope="row">{{data.weight}}</th>
-	    <td>
+      <tr *ngFor="let dat of data">
+        <th scope="row">1</th>
+		<th scope="row">{{dat.username}}</th>
+		<th scope="row">{{dat.password}}</th>
+		<th scope="row">{{dat.name}}</th>
+		<th scope="row">{{dat.surname}}</th>
+		<th scope="row">{{dat.dateOfBirth}}</th>
+		<th scope="row">{{dat.location}}</th>
+		<th scope="row">{{dat.biography}}</th>
+		<th scope="row">{{dat.height}}</th>
+		<th scope="row">{{dat.weight}}</th>
+	    <th>
 	        <a (click)="deleteUser(dat.id)">delete</a>
-	    </td>
+	    </th>
       </tr>
     </tbody>
 </table>

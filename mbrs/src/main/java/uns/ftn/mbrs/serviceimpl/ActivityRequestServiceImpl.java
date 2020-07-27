@@ -21,6 +21,7 @@ public class ActivityRequestServiceImpl implements ActivityRequestService {
 	@Autowired
 	private ActivityRequestRepository activityRequestRepository;
 	
+	
 	@Override
 	public ActivityRequest findOne(Long id) {
 		return activityRequestRepository.findById(id).get();
@@ -44,21 +45,6 @@ public class ActivityRequestServiceImpl implements ActivityRequestService {
 		}
 		activityRequestRepository.delete(activityRequest);
 		return activityRequest;
-	}
-	
-	@Override
-	public List<ActivityRequest> findByDate( Date  date) {
-		return activityRequestRepository.findByDate(date);
-	}
-	
-	@Override
-	public List<ActivityRequest> findByLocation(String  location) {
-		return activityRequestRepository.findByLocation(location);
-	}
-	
-	@Override
-	public List<ActivityRequest> findByStatus(ActivityRequestStatus  status) {
-		return activityRequestRepository.findByStatus(status);
 	}
 	
 	@Override

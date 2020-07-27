@@ -21,6 +21,7 @@ public class CommentServiceImpl implements CommentService {
 	@Autowired
 	private CommentRepository commentRepository;
 	
+	
 	@Override
 	public Comment findOne(Long id) {
 		return commentRepository.findById(id).get();
@@ -44,16 +45,6 @@ public class CommentServiceImpl implements CommentService {
 		}
 		commentRepository.delete(comment);
 		return comment;
-	}
-	
-	@Override
-	public List<Comment> findByText(String  text) {
-		return commentRepository.findByText(text);
-	}
-	
-	@Override
-	public List<Comment> findByDate( Date  date) {
-		return commentRepository.findByDate(date);
 	}
 	
 	@Override

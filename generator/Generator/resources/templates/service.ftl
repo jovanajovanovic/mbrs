@@ -17,23 +17,23 @@ export class Service {
 <#list classes as class>
 
   get${class.name}All(): Observable<any>{
-    return this.http.get(SERVER_URL + 'api/${class.name}');
+    return this.http.get(SERVER_URL + 'api/${class.name?uncap_first}');
   }
   
   get${class.name}ById(id): Observable<any>{
-    return this.http.get(SERVER_URL + 'api/${class.name}/' +id);
+    return this.http.get(SERVER_URL + 'api/${class.name?uncap_first}/' +id);
   }
 
   add${class.name}(data): Observable<any>{
-    return this.http.post(SERVER_URL + 'api/${class.name}/',data);
+    return this.http.post(SERVER_URL + 'api/${class.name?uncap_first}/',data);
   }
   
   edit${class.name}(data,id): Observable<any>{
-    return this.http.put(SERVER_URL + 'api/${class.name}/'+id, data);
+    return this.http.put(SERVER_URL + 'api/${class.name?uncap_first}/'+id, data);
   }
   
    delete${class.name}ById(id): Observable<any>{
-    return this.http.delete(SERVER_URL + 'api/${class.name}/' + id);
+    return this.http.delete(SERVER_URL + 'api/${class.name?uncap_first}/' + id);
   }
   
 </#list>

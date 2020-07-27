@@ -21,14 +21,10 @@ public class LikeReactionServiceImpl implements LikeReactionService {
 	@Autowired
 	private LikeReactionRepository likeReactionRepository;
 	
+	
 	@Override
 	public LikeReaction findOne(Long id) {
 		return likeReactionRepository.findById(id).get();
-	}
-
-	@Override
-	public List<LikeReaction> findAll() {
-		return likeReactionRepository.findAll();
 	}
 
 	@Override

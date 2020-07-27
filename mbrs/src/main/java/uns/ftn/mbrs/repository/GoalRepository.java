@@ -23,4 +23,6 @@ public interface GoalRepository extends JpaRepository<Goal, Long> {
 	
 	List<Goal> findByAchieved(Boolean  achieved);
 	
+	List<Goal> findByUser(Long id);
+
 }

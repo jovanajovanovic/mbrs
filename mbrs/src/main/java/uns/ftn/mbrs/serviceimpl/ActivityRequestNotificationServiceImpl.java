@@ -21,6 +21,7 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 	@Autowired
 	private ActivityRequestNotificationRepository activityRequestNotificationRepository;
 	
+	
 	@Override
 	public ActivityRequestNotification findOne(Long id) {
 		return activityRequestNotificationRepository.findById(id).get();
@@ -36,15 +37,6 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 		return activityRequestNotificationRepository.save(activityRequestNotification);
 	}
 	
-	@Override
-	public ActivityRequestNotification remove(Long id) {
-		ActivityRequestNotification activityRequestNotification = activityRequestNotificationRepository.findById(id).get();
-		if(activityRequestNotification == null){
-			throw new IllegalArgumentException("Tried to delete non-existant ActivityRequestNotification");
-		}
-		activityRequestNotificationRepository.delete(activityRequestNotification);
-		return activityRequestNotification;
-	}
 	
 	@Override
 	public List<ActivityRequestNotification> findByActivityRequest(Long id) {
@@ -54,21 +46,6 @@ public class ActivityRequestNotificationServiceImpl implements ActivityRequestNo
 	@Override
 	public List<ActivityRequestNotification> findByUser(Long id) {
 		return activityRequestNotificationRepository.findByUser(id);
-	}
-	
-	@Override
-	public List<ActivityRequestNotification> findByDate( Date  date) {
-		return activityRequestNotificationRepository.findByDate(date);
-	}
-	
-	@Override
-	public List<ActivityRequestNotification> findByType(NotificationType  type) {
-		return activityRequestNotificationRepository.findByType(type);
-	}
-	
-	@Override
-	public List<ActivityRequestNotification> findByDescription(String  description) {
-		return activityRequestNotificationRepository.findByDescription(description);
 	}
 	
 }
